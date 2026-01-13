@@ -20,7 +20,7 @@ export default function CartPage() {
                                  <svg className="w-10 h-10 text-neutral-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
                              </div>
                              <h3 className="text-lg font-medium text-primary">Your cart is empty</h3>
-                             <p className="mt-1 text-neutral-dark mb-6">Looks like you haven't added any tech gear yet.</p>
+                             <p className="mt-1 text-neutral-dark mb-6">Looks like you haven&apos;t added any tech gear yet.</p>
                              <Link href="/products">
                                 <Button variant="outline">Continue Shopping</Button>
                              </Link>

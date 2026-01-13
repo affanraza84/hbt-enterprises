@@ -1,14 +1,18 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Search, ShoppingCart, User, Menu as MenuIcon, X } from "lucide-react";
 import { useSearch } from "@/providers/search-provider";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { Tooltip } from "@/components/ui/Tooltip";
+import { useTheme } from "next-themes";
 
 export function Navbar({ className }: { className?: string }) {
   const { openSearch } = useSearch();
+  const { resolvedTheme } = useTheme();
   const [active, setActive] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -119,25 +123,41 @@ export function Navbar({ className }: { className?: string }) {
 
             {/* Right Utility Icons */}
             <div className="flex items-center gap-2 sm:gap-4">
-                 <ThemeToggle />
-                 <button 
-                    onClick={openSearch}
-                    className="p-2 text-neutral-600 dark:text-neutral-400 hover:text-primary transition-colors hover:bg-neutral-default rounded-full relative group"
-                 >
-                     <Search className="w-5 h-5 stroke-[1.5px]" />
-                     <span className="sr-only">Search</span>
-                 </button>
+                 <Tooltip content={resolvedTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}>
+                    <ThemeToggle />
+                 </Tooltip>
+
+                 <Tooltip content="Search Products">
+                    <button 
+                        onClick={openSearch}
+                        className="p-2 text-neutral-600 dark:text-neutral-400 hover:text-primary transition-colors hover:bg-neutral-default rounded-full relative group"
+                    >
+                        <Search className="w-5 h-5 stroke-[1.5px]" />
+                        <span className="sr-only">Search</span>
+                    </button>
+                 </Tooltip>
                  
-                 <Link href="/login" className="p-2 text-neutral-600 dark:text-neutral-400 hover:text-primary transition-colors hover:bg-neutral-default rounded-full hidden sm:block">
-                     <User className="w-5 h-5 stroke-[1.5px]" />
-                 </Link>
+                 <SignedOut>
+                     <Tooltip content="Sign In">
+                        <Link href="/sign-in" className="p-2 text-neutral-600 dark:text-neutral-400 hover:text-primary transition-colors hover:bg-neutral-default rounded-full hidden sm:block">
+                            <User className="w-5 h-5 stroke-[1.5px]" />
+                        </Link>
+                     </Tooltip>
+                 </SignedOut>
+                 <SignedIn>
+                     <Tooltip content="Account Settings">
+                        <UserButton afterSignOutUrl="/" />
+                     </Tooltip>
+                 </SignedIn>
                  
-                 <Link href="/cart" className="p-2 text-neutral-600 dark:text-neutral-400 hover:text-primary transition-colors hover:bg-neutral-default rounded-full relative">
-                     <ShoppingCart className="w-5 h-5 stroke-[1.5px]" />
-                     <span className="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[9px] font-bold text-primary-dark ring-2 ring-white">
-                        2
-                     </span>
-                 </Link>
+                 <Tooltip content="View Cart">
+                    <Link href="/cart" className="p-2 text-neutral-600 dark:text-neutral-400 hover:text-primary transition-colors hover:bg-neutral-default rounded-full relative">
+                        <ShoppingCart className="w-5 h-5 stroke-[1.5px]" />
+                        <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[9px] font-bold text-white ring-2 ring-white dark:ring-neutral-900 pointer-events-none">
+                            2
+                        </span>
+                    </Link>
+                 </Tooltip>
 
                  {/* Mobile Menu Toggle */}
                  <button 
