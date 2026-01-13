@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors - referencing CSS variables */
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  
+  --color-accent: var(--accent);
+  
+  --color-neutral-light: var(--neutral-light);
+  --color-neutral-default: var(--neutral-default);
+  --color-neutral-dark: var(--neutral-dark);
+  
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  /* Fonts */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Base Styles & Theme Variables */
+@layer base {
+  :root {
+    /* Light Mode (Default) */
+    --primary: #0A2540;
+    --primary-dark: #081D33;
+    --primary-light: #2B4C7E;
+    
+    --accent: #00C6FF;
+    
+    --neutral-light: #F8F9FA;   /* Main Background */
+    --neutral-default: #E1E5EA; /* Borders/Secondary Bg */
+    --neutral-dark: #A0A8B9;    /* Muted Text */
+    
+    --success: #00C851;
+    --warning: #FFBB33;
+    --danger: #FF4444;
+    
+    color-scheme: light;
+  }
+
+  :root.dark {
+    /* Dark Mode */
+    --primary: #F8F9FA;         /* Invert primary to light for text */
+    --primary-dark: #E1E5EA;
+    --primary-light: #A0A8B9;
+    
+    --accent: #00C6FF;          /* Keep accent or adjust if needed */
+    
+    --neutral-light: #020817;   /* Dark Background (Card/Main) */
+    --neutral-default: #1e293b; /* Borders/Secondary Bg */
+    --neutral-dark: #64748b;    /* Muted Text */
+    
+    /* Status colors usually stay similar or slightly adjusted */
+    --success: #00C851;
+    --warning: #FFBB33;
+    --danger: #FF4444;
+    
+    color-scheme: dark;
+  }
+}
+
+/* Apply base styles */
+body {
+  background-color: var(--neutral-light);
+  color: var(--primary);
+  font-family: var(--font-sans);
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.025em;
+}
