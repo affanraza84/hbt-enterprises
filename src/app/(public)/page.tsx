@@ -1,5 +1,4 @@
 import { Hero } from "@/components/home/Hero";
-import { TrustSignals } from "@/components/home/TrustSignals";
 import { CategorySlider } from "@/components/home/CategorySlider";
 import { FeaturedDisplay } from "@/components/home/FeaturedDisplay";
 import { PromoBanner } from "@/components/home/PromoBanner";
@@ -14,7 +13,6 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <TrustSignals />
       <CategorySlider />
       <FeaturedDisplay />
       <PromoBanner />

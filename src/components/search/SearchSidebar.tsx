@@ -11,8 +11,7 @@ import Link from "next/link";
 import { Input } from "@/components/ui/Input";
 
 export function SearchSidebar() {
-  const { isSearchOpen, closeSearch } = useSearch();
-  const [query, setQuery] = useState("");
+  const { isSearchOpen, closeSearch, searchQuery, setSearchQuery } = useSearch();
   const [results, setResults] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -22,15 +21,14 @@ export function SearchSidebar() {
         // Slight delay to allow animation to start
         setTimeout(() => inputRef.current?.focus(), 100);
     }
-    if (!isSearchOpen) {
-        setQuery("");
+    if (!isSearchOpen && searchQuery === "") {
         setResults([]);
     }
-  }, [isSearchOpen]);
+  }, [isSearchOpen, searchQuery]);
 
   useEffect(() => {
     const fetchResults = async () => {
-        if (!query.trim()) {
+        if (!searchQuery.trim()) {
             setResults([]);
             return;
         }
@@ -38,7 +36,7 @@ export function SearchSidebar() {
         // Simulate delay
         await new Promise(resolve => setTimeout(resolve, 300));
         try {
-            const data = await ProductService.searchProducts(query);
+            const data = await ProductService.searchProducts(searchQuery);
             setResults(data);
         } catch (error) {
             console.error("Search failed", error);
@@ -49,7 +47,7 @@ export function SearchSidebar() {
 
     const timeoutId = setTimeout(fetchResults, 300); // Debounce
     return () => clearTimeout(timeoutId);
-  }, [query]);
+  }, [searchQuery]);
 
   return (
     <AnimatePresence>
@@ -92,8 +90,8 @@ export function SearchSidebar() {
                         type="text"
                         placeholder="Search products..."
                         className="w-full bg-neutral-default border border-neutral-default rounded-lg pl-10 pr-4 py-3 text-primary placeholder:text-neutral-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all"
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
                     />
                 </div>
             </div>
@@ -133,9 +131,9 @@ export function SearchSidebar() {
                             </Link>
                         ))}
                     </div>
-                ) : query ? (
+                ) : searchQuery ? (
                     <div className="text-center py-12 text-neutral-500">
-                        <p>No products found for "{query}"</p>
+                        <p>No products found for "{searchQuery}"</p>
                     </div>
                 ) : (
                     <div className="text-center py-12 text-neutral-500/50">

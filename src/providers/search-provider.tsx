@@ -7,19 +7,29 @@ interface SearchContextType {
   openSearch: () => void;
   closeSearch: () => void;
   toggleSearch: () => void;
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
 }
 
 const SearchContext = createContext<SearchContextType | undefined>(undefined);
 
 export function SearchProvider({ children }: { children: ReactNode }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const openSearch = () => setIsSearchOpen(true);
   const closeSearch = () => setIsSearchOpen(false);
   const toggleSearch = () => setIsSearchOpen((prev) => !prev);
 
   return (
-    <SearchContext.Provider value={{ isSearchOpen, openSearch, closeSearch, toggleSearch }}>
+    <SearchContext.Provider value={{ 
+      isSearchOpen, 
+      openSearch, 
+      closeSearch, 
+      toggleSearch,
+      searchQuery,
+      setSearchQuery
+    }}>
       {children}
     </SearchContext.Provider>
   );
