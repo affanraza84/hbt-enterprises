@@ -3,16 +3,18 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { Search, ShoppingCart, Menu as MenuIcon, X } from "lucide-react";
+import { Search, ShoppingCart, Menu as MenuIcon, X, ChevronRight, ChevronDown, ArrowLeft, MapPin, Heart, Info, Phone, Home, Zap, ArrowRight } from "lucide-react";
 import { useSearch } from "@/providers/search-provider";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { SearchResults } from "@/components/search/SearchResults";
-import { CategoryMegaMenu } from "./CategoryMegaMenu";
+import { CategoryMegaMenu, CATEGORIES } from "./CategoryMegaMenu";
 
 export function MainNavbar({ className }: { className?: string }) {
   const { openSearch, searchQuery, setSearchQuery } = useSearch();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileView, setMobileView] = useState<'main' | 'categories'>('main');
+  const [expandedMobileCategory, setExpandedMobileCategory] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +23,17 @@ export function MainNavbar({ className }: { className?: string }) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Reset mobile view when menu is closed
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      const timeout = setTimeout(() => {
+        setMobileView('main');
+        setExpandedMobileCategory(null);
+      }, 300); // 300ms to match potential transition duration
+      return () => clearTimeout(timeout);
+    }
+  }, [isMobileMenuOpen]);
 
   return (
     <div
@@ -38,14 +51,14 @@ export function MainNavbar({ className }: { className?: string }) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-3">
           {/* Row 1: Logo & Actions */}
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between gap-4 relative">
             {/* Logo Section */}
-            <div className="flex-shrink-0 flex items-center gap-2">
+            <div className="flex-shrink-0 flex items-center gap-2 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 md:left-auto">
               <Link href="/" className="group flex items-center gap-2.5">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-accent to-blue-600 border border-white/10 shadow-[0_0_15px_rgba(0,198,255,0.3)] flex items-center justify-center text-primary-dark font-bold text-xs tracking-tighter group-hover:scale-105 transition-transform duration-300">
                   <span className="text-white">HBT</span>
                 </div>
-                <div className="hidden sm:block">
+                <div className="block">
                   <span className="block font-heading font-bold text-xl leading-none text-primary dark:text-white tracking-tight">
                     HBT Enterprises
                   </span>
@@ -168,15 +181,104 @@ export function MainNavbar({ className }: { className?: string }) {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-neutral-light border-b border-neutral-default shadow-xl py-4 px-4 flex flex-col space-y-4 animate-in slide-in-from-top-2">
-          <div className="pt-4 flex flex-col space-y-3">
-            <Link href="/track-order" className="text-sm text-neutral-600">
-              Track Order
-            </Link>
-            <Link href="/contact" className="text-sm text-neutral-600">
-              Contact Us
-            </Link>
-          </div>
+        <div className="lg:hidden fixed top-[110px] left-0 w-full h-[calc(100vh-110px)] bg-neutral-light overflow-y-auto animate-in slide-in-from-right-5 z-40 pb-20">
+             {mobileView === 'main' ? (
+                <div className="flex flex-col p-4 space-y-1">
+                   {/* Main Links */}
+                   <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
+                       <Home className="w-5 h-5 text-accent" />
+                       Home
+                   </Link>
+                   <Link href="/hot-deals" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
+                       <Zap className="w-5 h-5 text-warning" />
+                       Hot Deals
+                   </Link>
+                   <Link href="/stores" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
+                       <ArrowRight className="w-5 h-5 text-success" />
+                       Brand Stores
+                   </Link>
+
+                   {/* All Categories Trigger */}
+                   <button 
+                      onClick={() => setMobileView('categories')}
+                      className="flex items-center justify-between w-full px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium text-left group"
+                   >
+                      <div className="flex items-center gap-3">
+                        <MenuIcon className="w-5 h-5 text-primary" />
+                        <span>All Categories</span>
+                      </div>
+                      <ChevronRight className="w-5 h-5 text-neutral-400 group-hover:text-accent" />
+                   </button>
+
+                   <div className="h-px bg-neutral-200 dark:bg-neutral-800 my-2 mx-4" />
+
+                   <Link href="/stores" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
+                       <MapPin className="w-5 h-5" />
+                       Store Locator
+                   </Link>
+                   <Link href="/wishlist" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
+                       <Heart className="w-5 h-5" />
+                       Wishlist
+                   </Link>
+                   <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
+                       <Info className="w-5 h-5" />
+                       About Us
+                   </Link>
+                   <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
+                       <Phone className="w-5 h-5" />
+                       Contact Us
+                   </Link>
+                </div>
+             ) : (
+                <div className="flex flex-col min-h-full">
+                   {/* Categories Header */}
+                   <div className="sticky top-0 bg-neutral-light z-10 border-b border-neutral-200 dark:border-neutral-800 px-4 py-4 flex items-center gap-3">
+                      <button 
+                         onClick={() => setMobileView('main')}
+                         className="p-2 -ml-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-full transition-colors"
+                       >
+                         <ArrowLeft className="w-5 h-5 text-neutral-800 dark:text-neutral-200" />
+                       </button>
+                       <span className="font-bold text-lg text-primary">All Categories</span>
+                   </div>
+
+                   {/* Categories Accordion */}
+                   <div className="p-4 space-y-2">
+                      {CATEGORIES.map((cat) => (
+                         <div key={cat.id} className="border border-neutral-200 dark:border-neutral-800 rounded-lg overflow-hidden bg-white dark:bg-neutral-900/50">
+                            <button 
+                               onClick={() => setExpandedMobileCategory(expandedMobileCategory === cat.id ? null : cat.id)}
+                               className="flex items-center justify-between w-full px-4 py-3 font-medium text-neutral-800 dark:text-neutral-200"
+                            >
+                               <span>{cat.label}</span>
+                               <ChevronDown className={cn("w-4 h-4 text-neutral-400 transition-transform duration-200", expandedMobileCategory === cat.id ? "rotate-180" : "")} />
+                            </button>
+                            {expandedMobileCategory === cat.id && (
+                               <div className="bg-neutral-50 dark:bg-black/50 border-t border-neutral-200 dark:border-neutral-800 px-4 py-2 space-y-4">
+                                  {cat.subgroups.map((group, idx) => (
+                                     <div key={idx} className="space-y-2">
+                                        <h4 className="text-xs font-bold text-accent uppercase tracking-wider">{group.title}</h4>
+                                        <div className="grid grid-cols-1 gap-1 pl-2 border-l-2 border-neutral-200 dark:border-neutral-800">
+                                            {group.items.map((item, i) => (
+                                                <Link 
+                                                    key={i} 
+                                                    href={`/products?category=${cat.id}&type=${item}`}
+                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                    className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary dark:hover:text-white py-1 block transition-colors"
+                                                >
+                                                    {item}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                     </div>
+                                  ))}
+                               </div>
+                            )}
+                         </div>
+                      ))}
+                   </div>
+                </div>
+             )}
         </div>
       )}
     </div>

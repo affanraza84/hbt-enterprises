@@ -1,70 +1,109 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+import { useState } from "react";
+import { ProductCard } from "@/components/product/ProductCard";
+import { Product } from "@/types/product";
+import { cn } from "@/lib/utils";
+
+// Mock Data for Display
+const NEW_ARRIVALS: Product[] = [
+  {
+    id: "1", name: "Sony WH-1000XM5", price: 29990, originalPrice: 34990,
+    slug: "sony-wh-1000xm5", category: "Audio", images: [], description: "", stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 124
+  },
+  {
+    id: "2", name: "Samsung Galaxy S24 Ultra", price: 129999, originalPrice: 134999,
+    slug: "samsung-s24-ultra", category: "Smart Phone", images: [], description: "", stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 89
+  },
+  {
+    id: "3", name: "MacBook Air M3", price: 114900, originalPrice: 119900,
+    slug: "macbook-air-m3", category: "Laptops", images: [], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 56
+  },
+  {
+    id: "4", name: "Dyson V15 Detect", price: 65900,
+    slug: "dyson-v15", category: "Home Appliances", images: [], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 34
+  },
+  {
+    id: "5", name: "PlayStation 5 Slim", price: 54990,
+    slug: "ps5-slim", category: "Gaming", images: [], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 200
+  },
+];
+
+const TRENDING: Product[] = [
+  {
+    id: "6", name: "Apple AirPods Pro 2", price: 24900,
+    slug: "airpods-pro-2", category: "Audio", images: [], description: "", stock: 50, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 500
+  },
+  {
+    id: "7", name: "LG 1.5 Ton AC", price: 34500, originalPrice: 55000,
+    slug: "lg-ac-1.5", category: "Air Conditioner", images: [], description: "", stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 45
+  },
+  {
+    id: "8", name: "GoPro Hero 12", price: 39990, originalPrice: 45000,
+    slug: "gopro-hero-12", category: "Camera", images: [], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 78
+  },
+  {
+    id: "9", name: "Samsung 55\" 4K TV", price: 44990, originalPrice: 69900,
+    slug: "samsung-4k-tv", category: "Smart TV", images: [], description: "", stock: 4, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 112
+  },
+  {
+    id: "10", name: "Nothing Phone (2a)", price: 23999,
+    slug: "nothing-phone-2a", category: "Smart Phone", images: [], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 67
+  },
+];
 
 export function FeaturedDisplay() {
+  const [activeTab, setActiveTab] = useState<"new" | "trending">("new");
+
+  const products = activeTab === "new" ? NEW_ARRIVALS : TRENDING;
+
+  // Duplicate items for seamless loop
+  const marqueeItems = [...products, ...products, ...products]; 
+
   return (
-    <section className="py-12 bg-neutral-light dark:bg-neutral-900/20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Banner Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            {/* Banner 1 - New Arrivals */}
-            <div className="group relative overflow-hidden rounded-2xl h-[400px] md:h-[500px]">
-                <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-800 dark:to-neutral-900 transition-transform duration-700 group-hover:scale-105" />
-                {/* Simulated Image Placeholder */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                    <span className="text-9xl font-black text-primary">NEW</span>
-                </div>
+    <section className="py-16 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white overflow-hidden transition-colors duration-300">
+      <div className="container mx-auto px-4 mb-10">
+        <div className="flex flex-col items-center justify-center">
+            {/* Tabs */}
+            <div className="flex items-center gap-8 border-b border-neutral-200 dark:border-neutral-800 pb-4 relative">
+                <button 
+                    onClick={() => setActiveTab("new")}
+                    className={cn(
+                        "text-2xl sm:text-3xl font-bold transition-colors duration-300 relative px-2",
+                        activeTab === "new" ? "text-accent" : "text-neutral-400 hover:text-black dark:hover:text-white"
+                    )}
+                >
+                    New Arrivals
+                    {activeTab === "new" && (
+                        <div className="absolute -bottom-[17px] left-0 right-0 h-1 bg-accent rounded-t-full shadow-[0_-2px_10px_rgba(0,198,255,0.5)]" />
+                    )}
+                </button>
                 
-                <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/60 to-transparent">
-                    <span className="text-accent text-sm font-bold uppercase tracking-widest mb-2">Fresh Drops</span>
-                    <h3 className="text-3xl font-bold text-white mb-4">New Arrivals</h3>
-                    <Link href="/products?sort=newest">
-                        <Button className="bg-white text-black hover:bg-neutral-200 border-none w-full sm:w-auto">
-                            Shop Now
-                        </Button>
-                    </Link>
-                </div>
+                <button 
+                    onClick={() => setActiveTab("trending")}
+                    className={cn(
+                        "text-2xl sm:text-3xl font-bold transition-colors duration-300 relative px-2",
+                        activeTab === "trending" ? "text-accent" : "text-neutral-400 hover:text-black dark:hover:text-white"
+                    )}
+                >
+                    Trending
+                    {activeTab === "trending" && (
+                        <div className="absolute -bottom-[17px] left-0 right-0 h-1 bg-accent rounded-t-full shadow-[0_-2px_10px_rgba(0,198,255,0.5)]" />
+                    )}
+                </button>
             </div>
-
-            {/* Banner 2 - Best Sellers */}
-            <div className="group relative overflow-hidden rounded-2xl h-[400px] md:h-[500px]">
-                 <div className="absolute inset-0 bg-gradient-to-bl from-accent/20 to-blue-600/20 dark:from-accent/10 dark:to-blue-900/40 transition-transform duration-700 group-hover:scale-105" />
-                 {/* Simulated Image Placeholder */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                    <span className="text-9xl font-black text-primary">HOT</span>
-                </div>
-
-                <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/60 to-transparent">
-                    <span className="text-yellow-400 text-sm font-bold uppercase tracking-widest mb-2">Most Loved</span>
-                    <h3 className="text-3xl font-bold text-white mb-4">Best Sellers</h3>
-                    <Link href="/products?sort=popular">
-                        <Button className="bg-white text-black hover:bg-neutral-200 border-none w-full sm:w-auto">
-                            View Top Rated
-                        </Button>
-                    </Link>
-                </div>
-            </div>
-
-            {/* Banner 3 - Accessories (Hidden on smaller md screens to balance grid if needed, or shown as 3rd column) */}
-            <div className="group relative overflow-hidden rounded-2xl h-[400px] md:h-[500px] md:col-span-2 lg:col-span-1">
-                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-800 to-neutral-700 transition-transform duration-700 group-hover:scale-105" />
-                 
-                <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/60 to-transparent">
-                    <span className="text-neutral-300 text-sm font-bold uppercase tracking-widest mb-2">Essentials</span>
-                    <h3 className="text-3xl font-bold text-white mb-4">Accessories</h3>
-                    <Link href="/products/category/accessories">
-                        <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black w-full sm:w-auto">
-                            Browse Collection
-                        </Button>
-                    </Link>
-                </div>
-            </div>
-
         </div>
+      </div>
+
+      {/* Marquee Section */}
+      <div className="relative w-full">
+         <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
+            {marqueeItems.map((product, idx) => (
+                <div key={`${product.id}-${idx}`} className="w-[280px] sm:w-[320px] mx-4 flex-shrink-0">
+                    <ProductCard product={product} />
+                </div>
+            ))}
+         </div>
       </div>
     </section>
   );

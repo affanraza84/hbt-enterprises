@@ -1,6 +1,20 @@
 import { Hero } from "@/components/home/Hero";
 import { CategorySlider } from "@/components/home/CategorySlider";
 import { FeaturedDisplay } from "@/components/home/FeaturedDisplay";
+import { WashingMachineDisplay } from "@/components/home/WashingMachineDisplay";
+import { CategoryBannerGrid } from "@/components/home/CategoryBannerGrid";
+import { TelevisionDisplay } from "@/components/home/TelevisionDisplay";
+import { RefrigeratorDisplay } from "@/components/home/RefrigeratorDisplay";
+import { AirConditionerDisplay } from "@/components/home/AirConditionerDisplay";
+import { MicrowaveDisplay } from "@/components/home/MicrowaveDisplay";
+import { PurpleProductGrid } from "@/components/home/PurpleProductGrid";
+import { SmartphoneDisplay } from "@/components/home/SmartphoneDisplay";
+import { LaptopPrinterDisplay } from "@/components/home/LaptopPrinterDisplay";
+import { SoundbarDisplay } from "@/components/home/SoundbarDisplay";
+import { AccessoriesDisplay } from "@/components/home/AccessoriesDisplay";
+import { TechInnovationPromo } from "@/components/home/TechInnovationPromo";
+import { WhyChooseHBT } from "@/components/home/WhyChooseHBT";
+import { BrandShowcase } from "@/components/home/BrandShowcase";
 import { PromoBanner } from "@/components/home/PromoBanner";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { Suspense } from "react";
@@ -15,6 +29,20 @@ export default async function Home() {
       <Hero />
       <CategorySlider />
       <FeaturedDisplay />
+      <WashingMachineDisplay />
+      <CategoryBannerGrid />
+      <TelevisionDisplay />
+      <RefrigeratorDisplay />
+      <AirConditionerDisplay />
+      <MicrowaveDisplay />
+      <PurpleProductGrid />
+      <SmartphoneDisplay />
+      <LaptopPrinterDisplay />
+      <SoundbarDisplay />
+      <AccessoriesDisplay />
+      <TechInnovationPromo />
+      <WhyChooseHBT />
+      <BrandShowcase />
       <PromoBanner />
       
       <section className="py-24 bg-neutral-light border-t border-neutral-default">

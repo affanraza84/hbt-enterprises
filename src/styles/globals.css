@@ -27,6 +27,13 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
   }
+
+  --animate-scroll: scroll 30s linear infinite;
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 }
 
 /* Base Styles & Theme Variables */
@@ -41,7 +48,6 @@
     
     --neutral-light: #F8F9FA;   /* Main Background */
     --neutral-default: #E1E5EA; /* Borders/Secondary Bg */
-    --neutral-dark: #A0A8B9;    /* Muted Text */
     
     --success: #00C851;
     --warning: #FFBB33;

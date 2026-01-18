@@ -9,6 +9,9 @@ export interface Product {
   stock: number;
   createdAt: Date;
   updatedAt: Date;
+  rating?: number;
+  reviewsCount?: number;
+  originalPrice?: number;
 }
 
 export interface ProductVariant {

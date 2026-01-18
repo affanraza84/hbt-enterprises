@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 
 // Data Structure based on User Images
-const CATEGORIES = [
+export const CATEGORIES = [
   {
     id: "accessories",
     label: "Accessories",
