@@ -10,27 +10,27 @@ import { ArrowRight } from "lucide-react";
 const WASHING_MACHINES: Product[] = [
   {
     id: "wm-1", name: "LG 8 Kg 5 Star Inverter Fully Automatic Front Load", price: 34990, originalPrice: 45990,
-    slug: "lg-8kg-front-load", category: "Washing Machine", images: [], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 320
+    slug: "lg-8kg-front-load", category: "Washing Machine", images: ["https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?auto=format&fit=crop&w=600&q=80"], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 320
   },
   {
     id: "wm-2", name: "Samsung 7 Kg 5 Star Inverter Fully Automatic Top Load", price: 18990, originalPrice: 22500,
-    slug: "samsung-7kg-top-load", category: "Washing Machine", images: [], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 150
+    slug: "samsung-7kg-top-load", category: "Washing Machine", images: ["https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&w=600&q=80"], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 150
   },
   {
     id: "wm-3", name: "Whirlpool 7.5 Kg 5 Star Stainwash Pro Top Load", price: 16490, originalPrice: 20400,
-    slug: "whirlpool-7.5kg-top-load", category: "Washing Machine", images: [], description: "", stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 89
+    slug: "whirlpool-7.5kg-top-load", category: "Washing Machine", images: ["https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&w=600&q=80"], description: "", stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 89
   },
   {
     id: "wm-4", name: "IFB 8 Kg 5 Star AI Powered Front Load", price: 36990, originalPrice: 48990,
-    slug: "ifb-8kg-ai-front-load", category: "Washing Machine", images: [], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 205
+    slug: "ifb-8kg-ai-front-load", category: "Washing Machine", images: ["https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&w=600&q=80"], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 205
   },
   {
     id: "wm-5", name: "Bosch 7 Kg 5 Star Inverter Touch Control Front Load", price: 30990, originalPrice: 39500,
-    slug: "bosch-7kg-front-load", category: "Washing Machine", images: [], description: "", stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 180
+    slug: "bosch-7kg-front-load", category: "Washing Machine", images: ["https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?auto=format&fit=crop&w=600&q=80"], description: "", stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 180
   },
   {
     id: "wm-6", name: "Haier 8.5 Kg 5 Star Anti-Bacterial Vortex Top Load", price: 22990, originalPrice: 32000,
-    slug: "haier-8.5kg-top-load", category: "Washing Machine", images: [], description: "", stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 95
+    slug: "haier-8.5kg-top-load", category: "Washing Machine", images: ["https://images.unsplash.com/photo-1545173168-9f1947eebb8f?auto=format&fit=crop&w=600&q=80"], description: "", stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 95
   },
 ];
 

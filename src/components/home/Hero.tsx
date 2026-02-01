@@ -19,7 +19,7 @@ const heroProducts = [
     rating: 4.9,
     image: "/images/hero/headphone.png",
     accent: "bg-blue-500", // Tailwind color class for blobs
-    link: "/products?category=audio"
+    slug: "sony-wh-1000xm5" // Using existing slug
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const heroProducts = [
     rating: 4.8,
     image: "/images/hero/smartwatch.png",
     accent: "bg-purple-500",
-    link: "/products?category=wearables"
+    slug: "apple-watch-s9" // Using existing slug
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ const heroProducts = [
     rating: 5.0,
     image: "/images/hero/carousel/gaming.png",
     accent: "bg-emerald-500",
-    link: "/products?category=gaming"
+    slug: "ps5-slim" // Using existing slug
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const heroProducts = [
     rating: 4.7,
     image: "/images/hero/carousel/smarthome.png",
     accent: "bg-orange-500",
-    link: "/products?category=smarthome"
+    slug: "google-pixel-8-pro" // Using roughly relevant slug
   }
 ];
 
@@ -115,13 +115,17 @@ export function Hero() {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
             >
-              <Button size="xl" className="rounded-full px-8 !bg-primary !text-neutral-light hover:brightness-110 shadow-lg shadow-primary/20">
-                Shop Now
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-              <Button variant="outline" size="xl" className="rounded-full px-8 border-neutral-default text-primary hover:bg-neutral-default/50">
-                View Details
-              </Button>
+              <Link href={`/products/${currentProduct.slug}`}>
+                  <Button size="xl" className="rounded-full px-8 !bg-primary !text-neutral-light hover:brightness-110 shadow-lg shadow-primary/20">
+                    Shop Now
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+              </Link>
+              <Link href={`/products/${currentProduct.slug}`}>
+                  <Button variant="outline" size="xl" className="rounded-full px-8 border-neutral-default text-primary hover:bg-neutral-default/50">
+                    View Details
+                  </Button>
+              </Link>
             </motion.div>
 
             <motion.div

@@ -10,27 +10,27 @@ import { ArrowRight } from "lucide-react";
 const ACCESSORIES: Product[] = [
   {
     id: "acc-1", name: "Apple Watch Series 9 GPS", price: 41900, originalPrice: 44900,
-    slug: "apple-watch-s9", category: "Smartwatch", images: [], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 300
+    slug: "apple-watch-s9", category: "Smartwatch", images: ["https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=600&q=80"], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 300
   },
   {
     id: "acc-2", name: "Samsung Galaxy Watch 6 Classic", price: 36999, originalPrice: 42999,
-    slug: "samsung-watch-6", category: "Smartwatch", images: [], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 250
+    slug: "samsung-watch-6", category: "Smartwatch", images: ["https://images.unsplash.com/photo-1544117519-31a4b719223d?auto=format&fit=crop&w=600&q=80"], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 250
   },
   {
     id: "acc-3", name: "Sony WF-1000XM5 TWS Noise Cancelling Earbuds", price: 24990, originalPrice: 29990,
-    slug: "sony-wf-1000xm5", category: "Headphones", images: [], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 180
+    slug: "sony-wf-1000xm5", category: "Headphones", images: ["https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&w=600&q=80"], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 180
   },
   {
     id: "acc-4", name: "AirPods Pro (2nd Generation) with USB-C", price: 24900, originalPrice: 26900,
-    slug: "airpods-pro-2", category: "Headphones", images: [], description: "", stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 1500
+    slug: "airpods-pro-2", category: "Headphones", images: ["https://images.unsplash.com/photo-1603351154351-5cf233081d35?auto=format&fit=crop&w=600&q=80"], description: "", stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 1500
   },
   {
     id: "acc-5", name: "Logitech MX Master 3S Advanced Wireless Mouse", price: 9995, originalPrice: 10995,
-    slug: "logitech-mx-master-3s", category: "Accessories", images: [], description: "", stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 400
+    slug: "logitech-mx-master-3s", category: "Accessories", images: ["https://images.unsplash.com/photo-1605773527852-c546a8584ea3?auto=format&fit=crop&w=600&q=80"], description: "", stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 400
   },
   {
     id: "acc-6", name: "Dell 7-in-1 USB-C Hub Mobile Adapter", price: 6999, originalPrice: 9999,
-    slug: "dell-usb-hub", category: "Accessories", images: [], description: "", stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 120
+    slug: "dell-usb-hub", category: "Accessories", images: ["https://images.unsplash.com/photo-1618414466270-496350f2427a?auto=format&fit=crop&w=600&q=80"], description: "", stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 120
   },
 ];
 

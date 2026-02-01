@@ -10,27 +10,27 @@ import { ArrowRight } from "lucide-react";
 const LAPTOPS_PRINTERS: Product[] = [
   {
     id: "lp-1", name: "Apple MacBook Air M3 Chip 13-inch", price: 114900, originalPrice: 134900,
-    slug: "macbook-air-m3", category: "Laptop", images: [], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 320
+    slug: "macbook-air-m3", category: "Laptop", images: ["https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 320
   },
   {
     id: "lp-2", name: "HP Pavilion 15 12th Gen Intel Core i5", price: 62990, originalPrice: 78000,
-    slug: "hp-pavilion-15", category: "Laptop", images: [], description: "", stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 210
+    slug: "hp-pavilion-15", category: "Laptop", images: ["https://images.unsplash.com/photo-1589561084283-930aa7b1ce50?auto=format&fit=crop&w=600&q=80"], description: "", stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 210
   },
   {
     id: "lp-3", name: "Canon Pixma G3000 All-in-One Ink Tank Colour Printer", price: 12499, originalPrice: 15995,
-    slug: "canon-pixma-g3000", category: "Printer", images: [], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 500
+    slug: "canon-pixma-g3000", category: "Printer", images: ["https://images.unsplash.com/photo-1612815154858-60aa4c4603e1?auto=format&fit=crop&w=600&q=80"], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 500
   },
   {
     id: "lp-4", name: "Dell XPS 13 Plus Laptop Evo Core i7", price: 199990, originalPrice: 240000,
-    slug: "dell-xps-13", category: "Laptop", images: [], description: "", stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 150
+    slug: "dell-xps-13", category: "Laptop", images: ["https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=600&q=80"], description: "", stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 150
   },
   {
     id: "lp-5", name: "ASUS ROG Zephyrus G14 Gaming Laptop", price: 149990, originalPrice: 180990,
-    slug: "asus-rog-g14", category: "Laptop", images: [], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 220
+    slug: "asus-rog-g14", category: "Laptop", images: ["https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80"], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 220
   },
   {
     id: "lp-6", name: "Epson EcoTank L3250 Wi-Fi All-in-One Ink Tank Printer", price: 13999, originalPrice: 16999,
-    slug: "epson-ecotank-l3250", category: "Printer", images: [], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 400
+    slug: "epson-ecotank-l3250", category: "Printer", images: ["https://images.unsplash.com/photo-1626074284589-4a4be8624233?auto=format&fit=crop&w=600&q=80"], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 400
   },
 ];
 

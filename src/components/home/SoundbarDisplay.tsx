@@ -10,27 +10,27 @@ import { ArrowRight } from "lucide-react";
 const SOUNDBARS: Product[] = [
   {
     id: "sb-1", name: "JBL Cinema SB271, Dolby Digital Soundbar", price: 12999, originalPrice: 16999,
-    slug: "jbl-cinema-sb271", category: "Soundbar", images: [], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 350
+    slug: "jbl-cinema-sb271", category: "Soundbar", images: ["https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=600&q=80"], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 350
   },
   {
     id: "sb-2", name: "Sony HT-S20R Real 5.1ch Dolby Digital Soundbar", price: 17990, originalPrice: 23990,
-    slug: "sony-ht-s20r", category: "Soundbar", images: [], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 800
+    slug: "sony-ht-s20r", category: "Soundbar", images: ["https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=600&q=80"], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 800
   },
   {
     id: "sb-3", name: "boAt Aavante Bar 1500 2.1 Channel Home Theatre Soundbar", price: 4999, originalPrice: 12999,
-    slug: "boat-aavante-1500", category: "Soundbar", images: [], description: "", stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 1500
+    slug: "boat-aavante-1500", category: "Soundbar", images: ["https://images.unsplash.com/photo-1621252179027-94459d27d3ee?auto=format&fit=crop&w=600&q=80"], description: "", stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 1500
   },
   {
     id: "sb-4", name: "Samsung HW-Q990C 11.1.4ch Soundbar with Dolby Atmos", price: 99990, originalPrice: 129990,
-    slug: "samsung-q990c", category: "Soundbar", images: [], description: "", stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 120
+    slug: "samsung-q990c", category: "Soundbar", images: ["https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=600&q=80"], description: "", stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 120
   },
   {
     id: "sb-5", name: "Bose Smart Soundbar 900 Dolby Atmos", price: 104900, originalPrice: 114900,
-    slug: "bose-soundbar-900", category: "Soundbar", images: [], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 200
+    slug: "bose-soundbar-900", category: "Soundbar", images: ["https://images.unsplash.com/photo-1594950669894-0d7042a96939?auto=format&fit=crop&w=600&q=80"], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 200
   },
   {
     id: "sb-6", name: "Zebronics Juke Bar 9700 Pro Dolby Atmos", price: 14999, originalPrice: 22999,
-    slug: "zebronics-9700-pro", category: "Soundbar", images: [], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 450
+    slug: "zebronics-9700-pro", category: "Soundbar", images: ["https://images.unsplash.com/photo-1615655406736-b37c4fabf923?auto=format&fit=crop&w=600&q=80"], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 450
   },
 ];
 

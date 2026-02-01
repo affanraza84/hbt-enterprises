@@ -9,29 +9,29 @@ const PODIUM_ITEMS = [
     id: 1,
     title: "MICROWAVE",
     price: "7,700",
-    image: "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?q=80&w=1000&auto=format&fit=crop", // Microwave
-    link: "/products?category=microwave",
+    image: "https://images.unsplash.com/photo-1585659722983-48356c9a702b?auto=format&fit=crop&w=600&q=80", // Microwave
+    link: "/products/lg-28l-convection", // Using existing slug
   },
   {
     id: 2,
     title: "SMARTPHONE",
     price: "8,240",
-    image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?q=80&w=1000&auto=format&fit=crop", // Samsung-syle phone
-    link: "/products?category=smart-phone",
+    image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=600&q=80", // Samsung-syle phone
+    link: "/products/samsung-s24-ultra", // Using existing slug
   },
   {
     id: 3,
     title: "TWS & HEADPHONES",
     price: "449",
-    image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=1000&auto=format&fit=crop", // Headphones
-    link: "/products?category=audio",
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80", // Headphones
+    link: "/products/sony-wh-1000xm5", // Using existing slug
   },
   {
     id: 4,
     title: "SMARTWATCH",
     price: "1,399",
-    image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=1000&auto=format&fit=crop", // Smartwatch
-    link: "/products?category=accessories",
+    image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=600&q=80", // Smartwatch
+    link: "/products/apple-watch-s9", // Using existing slug
   }
 ];
 

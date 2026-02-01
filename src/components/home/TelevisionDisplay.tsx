@@ -10,27 +10,27 @@ import { ArrowRight } from "lucide-react";
 const TELEVISIONS: Product[] = [
   {
     id: "tv-1", name: "Samsung 55 Inch 4K Ultra HD Smart LED TV", price: 44990, originalPrice: 69900,
-    slug: "samsung-55-4k", category: "Television", images: [], description: "", stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 420
+    slug: "samsung-55-4k", category: "Television", images: ["https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80"], description: "", stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 420
   },
   {
     id: "tv-2", name: "LG 43 Inch 4K Ultra HD Smart LED TV", price: 32990, originalPrice: 49990,
-    slug: "lg-43-4k", category: "Television", images: [], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 310
+    slug: "lg-43-4k", category: "Television", images: ["https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=600&q=80"], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 310
   },
   {
     id: "tv-3", name: "Sony Bravia 55 Inch 4K Ultra HD Smart LED Google TV", price: 57990, originalPrice: 99900,
-    slug: "sony-55-4k", category: "Television", images: [], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 550
+    slug: "sony-55-4k", category: "Television", images: ["https://images.unsplash.com/photo-1577979749830-f1d742b96791?auto=format&fit=crop&w=600&q=80"], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 550
   },
   {
     id: "tv-4", name: "Xiaomi 50 Inch 4K Ultra HD Smart Android OLED Vision TV", price: 29999, originalPrice: 39999,
-    slug: "xiaomi-50-4k", category: "Television", images: [], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 200
+    slug: "xiaomi-50-4k", category: "Television", images: ["https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80"], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 200
   },
   {
     id: "tv-5", name: "TCL 65 Inch 4K Ultra HD Smart QLED Google TV", price: 51990, originalPrice: 109990,
-    slug: "tcl-65-qled", category: "Television", images: [], description: "", stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 150
+    slug: "tcl-65-qled", category: "Television", images: ["https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=600&q=80"], description: "", stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 150
   },
   {
     id: "tv-6", name: "OnePlus 43 Inch Y Series 4K Ultra HD Smart Android LED TV", price: 24999, originalPrice: 29999,
-    slug: "oneplus-43-4k", category: "Television", images: [], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 180
+    slug: "oneplus-43-4k", category: "Television", images: ["https://images.unsplash.com/photo-1577979749830-f1d742b96791?auto=format&fit=crop&w=600&q=80"], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 180
   },
 ];
 

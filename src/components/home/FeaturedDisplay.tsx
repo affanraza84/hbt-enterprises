@@ -9,46 +9,46 @@ import { cn } from "@/lib/utils";
 const NEW_ARRIVALS: Product[] = [
   {
     id: "1", name: "Sony WH-1000XM5", price: 29990, originalPrice: 34990,
-    slug: "sony-wh-1000xm5", category: "Audio", images: [], description: "", stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 124
+    slug: "sony-wh-1000xm5", category: "Audio", images: ["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"], description: "", stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 124
   },
   {
     id: "2", name: "Samsung Galaxy S24 Ultra", price: 129999, originalPrice: 134999,
-    slug: "samsung-s24-ultra", category: "Smart Phone", images: [], description: "", stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 89
+    slug: "samsung-s24-ultra", category: "Smart Phone", images: ["https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=600&q=80"], description: "", stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 89
   },
   {
     id: "3", name: "MacBook Air M3", price: 114900, originalPrice: 119900,
-    slug: "macbook-air-m3", category: "Laptops", images: [], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 56
+    slug: "macbook-air-m3", category: "Laptops", images: ["https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 56
   },
   {
     id: "4", name: "Dyson V15 Detect", price: 65900,
-    slug: "dyson-v15", category: "Home Appliances", images: [], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 34
+    slug: "dyson-v15", category: "Home Appliances", images: ["https://images.unsplash.com/photo-1558317374-a3594743e9c7?auto=format&fit=crop&w=600&q=80"], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 34
   },
   {
     id: "5", name: "PlayStation 5 Slim", price: 54990,
-    slug: "ps5-slim", category: "Gaming", images: [], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 200
+    slug: "ps5-slim", category: "Gaming", images: ["https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=600&q=80"], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 200
   },
 ];
 
 const TRENDING: Product[] = [
   {
     id: "6", name: "Apple AirPods Pro 2", price: 24900,
-    slug: "airpods-pro-2", category: "Audio", images: [], description: "", stock: 50, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 500
+    slug: "airpods-pro-2", category: "Audio", images: ["https://images.unsplash.com/photo-1603351154351-5cf233081d35?auto=format&fit=crop&w=600&q=80"], description: "", stock: 50, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 500
   },
   {
     id: "7", name: "LG 1.5 Ton AC", price: 34500, originalPrice: 55000,
-    slug: "lg-ac-1.5", category: "Air Conditioner", images: [], description: "", stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 45
+    slug: "lg-ac-1.5", category: "Air Conditioner", images: ["https://images.unsplash.com/photo-1614631446505-b0aa00640f0c?auto=format&fit=crop&w=600&q=80"], description: "", stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 45
   },
   {
     id: "8", name: "GoPro Hero 12", price: 39990, originalPrice: 45000,
-    slug: "gopro-hero-12", category: "Camera", images: [], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 78
+    slug: "gopro-hero-12", category: "Camera", images: ["https://images.unsplash.com/photo-1592155931558-515f2d527011?auto=format&fit=crop&w=600&q=80"], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 78
   },
   {
     id: "9", name: "Samsung 55\" 4K TV", price: 44990, originalPrice: 69900,
-    slug: "samsung-4k-tv", category: "Smart TV", images: [], description: "", stock: 4, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 112
+    slug: "samsung-4k-tv", category: "Smart TV", images: ["https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80"], description: "", stock: 4, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 112
   },
   {
     id: "10", name: "Nothing Phone (2a)", price: 23999,
-    slug: "nothing-phone-2a", category: "Smart Phone", images: [], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 67
+    slug: "nothing-phone-2a", category: "Smart Phone", images: ["https://images.unsplash.com/photo-1603923407983-054ceb847846?auto=format&fit=crop&w=600&q=80"], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 67
   },
 ];
 

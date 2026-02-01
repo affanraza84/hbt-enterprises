@@ -10,27 +10,27 @@ import { ArrowRight } from "lucide-react";
 const REFRIGERATORS: Product[] = [
   {
     id: "ref-1", name: "Samsung 236 L 3 Star Digital Inverter Frost Free Double Door", price: 24990, originalPrice: 31990,
-    slug: "samsung-236l-double-door", category: "Refrigerator", images: [], description: "", stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 280
+    slug: "samsung-236l-double-door", category: "Refrigerator", images: ["https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=600&q=80"], description: "", stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 280
   },
   {
     id: "ref-2", name: "LG 242 L 3 Star Smart Inverter Frost-Free Double Door", price: 25990, originalPrice: 33990,
-    slug: "lg-242l-double-door", category: "Refrigerator", images: [], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 210
+    slug: "lg-242l-double-door", category: "Refrigerator", images: ["https://images.unsplash.com/photo-1571175443880-49e1d58b794a?auto=format&fit=crop&w=600&q=80"], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 210
   },
   {
     id: "ref-3", name: "Whirlpool 265 L 3 Star Inverter Frost-Free Double Door", price: 27490, originalPrice: 35100,
-    slug: "whirlpool-265l-double-door", category: "Refrigerator", images: [], description: "", stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 150
+    slug: "whirlpool-265l-double-door", category: "Refrigerator", images: ["https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=600&q=80"], description: "", stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 150
   },
   {
     id: "ref-4", name: "Haier 190 L 4 Star Single Door Refrigerator", price: 14990, originalPrice: 19900,
-    slug: "haier-190l-single-door", category: "Refrigerator", images: [], description: "", stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 120
+    slug: "haier-190l-single-door", category: "Refrigerator", images: ["https://images.unsplash.com/photo-1536353284924-9220c464e262?auto=format&fit=crop&w=600&q=80"], description: "", stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 120
   },
   {
     id: "ref-5", name: "Godrej 223 L 3 Star Nano Shield Technology Inverter Frost Free", price: 22990, originalPrice: 28990,
-    slug: "godrej-223l-double-door", category: "Refrigerator", images: [], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 90
+    slug: "godrej-223l-double-door", category: "Refrigerator", images: ["https://images.unsplash.com/photo-1571175443880-49e1d58b794a?auto=format&fit=crop&w=600&q=80"], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 90
   },
   {
     id: "ref-6", name: "Samsung 653 L 3 Star Convertible 5-in-1 Side by Side Refrigerator", price: 79990, originalPrice: 103000,
-    slug: "samsung-653l-side-by-side", category: "Refrigerator", images: [], description: "", stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 350
+    slug: "samsung-653l-side-by-side", category: "Refrigerator", images: ["https://images.unsplash.com/photo-1584269664654-20bce628a383?auto=format&fit=crop&w=600&q=80"], description: "", stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 350
   },
 ];
 
