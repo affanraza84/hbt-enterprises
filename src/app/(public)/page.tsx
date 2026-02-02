@@ -1,17 +1,8 @@
 import { Hero } from "@/components/home/Hero";
 import { CategorySlider } from "@/components/home/CategorySlider";
 import { FeaturedDisplay } from "@/components/home/FeaturedDisplay";
-import { WashingMachineDisplay } from "@/components/home/WashingMachineDisplay";
 import { CategoryBannerGrid } from "@/components/home/CategoryBannerGrid";
-import { TelevisionDisplay } from "@/components/home/TelevisionDisplay";
-import { RefrigeratorDisplay } from "@/components/home/RefrigeratorDisplay";
-import { AirConditionerDisplay } from "@/components/home/AirConditionerDisplay";
-import { MicrowaveDisplay } from "@/components/home/MicrowaveDisplay";
 import { PurpleProductGrid } from "@/components/home/PurpleProductGrid";
-import { SmartphoneDisplay } from "@/components/home/SmartphoneDisplay";
-import { LaptopPrinterDisplay } from "@/components/home/LaptopPrinterDisplay";
-import { SoundbarDisplay } from "@/components/home/SoundbarDisplay";
-import { AccessoriesDisplay } from "@/components/home/AccessoriesDisplay";
 import { TechInnovationPromo } from "@/components/home/TechInnovationPromo";
 import { WhyChooseHBT } from "@/components/home/WhyChooseHBT";
 import { BrandShowcase } from "@/components/home/BrandShowcase";
@@ -20,26 +11,91 @@ import { ProductGrid } from "@/components/product/ProductGrid";
 import { Suspense } from "react";
 import { Loader } from "@/components/ui/Loader";
 import { ProductService } from "@/services/product.service";
+import { CategorySection } from "@/components/home/CategorySection";
 
 export default async function Home() {
   const products = await ProductService.getProducts();
+
+  // Helper to filter products
+  const getProductsByCategory = (category: string) => 
+    products.filter(p => p.category === category);
+  
+  const getProductsByCategories = (categories: string[]) => 
+    products.filter(p => categories.includes(p.category));
 
   return (
     <>
       <Hero />
       <CategorySlider />
       <FeaturedDisplay />
-      <WashingMachineDisplay />
+      
+      <CategorySection 
+        title="Washing Machines" 
+        subtitle="Laundry Care" 
+        products={getProductsByCategory('Washing Machine')} 
+        viewAllLink="/products?category=washing-machine" 
+      />
+
       <CategoryBannerGrid />
-      <TelevisionDisplay />
-      <RefrigeratorDisplay />
-      <AirConditionerDisplay />
-      <MicrowaveDisplay />
+
+      <CategorySection 
+        title="Televisions" 
+        subtitle="Cinematic Experience" 
+        products={getProductsByCategory('Television')} 
+        viewAllLink="/products?category=television" 
+      />
+
+      <CategorySection 
+        title="Refrigerators" 
+        subtitle="Cooling Solutions" 
+        products={getProductsByCategory('Refrigerator')} 
+        viewAllLink="/products?category=refrigerator" 
+      />
+
+      <CategorySection 
+        title="Air Conditioners" 
+        subtitle="Climate Control" 
+        products={getProductsByCategory('Air Conditioner')} 
+        viewAllLink="/products?category=air-conditioner" 
+      />
+
+      <CategorySection 
+        title="Microwaves" 
+        subtitle="Kitchen Essentials" 
+        products={getProductsByCategory('Microwave')} 
+        viewAllLink="/products?category=microwave" 
+      />
+
       <PurpleProductGrid />
-      <SmartphoneDisplay />
-      <LaptopPrinterDisplay />
-      <SoundbarDisplay />
-      <AccessoriesDisplay />
+
+      <CategorySection 
+        title="Smart Phones" 
+        subtitle="Connect & Create" 
+        products={getProductsByCategory('Smart Phone')} 
+        viewAllLink="/products?category=smart-phone" 
+      />
+
+      <CategorySection 
+        title="Laptops & Printers" 
+        subtitle="Work & Play" 
+        products={getProductsByCategories(['Laptop', 'Printer'])} 
+        viewAllLink="/products?category=laptops" 
+      />
+
+      <CategorySection 
+        title="Soundbars" 
+        subtitle="Immersive Audio" 
+        products={getProductsByCategory('Soundbar')} 
+        viewAllLink="/products?category=soundbar" 
+      />
+
+      <CategorySection 
+        title="Accessories" 
+        subtitle="Essential Gadgets" 
+        products={getProductsByCategories(['Smartwatch', 'Headphones', 'Accessories', 'Audio'])} 
+        viewAllLink="/products?category=accessories" 
+      />
+
       <TechInnovationPromo />
       <WhyChooseHBT />
       <BrandShowcase />
