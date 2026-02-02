@@ -132,7 +132,7 @@ export function MainNavbar({ className }: { className?: string }) {
             {/* Right: Customer Care & Cart */}
             <div className="flex items-center gap-4 sm:gap-6">
               {/* Theme Toggle */}
-              <div className="hidden lg:block">
+              <div>
                 <ThemeToggle />
               </div>
 
