@@ -23,6 +23,7 @@ export interface Product {
   specs?: Record<string, string>;
   emi?: string;
   deliveryAvailable?: boolean;
+  exchangeBonus?: number;
 }
 
 export interface ProductVariant {

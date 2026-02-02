@@ -6,9 +6,9 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { siteConfig } from '@/config/site';
 import { SearchProvider } from '@/providers/search-provider';
-import { SearchSidebar } from '@/components/search/SearchSidebar';
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Toaster } from "react-hot-toast";
+import { CartProvider } from '@/context/CartContext';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -42,17 +42,18 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <SearchProvider>
-              <div className="flex min-h-screen flex-col">
-                <Navbar />
-                <main className="flex-1 w-full">
-                  {children}
-                </main>
-                <Footer />
-              </div>
-              <Toaster position="bottom-right" />
-              <SearchSidebar />
-            </SearchProvider>
+            <CartProvider>
+              <SearchProvider>
+                <div className="flex min-h-screen flex-col">
+                  <Navbar />
+                  <main className="flex-1 w-full">
+                    {children}
+                  </main>
+                  <Footer />
+                </div>
+                <Toaster position="bottom-right" />
+              </SearchProvider>
+            </CartProvider>
           </ThemeProvider>
         </ClerkProvider>
       </body>

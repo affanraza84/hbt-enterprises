@@ -3,15 +3,51 @@ import { ProductService } from '@/services/product.service';
 
 export const revalidate = 3600;
 
-export default async function ProductsPage() {
-  const products = await ProductService.getProducts();
+interface ProductsPageProps {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export default async function ProductsPage(props: ProductsPageProps) {
+  const searchParams = await props.searchParams;
+  const q = typeof searchParams.q === 'string' ? searchParams.q : undefined;
+  const category = typeof searchParams.category === 'string' ? searchParams.category : undefined;
+  const type = typeof searchParams.type === 'string' ? searchParams.type : undefined;
+
+  let products = await ProductService.getProducts();
+
+  // If search query exists, prioritize search filter
+  if (q) {
+      products = await ProductService.searchProducts(q);
+  }
+
+  // Apply Category Filter
+  if (category) {
+      products = products.filter(p => 
+          p.category.toLowerCase().replace(/\s+/g, '-') === category || 
+          p.category.toLowerCase() === category.toLowerCase()
+      );
+  }
+
+  // Apply Sub-Type Filter (if relevant, e.g. "Gaming Laptops")
+  if (type) {
+      // This is a naive check; ideally products have sub-types or tags. 
+      // Checking description or name as fallback.
+      products = products.filter(p => 
+          p.name.toLowerCase().includes(type.toLowerCase()) || 
+          p.description?.toLowerCase().includes(type.toLowerCase())
+      );
+  }
+  
+  const title = q ? `Search Results for "${q}"` : (category ? `${category.charAt(0).toUpperCase() + category.slice(1)} Products` : 'All Products');
 
   return (
     <div className="min-h-screen bg-neutral-light">
       {/* Header */}
       <div className="bg-neutral-light border-b border-neutral-default">
          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-             <h1 className="text-3xl font-bold tracking-tight text-primary font-heading">All Products</h1>
+             <h1 className="text-3xl font-bold tracking-tight text-primary font-heading capitalize">
+                {title.replace('-', ' ')}
+             </h1>
              <p className="mt-4 text-base text-neutral-dark max-w-2xl">
                 Browse our complete catalog of high-performance electronics. 
                 Filter by category or sort by price to find exactly what you need.
@@ -36,7 +72,14 @@ export default async function ProductsPage() {
            </div>
         </div>
 
-        <ProductGrid products={products} />
+        {products.length > 0 ? (
+            <ProductGrid products={products} />
+        ) : (
+            <div className="text-center py-20 text-neutral-500">
+                <p className="text-xl">No products found.</p>
+                <p className="text-sm mt-2">Try adjusting your search or filter to find what you're looking for.</p>
+            </div>
+        )}
       </div>
     </div>
   );

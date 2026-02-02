@@ -15,23 +15,23 @@ import {
   Lightbulb
 } from "lucide-react";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 // Expanded categories based on user request and modern tech store needs
 const categories = [
-  { name: "Air Conditioner", icon: Wind, href: "/products/category/air-conditioner", animation: "spin" },
-  { name: "Laptops & Printer", icon: Laptop, href: "/products/category/laptops-printer", animation: "scale" },
-  { name: "Home Appliances", icon: Refrigerator, href: "/products/category/home-appliances", animation: "wiggle" },
-  { name: "Home Entertainment", icon: Tv, href: "/products/category/home-entertainment", animation: "pulse" },
-  { name: "Smart Phone", icon: Smartphone, href: "/products/category/smart-phone", animation: "shake" },
-  { name: "Microwaves", icon: Microwave, href: "/products/category/microwaves", animation: "scale" },
-  { name: "Air Coolers", icon: Fan, href: "/products/category/air-coolers", animation: "spin" },
-  { name: "Smart Home", icon: Lightbulb, href: "/products/category/smart-home", animation: "pulse" },
-  { name: "Accessories", icon: Headphones, href: "/products/category/accessories", animation: "bounce" },
-  { name: "Gaming", icon: Gamepad2, href: "/products/category/gaming", animation: "shake" },
+  { name: "Air Conditioner", icon: Wind, href: "/category/air-conditioners", animation: "spin" },
+  { name: "Laptops & Printer", icon: Laptop, href: "/category/laptops-printers", animation: "scale" },
+  { name: "Home Appliances", icon: Refrigerator, href: "/category/home-appliances", animation: "wiggle" },
+  { name: "Televisions", icon: Tv, href: "/category/televisions", animation: "pulse" },
+  { name: "Smart Phone", icon: Smartphone, href: "/category/smart-phones", animation: "shake" },
+  { name: "Microwaves", icon: Microwave, href: "/category/microwaves", animation: "scale" },
+  { name: "Air Coolers", icon: Fan, href: "/category/air-coolers", animation: "spin" },
+  { name: "Smart Home", icon: Lightbulb, href: "/category/smart-home", animation: "pulse" },
+  { name: "Accessories", icon: Headphones, href: "/category/accessories", animation: "bounce" },
+  { name: "Gaming", icon: Gamepad2, href: "/category/gaming", animation: "shake" },
 ];
 
-const iconVariants = {
+const iconVariants: Variants = {
   spin: { rotate: 360, transition: { duration: 2, repeat: Infinity, ease: "linear" } },
   shake: { x: [-2, 2, -2, 2, 0], transition: { duration: 0.5, repeat: Infinity, repeatDelay: 1 } },
   pulse: { scale: [1, 1.15, 1], transition: { duration: 1.5, repeat: Infinity } },

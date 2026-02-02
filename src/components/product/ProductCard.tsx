@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '@/types/product';
@@ -5,12 +7,16 @@ import { formatCurrency } from '@/lib/helpers';
 import { Button } from '@/components/ui/Button';
 import { Heart, ShoppingCart, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useCart } from '@/context/CartContext';
+import toast from 'react-hot-toast';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const { addToCart } = useCart();
+
   // Mock rating if not present (remove mock logic when backend provides real data)
   const rating = product.rating || 4.5;
   const reviewsCount = product.reviewsCount || 0;
@@ -20,6 +26,21 @@ export function ProductCard({ product }: ProductCardProps) {
   const discountPercentage = hasDiscount 
     ? Math.round(((product.originalPrice! - product.price) / product.originalPrice!) * 100) 
     : 0;
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent navigating if clicked near a link
+    e.stopPropagation();
+    
+    addToCart(product);
+    toast.success(`Added ${product.name} to cart!`, {
+        icon: '🛒',
+        style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+        },
+    });
+  };
 
   return (
     <div className="group relative bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:border-accent/50 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] flex flex-col h-full overflow-hidden">
@@ -102,9 +123,10 @@ export function ProductCard({ product }: ProductCardProps) {
                  </div>
              </div>
              
-             {/* Add to Cart Button - Always visible bottom right */}
+             {/* Add to Cart Button */}
              <Button 
                 size="sm" 
+                onClick={handleAddToCart}
                 className="rounded-full shadow-sm hover:shadow-md transition-all active:scale-95 bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white border border-neutral-200 dark:border-neutral-700 hover:border-transparent p-0 w-8 h-8 sm:w-auto sm:h-9 sm:px-3 flex items-center justify-center gap-2"
                 aria-label="Add to Cart"
              >

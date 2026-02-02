@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight, Search } from "lucide-react";
 import { formatCurrency } from "@/lib/helpers";
 import { ProductService } from "@/services/product.service";
@@ -60,8 +61,14 @@ export function SearchResults({ query, onClose }: SearchResultsProps) {
               onClick={onClose}
               className="flex items-center gap-4 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors group border-b border-neutral-50 dark:border-neutral-800 last:border-0"
             >
-              <div className="h-10 w-10 rounded-md bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center flex-shrink-0 text-[10px] text-neutral-400 font-bold">
-                IMG
+              <div className="relative h-10 w-10 flex-shrink-0 overflow-hidden rounded-md bg-neutral-100 dark:bg-neutral-800">
+                <Image
+                  src={product.images[0] || 'https://images.unsplash.com/photo-1560393464-5c69a73c5770?q=80&w=200&auto=format&fit=crop'}
+                  alt={product.name}
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="text-sm font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-accent transition-colors truncate">
