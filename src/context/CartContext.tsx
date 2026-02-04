@@ -31,7 +31,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         try {
           const parsed = JSON.parse(savedCart);
           setItems(parsed);
-          console.log("[Cart] Loaded items:", parsed);
+
         } catch (e) {
           console.error("[Cart] Failed to load cart:", e);
         }

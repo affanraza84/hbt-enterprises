@@ -21,7 +21,7 @@ const NEW_ARRIVALS: Product[] = [
   },
   {
     id: "4", name: "Dyson V15 Detect", price: 65900,
-    slug: "dyson-v15", category: "Home Appliances", images: ["https://images.unsplash.com/photo-1558317374-a3594743e9c7?auto=format&fit=crop&w=600&q=80"], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 34
+    slug: "dyson-v15", category: "Home Appliances", images: ["https://images.unsplash.com/photo-1599652523502-1ce28d324493?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 34
   },
   {
     id: "5", name: "PlayStation 5 Slim", price: 54990,

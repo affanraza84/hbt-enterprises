@@ -9,7 +9,7 @@ const BANNERS = [
     id: 1,
     title: "HOME ENTERTAINMENT",
     startPrice: "5,799",
-    image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=1000&auto=format&fit=crop", // TV/Entertainment
+    image: "https://i.pinimg.com/736x/7b/11/67/7b116779c895c2f538b56c44689752a5.jpg", // TV/Entertainment
     gradient: "from-[#2E0249] to-[#A91079]", // Deep Purple to Pink
     buttonColor: "bg-[#A91079] text-white hover:bg-[#A91079]/90",
     link: "/products?category=entertainment"
@@ -27,7 +27,7 @@ const BANNERS = [
     id: 3,
     title: "AIR CONDITIONERS",
     startPrice: "26,990",
-    image: "https://images.unsplash.com/photo-1614631446505-55ffa60ddfae?q=80&w=1000&auto=format&fit=crop", // AC Unit (approx)
+    image: "https://i.pinimg.com/736x/44/a2/ae/44a2ae21ec7cc7c0e5ee6fb6dae903ec.jpg", // AC Unit (approx)
     gradient: "from-[#0F044C] to-[#141E61] via-[#005F99]", // Deep Blue mix
     buttonColor: "bg-[#141E61] text-white hover:bg-[#141E61]/90",
     link: "/products?category=air-conditioner"
@@ -36,7 +36,7 @@ const BANNERS = [
     id: 4,
     title: "REFRIGERATORS",
     startPrice: "13,490",
-    image: "https://images.unsplash.com/photo-1571175443880-49e1d58b794a?q=80&w=1000&auto=format&fit=crop", // Refrigerator
+    image: "https://i.pinimg.com/564x/8c/2c/a6/8c2ca686f75725471c29470bb37e7ede.jpg", // Refrigerator
     gradient: "from-[#1A1A2E] to-[#6A0572]", // Dark to Purple
     buttonColor: "bg-[#6A0572] text-white hover:bg-[#6A0572]/90",
     link: "/products?category=refrigerators"

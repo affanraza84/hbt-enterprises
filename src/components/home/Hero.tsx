@@ -1,219 +1,140 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { ProductService } from "@/services/product.service";
+import { Product } from "@/types/product";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight, ShoppingBag, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
-import { ArrowRight, Star, ShieldCheck, Truck, Zap } from "lucide-react";
-
-// Product Data for the Hero Carousel
-// Product Data for the Hero Carousel
-const heroProducts = [
-  {
-    id: 1,
-    name: "Premium Wireless Audio",
-    tagline: "Immersive Soundscape",
-    description: "Experience crystal-clear sound with active noise cancellation and 40-hour battery life. Designed for audiophiles who demand perfection.",
-    price: "₹24,999",
-    rating: 4.9,
-    image: "/images/hero/headphone.png",
-    accent: "bg-blue-500", // Tailwind color class for blobs
-    slug: "sony-wh-1000xm5" // Using existing slug
-  },
-  {
-    id: 2,
-    name: "Next-Gen Smartwatch",
-    tagline: "Your Health, Elevated",
-    description: "Track your fitness, monitor your health, and stay connected with a stunning bezel-less display. The future of wearables is here.",
-    price: "₹34,999",
-    rating: 4.8,
-    image: "/images/hero/smartwatch.png",
-    accent: "bg-purple-500",
-    slug: "apple-watch-s9" // Using existing slug
-  },
-  {
-    id: 3,
-    name: "Console Gaming",
-    tagline: "Power Your Play",
-    description: "Unleash next-level gaming performance with ultra-fast loading and ray-tracing graphics. Dominate the competition.",
-    price: "₹49,999",
-    rating: 5.0,
-    image: "/images/hero/carousel/gaming.png",
-    accent: "bg-emerald-500",
-    slug: "ps5-slim" // Using existing slug
-  },
-  {
-    id: 4,
-    name: "Smart Living Hub",
-    tagline: "Control Your World",
-    description: "Seamlessly connect and control all your smart devices from one intuitive hub. Simplify your life with intelligent automation.",
-    price: "₹16,999",
-    rating: 4.7,
-    image: "/images/hero/carousel/smarthome.png",
-    accent: "bg-orange-500",
-    slug: "google-pixel-8-pro" // Using roughly relevant slug
-  }
-];
+import React, { useEffect, useState } from "react";
 
 export function Hero() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % heroProducts.length);
-    }, 6000);
-    return () => clearInterval(timer);
+    const fetchProducts = async () => {
+      try {
+        const allProducts = await ProductService.getProducts();
+        // Get 32 products for the 4x8 matrix
+        setProducts(allProducts.slice(0, 32));
+      } catch (error) {
+        console.error("Failed to fetch products for hero matrix", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
   }, []);
 
-  const currentProduct = heroProducts[currentIndex];
-
   return (
-    <section className="relative w-full min-h-[90vh] md:min-h-[85vh] bg-neutral-light overflow-hidden flex items-center">
-      {/* Background Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className={`absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full blur-[120px] opacity-20 transition-colors duration-1000 ${currentProduct.accent}`} />
-        <div className={`absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full blur-[100px] opacity-15 transition-colors duration-1000 ${currentProduct.accent}`} />
+    <section className="relative w-full bg-slate-50 dark:bg-neutral-950 py-12 px-4 sm:px-6 lg:px-8 min-h-[70vh] overflow-hidden">
+      {/* Background Ambience */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute -top-[20%] -right-[10%] w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-blob" />
+          <div className="absolute -bottom-[20%] -left-[10%] w-[800px] h-[800px] bg-purple-500/10 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-2000" />
+          <div className="absolute top-[20%] left-[20%] w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-4000" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full h-full py-12 md:py-0">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-8 items-center h-full">
-          
-          {/* Left Column: Text Content */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-8 order-2 md:order-1">
+      <div className="max-w-[1920px] mx-auto relative z-10">
+          {/* Header */}
+          <div className="mb-12 text-center space-y-4">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary/80 text-xs font-semibold tracking-wide uppercase"
-            >
-              <Zap className="w-3.5 h-3.5" />
-              <span>New Arrivals 2026</span>
-            </motion.div>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentProduct.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-4"
-              >
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading text-primary leading-[1.1] tracking-tight">
-                  {currentProduct.tagline}
-                </h1>
-                <p className="text-base md:text-lg text-neutral-dark max-w-lg mx-auto md:mx-0 leading-relaxed">
-                  {currentProduct.description}
-                </p>
-              </motion.div>
-            </AnimatePresence>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+                transition={{ duration: 0.6 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md border border-neutral-200 dark:border-neutral-700 shadow-sm"
             >
-              <Link href={`/products/${currentProduct.slug}`}>
-                  <Button size="xl" className="rounded-full px-8 !bg-primary !text-neutral-light hover:brightness-110 shadow-lg shadow-primary/20">
-                    Shop Now
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-              </Link>
-              <Link href={`/products/${currentProduct.slug}`}>
-                  <Button variant="outline" size="xl" className="rounded-full px-8 border-neutral-default text-primary hover:bg-neutral-default/50">
-                    View Details
-                  </Button>
-              </Link>
+                <Sparkles className="w-4 h-4 text-indigo-500" />
+                <span className="text-xs font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-300">Premium Collection</span>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="flex items-center gap-6 pt-4 text-sm font-medium text-neutral-dark"
+            
+            <motion.h2 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight"
             >
-              <div className="flex items-center gap-2">
-                <Truck className="w-4 h-4 text-accent" />
-                <span>Free Shipping</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-accent" />
-                <span>2 Year Warranty</span>
-              </div>
-              <div className="flex items-center gap-1">
-                 <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-warning text-warning" />
-                    ))}
-                 </div>
-                 <span className="ml-1 text-primary">({currentProduct.rating})</span>
-              </div>
-            </motion.div>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 via-neutral-700 to-neutral-900 dark:from-white dark:via-neutral-300 dark:to-white">
+                    Curated for Your Lifestyle
+                </span>
+            </motion.h2>
+            <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="text-lg text-neutral-500 dark:text-neutral-400 max-w-2xl mx-auto"
+            >
+                Discover the latest in premium tech, tailored just for you.
+            </motion.p>
           </div>
 
-          {/* Right Column: Product Image */}
-          <div className="relative order-1 md:order-2 flex justify-center items-center h-[400px] md:h-[600px]">
-             {/* Circular Backdrop */}
-             <div className="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] border border-primary/5 rounded-full animate-[spin_60s_linear_infinite]" />
-             <div className="absolute w-[250px] h-[250px] md:w-[400px] md:h-[400px] border border-accent/10 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
-             
-             <AnimatePresence mode="wait">
-               <motion.div
-                 key={currentProduct.id}
-                 initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                 exit={{ opacity: 0, scale: 1.1, rotate: -5 }}
-                 transition={{ 
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 20,
-                    duration: 0.6 
-                 }}
-                 className="relative w-full h-full max-w-[500px] max-h-[500px]"
-               >
-                 <Image
-                   src={currentProduct.image}
-                   alt={currentProduct.name}
-                   fill
-                   className="object-contain drop-shadow-2xl"
-                   priority
-                 />
-               </motion.div>
-             </AnimatePresence>
+          {/* 
+             Matrix Grid
+          */}
+          {loading ? (
+             <div className="grid grid-cols-3 lg:grid-cols-8 gap-3 sm:gap-4 animate-pulse">
+                {[...Array(32)].map((_, i) => (
+                    <div key={i} className="aspect-[3/4] bg-neutral-200 dark:bg-neutral-800 rounded-2xl" />
+                ))}
+             </div>
+          ) : (
+            <div className="grid grid-cols-3 lg:grid-cols-8 gap-3 sm:gap-4 xl:gap-5">
+                {products.map((product, index) => (
+                    <Link href={`/products/${product.slug}`} key={product.id || index} className="group block h-full select-none">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.03 }}
+                        className="relative aspect-[3/4] bg-white dark:bg-neutral-800/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 ring-1 ring-neutral-200/50 dark:ring-neutral-700/50 group-hover:ring-indigo-500/30 dark:group-hover:ring-indigo-400/30 group-hover:-translate-y-1 h-full flex flex-col group/card"
+                    >
+                        {/* Image Container */}
+                        <div className="relative flex-1 p-0 bg-gradient-to-b from-neutral-50/50 to-white/50 dark:from-neutral-800/50 dark:to-neutral-900/50 overflow-hidden">
+                            <div className="relative w-full h-full mix-blend-multiply dark:mix-blend-normal">
+                                <Image 
+                                    src={product.images[0] || '/placeholder.png'} 
+                                    alt={product.name}
+                                    fill
+                                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 12vw"
+                                    className="object-contain group-hover:scale-110 transition-transform duration-500 ease-in-out"
+                                />
+                            </div>
+                            
+                            {/* Discount Badge */}
+                            {product.originalPrice && product.originalPrice > product.price && (
+                                <div className="absolute top-3 left-3 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+                                    -{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
+                                </div>
+                            )}
 
-             {/* Floating Price Tag */}
-             <AnimatePresence mode="wait">
-                <motion.div
-                    key={currentProduct.price}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
-                    transition={{ delay: 0.3 }}
-                    className="absolute -bottom-4 right-4 md:bottom-10 md:right-10 bg-neutral-light border border-neutral-default p-4 rounded-xl shadow-2xl z-20"
-                >
-                    <p className="text-xs text-neutral-dark font-medium mb-1">Starting at</p>
-                    <p className="text-2xl font-bold text-primary">{currentProduct.price}</p>
-                </motion.div>
-             </AnimatePresence>
-          </div>
 
-        </div>
-
-        {/* Carousel Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
-            {heroProducts.map((_, idx) => (
-                <button
-                    key={idx}
-                    onClick={() => setCurrentIndex(idx)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                        idx === currentIndex ? "w-8 bg-accent" : "w-2 bg-neutral-default hover:bg-neutral-dark"
-                    }`}
-                    aria-label={`Go to slide ${idx + 1}`}
-                />
-            ))}
-        </div>
+                        </div>
+                        
+                        {/* Content */}
+                        <div className="p-4 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-sm border-t border-neutral-100 dark:border-neutral-700 relative z-20">
+                            <p className="text-[10px] text-indigo-600 dark:text-indigo-400 font-bold tracking-wide uppercase mb-1 line-clamp-1">
+                                {product.brand || product.category}
+                            </p>
+                            <h3 className="text-neutral-900 dark:text-neutral-100 text-sm font-semibold leading-tight line-clamp-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                {product.name}
+                            </h3>
+                            <div className="flex items-center gap-2 mt-2">
+                                <p className="text-neutral-900 dark:text-white text-base font-bold">
+                                    ₹{product.price.toLocaleString()}
+                                </p>
+                                {product.originalPrice && (
+                                    <p className="text-neutral-400 text-xs line-through">
+                                        ₹{product.originalPrice.toLocaleString()}
+                                    </p>
+                                )}
+                            </div>
+                        </div>
+                    </motion.div>
+                    </Link>
+                ))}
+            </div>
+          )}
       </div>
     </section>
   );
