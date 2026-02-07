@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Product } from "@/types/product";
 import { cn } from "@/lib/utils";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Mock Data for Display
 const NEW_ARRIVALS: Product[] = [
@@ -54,11 +55,21 @@ const TRENDING: Product[] = [
 
 export function FeaturedDisplay() {
   const [activeTab, setActiveTab] = useState<"new" | "trending">("new");
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const products = activeTab === "new" ? NEW_ARRIVALS : TRENDING;
 
-  // Duplicate items for seamless loop
-  const marqueeItems = [...products, ...products, ...products]; 
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { current } = scrollRef;
+      const scrollAmount = 350; // Card width + margin
+      if (direction === "left") {
+        current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      } else {
+        current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <section className="py-16 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white overflow-hidden transition-colors duration-300">
@@ -95,11 +106,35 @@ export function FeaturedDisplay() {
         </div>
       </div>
 
-      {/* Marquee Section */}
-      <div className="relative w-full">
-         <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
-            {marqueeItems.map((product, idx) => (
-                <div key={`${product.id}-${idx}`} className="w-[280px] sm:w-[320px] mx-4 flex-shrink-0">
+      {/* Product List with Navigation */}
+      <div className="relative w-full group container mx-auto px-4">
+         {/* Navigation Buttons - Visible on large screens or on hover */}
+         <div className="absolute top-1/2 -translate-y-1/2 left-0 z-10 hidden sm:flex items-center justify-center w-12 h-full bg-gradient-to-r from-white dark:from-neutral-900 to-transparent pointer-events-none">
+            <button 
+                onClick={() => scroll("left")}
+                className="pointer-events-auto w-10 h-10 rounded-full bg-white dark:bg-neutral-800 shadow-lg border border-neutral-100 dark:border-neutral-700 flex items-center justify-center text-neutral-900 dark:text-white hover:bg-accent hover:text-white dark:hover:bg-accent transition-all opacity-0 group-hover:opacity-100"
+                aria-label="Scroll left"
+            >
+                <ChevronLeft className="w-5 h-5" />
+            </button>
+         </div>
+         
+         <div className="absolute top-1/2 -translate-y-1/2 right-0 z-10 hidden sm:flex items-center justify-center w-12 h-full bg-gradient-to-l from-white dark:from-neutral-900 to-transparent pointer-events-none">
+             <button 
+                onClick={() => scroll("right")}
+                className="pointer-events-auto w-10 h-10 rounded-full bg-white dark:bg-neutral-800 shadow-lg border border-neutral-100 dark:border-neutral-700 flex items-center justify-center text-neutral-900 dark:text-white hover:bg-accent hover:text-white dark:hover:bg-accent transition-all opacity-0 group-hover:opacity-100"
+                aria-label="Scroll right"
+            >
+                <ChevronRight className="w-5 h-5" />
+            </button>
+         </div>
+
+         <div 
+            ref={scrollRef}
+            className="flex overflow-x-auto scrollbar-hide pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x"
+         >
+            {products.map((product) => (
+                <div key={product.id} className="w-[280px] sm:w-[320px] mr-6 flex-shrink-0 snap-start">
                     <ProductCard product={product} />
                 </div>
             ))}

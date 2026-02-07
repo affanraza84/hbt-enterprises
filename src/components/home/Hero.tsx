@@ -16,8 +16,8 @@ export function Hero() {
     const fetchProducts = async () => {
       try {
         const allProducts = await ProductService.getProducts();
-        // Get 32 products for the 4x8 matrix
-        setProducts(allProducts.slice(0, 32));
+        // Get 30 products for the 5x6 matrix
+        setProducts(allProducts.slice(0, 30));
       } catch (error) {
         console.error("Failed to fetch products for hero matrix", error);
       } finally {
@@ -40,15 +40,6 @@ export function Hero() {
       <div className="max-w-[1920px] mx-auto relative z-10">
           {/* Header */}
           <div className="mb-12 text-center space-y-4">
-            <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md border border-neutral-200 dark:border-neutral-700 shadow-sm"
-            >
-                <Sparkles className="w-4 h-4 text-indigo-500" />
-                <span className="text-xs font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-300">Premium Collection</span>
-            </motion.div>
             
             <motion.h2 
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -74,13 +65,13 @@ export function Hero() {
              Matrix Grid
           */}
           {loading ? (
-             <div className="grid grid-cols-3 lg:grid-cols-8 gap-3 sm:gap-4 animate-pulse">
-                {[...Array(32)].map((_, i) => (
+             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 animate-pulse">
+                {[...Array(30)].map((_, i) => (
                     <div key={i} className="aspect-[3/4] bg-neutral-200 dark:bg-neutral-800 rounded-2xl" />
                 ))}
              </div>
           ) : (
-            <div className="grid grid-cols-3 lg:grid-cols-8 gap-3 sm:gap-4 xl:gap-5">
+            <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 xl:gap-5">
                 {products.map((product, index) => (
                     <Link href={`/products/${product.slug}`} key={product.id || index} className="group block h-full select-none">
                     <motion.div
@@ -97,7 +88,7 @@ export function Hero() {
                                     alt={product.name}
                                     fill
                                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 12vw"
-                                    className="object-contain group-hover:scale-110 transition-transform duration-500 ease-in-out"
+                                    className="object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out"
                                 />
                             </div>
                             

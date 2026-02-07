@@ -4,7 +4,8 @@ import Link from "next/link";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Product } from "@/types/product";
 import { Button } from "@/components/ui/Button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef } from "react";
 
 interface CategorySectionProps {
   title: string;
@@ -14,8 +15,19 @@ interface CategorySectionProps {
 }
 
 export function CategorySection({ title, subtitle, products, viewAllLink }: CategorySectionProps) {
-  // Triple the items for smooth infinite scroll if few items
-  const marqueeItems = products.length > 0 ? [...products, ...products, ...products] : [];
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { current } = scrollRef;
+      const scrollAmount = 350; // Approx card width + margin
+      if (direction === "left") {
+        current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      } else {
+        current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    }
+  };
 
   if (products.length === 0) return null;
 
@@ -30,19 +42,41 @@ export function CategorySection({ title, subtitle, products, viewAllLink }: Cate
                 </h2>
             </div>
             
-            <Link href={viewAllLink}>
-                <Button variant="outline" className="gap-2 border-neutral-200 dark:border-neutral-700 hover:border-accent hover:text-accent dark:text-neutral-300 dark:hover:text-accent transition-all group">
-                    View All
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-            </Link>
+            <div className="flex items-center gap-4">
+                <div className="flex gap-2">
+                    <button 
+                        onClick={() => scroll("left")}
+                        className="w-10 h-10 rounded-full border border-neutral-200 dark:border-neutral-700 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent dark:text-white transition-all disabled:opacity-50"
+                        aria-label="Scroll left"
+                    >
+                        <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button 
+                        onClick={() => scroll("right")}
+                        className="w-10 h-10 rounded-full border border-neutral-200 dark:border-neutral-700 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent dark:text-white transition-all disabled:opacity-50"
+                        aria-label="Scroll right"
+                    >
+                        <ChevronRight className="w-5 h-5" />
+                    </button>
+                </div>
+
+                <Link href={viewAllLink} className="hidden sm:block">
+                    <Button variant="outline" className="gap-2 border-neutral-200 dark:border-neutral-700 hover:border-accent hover:text-accent dark:text-neutral-300 dark:hover:text-accent transition-all group">
+                        View All
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                </Link>
+            </div>
         </div>
       </div>
 
-      <div className="relative w-full overflow-hidden">
-         <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
-            {marqueeItems.map((product, idx) => (
-                <div key={`${product.id}-${idx}`} className="w-[280px] sm:w-[320px] mx-4 flex-shrink-0">
+      <div className="relative w-full group px-4 sm:px-0">
+         <div 
+            ref={scrollRef}
+            className="flex overflow-x-auto scrollbar-hide pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x"
+         >
+            {products.map((product) => (
+                <div key={product.id} className="w-[280px] sm:w-[320px] mr-6 flex-shrink-0 snap-start">
                     <ProductCard product={product} />
                 </div>
             ))}

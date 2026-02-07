@@ -46,7 +46,10 @@ export function ProductCard({ product }: ProductCardProps) {
     <div className="group relative bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:border-accent/50 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] flex flex-col h-full overflow-hidden">
       
       {/* Image Container */}
-      <div className="aspect-square relative overflow-hidden bg-neutral-100 dark:bg-neutral-800/50 p-4">
+      <div className={cn(
+        "relative overflow-hidden bg-neutral-100 dark:bg-neutral-800/50 p-4",
+        product.category === 'Television' ? "aspect-video" : "aspect-square"
+      )}>
         {/* Wishlist Button */}
         <button className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm flex items-center justify-center text-neutral-400 hover:text-red-500 hover:scale-110 transition-all shadow-sm border border-neutral-200 dark:border-neutral-800">
            <Heart className="w-4 h-4" />
@@ -72,7 +75,10 @@ export function ProductCard({ product }: ProductCardProps) {
                 src={product.images[0]}
                 alt={product.name}
                 fill
-                className="object-contain transition-transform duration-500 group-hover:scale-105"
+                className={cn(
+                    "transition-transform duration-500 group-hover:scale-105",
+                    product.category === 'Television' ? "object-contain p-2" : "object-cover"
+                )}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
            ) : (

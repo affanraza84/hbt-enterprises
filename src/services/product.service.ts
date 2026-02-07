@@ -15,46 +15,144 @@ import {
 const MOCK_PRODUCTS: Product[] = [
     // --- TELEVISIONS ---
     {
-        id: 'tv-1', name: 'Samsung 55 Inch 4K Ultra HD Smart LED TV', price: 44990, originalPrice: 69900,
-        slug: 'samsung-55-4k', category: 'Television', images: TV_IMAGES['tv-1'], description: 'Experience crystal clear colors and stunning detail.', stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 420, brand: 'SAMSUNG',
-        keyFeatures: ['Crystal Processor 4K', 'OTS Lite', 'Q-Symphony', 'Boundless Screen'], offers: ['5% Cashback on HDFC', 'No Cost EMI'], specs: { 'Screen Size': '55 Inch', 'Resolution': '4K Ultra HD', 'Refresh Rate': '60 Hz' }, emi: 'From ₹2,100/mo'
+        id: 'tv-samsung-32-hd', name: 'Samsung 80 cm (32inches) HD SMART LED TV', price: 13990, originalPrice: 17900,
+        slug: 'samsung-32-hd-smart', category: 'Television', images: TV_IMAGES['tv-samsung-32-hd'], description: 'HD Smart LED TV with vibrant colors.', stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 120, brand: 'SAMSUNG',
+        keyFeatures: ['HD Resolution', 'Smart TV', 'Vibrant Colors'], offers: [], specs: { 'Screen Size': '32 Inch', 'Resolution': 'HD' }
     },
     {
-        id: 'tv-feat', name: 'Neo QLED 8K Smart TV', description: 'Experience infinity with the bezel-less Neo QLED 8K.', price: 349990, slug: 'neo-qled-8k', images: TV_IMAGES['tv-feat'], category: 'Television', stock: 10, createdAt: new Date(), updatedAt: new Date(), brand: 'SAMSUNG',
-        keyFeatures: ['Quantum Matrix Technology Pro', 'Neural Quantum Processor 8K', 'Infinity Screen'], offers: ['Free Soundbar on Purchase'], specs: { 'Screen Size': '85 Inch', 'Resolution': '8K' }
+        id: 'tv-samsung-43-fhd', name: 'Samsung 108 cm (43 inches) FHD SMART LED TV', price: 23500, originalPrice: 27500,
+        slug: 'samsung-43-fhd-smart', category: 'Television', images: TV_IMAGES['tv-samsung-43-fhd'], description: 'Full HD Smart TV for clear visuals.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 200, brand: 'SAMSUNG',
+        keyFeatures: ['Full HD Resolution', 'Smart Hub', 'HDR'], offers: ['No Cost EMI'], specs: { 'Screen Size': '43 Inch', 'Resolution': 'Full HD' }
     },
     {
-        id: 'tv-2', name: 'LG 43 Inch 4K Ultra HD Smart LED TV', price: 32990, originalPrice: 49990,
-        slug: 'lg-43-4k', category: 'Television', images: TV_IMAGES['tv-2'], description: 'Real 4K Display with HDR10 Pro.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 310, brand: 'LG',
-        keyFeatures: ['α5 Gen5 AI Processor 4K', 'Game Optimizer', 'AI Brightness Control'], offers: ['Exchange offer up to ₹3000'], specs: { 'Screen Size': '43 Inch', 'Resolution': '4K' }
+        id: 'tv-samsung-43-crystal-4k', name: 'Samsung 108 cm (43 inches) Crystal 4K Smart LED TV', price: 26500, originalPrice: 39500,
+        slug: 'samsung-43-crystal-4k', category: 'Television', images: TV_IMAGES['tv-samsung-43-crystal-4k'], description: 'Crystal 4K Processor for life-like color.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 350, brand: 'SAMSUNG',
+        keyFeatures: ['Crystal Processor 4K', 'PurColor', '3-Side Bezel-less'], offers: [], specs: { 'Screen Size': '43 Inch', 'Resolution': '4K' }
     },
     {
-        id: 'tv-3', name: 'Sony Bravia 55 Inch 4K Ultra HD Smart LED Google TV', price: 57990, originalPrice: 99900,
-        slug: 'sony-55-4k', category: 'Television', images: TV_IMAGES['tv-3'], description: 'X1 4K Processor for realistic picture.', stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 550, brand: 'SONY',
-        keyFeatures: ['4K X-Reality PRO', 'Motionflow XR', 'Google TV'], offers: ['10% Instant Discount on SBI'], specs: { 'Screen Size': '55 Inch', 'Resolution': '4K' }
+        id: 'tv-samsung-43-qled', name: 'Samsung 108 cm (43 inches) SMART QLED TV', price: 34990, originalPrice: 50600,
+        slug: 'samsung-43-qled', category: 'Television', images: TV_IMAGES['tv-samsung-43-qled'], description: 'QLED technology for brilliant brightness.', stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 150, brand: 'SAMSUNG',
+        keyFeatures: ['Quantum Dot Technology', 'Dual LED', 'Quantum HDR'], offers: [], specs: { 'Screen Size': '43 Inch', 'Display': 'QLED' }
     },
     {
-        id: 'tv-oled-feat', name: 'Sony Bravia XR OLED', description: 'Pure black OLED contrast and cognitive intelligence.', price: 249900, slug: 'sony-bravia-oled', images: TV_IMAGES['tv-oled-feat'], category: 'Television', stock: 8, createdAt: new Date(), updatedAt: new Date(), brand: 'SONY',
-        keyFeatures: ['Cognitive Processor XR', 'XR OLED Contrast Pro', 'Acoustic Surface Audio+'], offers: ['Free PS5 on select models'], specs: { 'Screen Size': '65 Inch', 'Panel': 'OLED' }
+        id: 'tv-samsung-55-crystal-4k', name: 'Samsung 138 cm (55 inches) Crystal 4K UHD TV', price: 38990, originalPrice: 63900,
+        slug: 'samsung-55-crystal-4k', category: 'Television', images: TV_IMAGES['tv-samsung-55-crystal-4k'], description: 'Experience 4K UHD resolution.', stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 220, brand: 'SAMSUNG',
+        keyFeatures: ['Crystal Processor 4K', 'OTS Lite', 'Q-Symphony'], offers: [], specs: { 'Screen Size': '55 Inch', 'Resolution': '4K' }
     },
     {
-        id: 'tv-4', name: 'Xiaomi 50 Inch 4K Ultra HD Smart Android OLED Vision TV', price: 29999, originalPrice: 39999,
-        slug: 'xiaomi-50-4k', category: 'Television', images: TV_IMAGES['tv-4'], description: 'Dolby Vision and 30W Sound.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 200, brand: 'XIAOMI',
-        keyFeatures: ['IMAX Enhanced', 'Dolby Vision IQ', 'Far-field mic'], offers: ['No Cost EMI'], specs: { 'Screen Size': '50 Inch', 'OS': 'Android TV 11' }
+        id: 'tv-samsung-65-crystal-4k', name: 'Samsung 163 cm (65inch) Crystal 4K TV', price: 58990, originalPrice: 58990,
+        slug: 'samsung-65-crystal-4k', category: 'Television', images: TV_IMAGES['tv-samsung-65-crystal-4k'], description: 'Currently Unavailable.', stock: 0, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 80, brand: 'SAMSUNG',
+        keyFeatures: ['Crystal Display', '4K Processor', 'HDR'], offers: [], specs: { 'Screen Size': '65 Inch', 'Resolution': '4K' }
     },
     {
-        id: 'tv-5', name: 'TCL 65 Inch 4K Ultra HD Smart QLED Google TV', price: 51990, originalPrice: 109990,
-        slug: 'tcl-65-qled', category: 'Television', images: TV_IMAGES['tv-5'], description: 'QLED 4K for vibrant colors.', stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 150, brand: 'TCL',
-        keyFeatures: ['Quantum Dot Technology', 'Dolby Vision & Atmos', 'Hands Free Voice Control'], offers: ['5% Cashback'], specs: { 'Screen Size': '65 Inch', 'Display': 'QLED' }
+        id: 'tv-samsung-75-4k', name: 'Samsung 179 cm (75 inch) 4K Ultra HD Remote Control', price: 79990, originalPrice: 123900,
+        slug: 'samsung-75-4k', category: 'Television', images: TV_IMAGES['tv-samsung-75-4k'], description: 'Massive 75 inch 4K display.', stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 40, brand: 'SAMSUNG',
+        keyFeatures: ['4K Ultra HD', 'Smart Remote', 'Voice Assistant'], offers: [], specs: { 'Screen Size': '75 Inch', 'Resolution': '4K' }
     },
     {
-        id: 'tv-6', name: 'OnePlus 43 Inch Y Series 4K Ultra HD Smart Android LED TV', price: 24999, originalPrice: 29999,
-        slug: 'oneplus-43-4k', category: 'Television', images: TV_IMAGES['tv-6'], description: 'Bezel-less design and Dolby Audio.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 180, brand: 'ONEPLUS',
-        keyFeatures: ['Gamma Engine', 'OxygenPlay', 'OnePlus Connect'], offers: ['Flat ₹1000 off'], specs: { 'Screen Size': '43 Inch', 'Sound': '24W Dolby Audio' }
+        id: 'tv-lg-32-webos', name: 'LG 80 CM (32 inches) WebOS LED TV', price: 14490, originalPrice: 21240,
+        slug: 'lg-32-webos', category: 'Television', images: TV_IMAGES['tv-lg-32-webos'], description: 'Smart TV with WebOS.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 110, brand: 'LG',
+        keyFeatures: ['WebOS', 'Dynamic Color Enhancer', 'Dolby Audio'], offers: [], specs: { 'Screen Size': '32 Inch', 'OS': 'WebOS' }
     },
     {
-        id: 'tv-feat-samsung', name: 'Samsung 55" 4K TV', price: 44990, originalPrice: 69900, slug: 'samsung-4k-tv', category: 'Smart TV', images: TV_IMAGES['tv-feat-samsung'], description: '', stock: 4, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 112, brand: 'SAMSUNG',
-        keyFeatures: ['Crystal 4K Processor', 'PurColor', 'PC on TV'], offers: ['Bank Offer applied'], specs: { 'Screen Size': '55 Inch', 'Resolution': '3840 x 2160' }
+        id: 'tv-lg-43-4k', name: 'LG 108 CM (43INCH) 4K Ultra HD WebOS LED TV', price: 30490, originalPrice: 46090,
+        slug: 'lg-43-4k-webos', category: 'Television', images: TV_IMAGES['tv-lg-43-4k'], description: 'Real 4K picture quality.', stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 250, brand: 'LG',
+        keyFeatures: ['4K Upscaling', 'AI Brightness', 'WebOS'], offers: [], specs: { 'Screen Size': '43 Inch', 'Resolution': '4K' }
+    },
+    {
+        id: 'tv-lg-55-4k', name: 'LG 139 cm (55 inches) 4K Ultra HD WebOS LED TV', price: 39990, originalPrice: 66990,
+        slug: 'lg-55-4k-webos', category: 'Television', images: TV_IMAGES['tv-lg-55-4k'], description: 'Cinematic experience at home.', stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 180, brand: 'LG',
+        keyFeatures: ['Filmmaker Mode', 'HDR10 Pro', 'Game Optimizer'], offers: [], specs: { 'Screen Size': '55 Inch', 'Resolution': '4K' }
+    },
+    {
+        id: 'tv-lg-65-4k', name: 'LG 164 cm (65 inch) 4K LED Smart WebOS TV', price: 59500, originalPrice: 105990,
+        slug: 'lg-65-4k-webos', category: 'Television', images: TV_IMAGES['tv-lg-65-4k'], description: 'Big screen entertainment.', stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 120, brand: 'LG',
+        keyFeatures: ['α5 Gen5 AI Processor', 'ThinkQ AI', 'Magic Remote'], offers: [], specs: { 'Screen Size': '65 Inch', 'Resolution': '4K' }
+    },
+    {
+        id: 'tv-lg-75-4k', name: 'LG 190 CM (75 INCH) Ultra HD WebOS LED TV', price: 115000, originalPrice: 269900,
+        slug: 'lg-75-4k-webos', category: 'Television', images: TV_IMAGES['tv-lg-75-4k'], description: 'Ultimate viewing experience.', stock: 3, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 30, brand: 'LG',
+        keyFeatures: ['Real 4K', 'Slim Design', 'Cloud Gaming'], offers: [], specs: { 'Screen Size': '75 Inch', 'Resolution': '4K' }
+    },
+    {
+        id: 'tv-bush-32-smart', name: 'Bush 32 Inch Smart LED TV', price: 7990, originalPrice: 15990,
+        slug: 'bush-32-smart', category: 'Television', images: TV_IMAGES['tv-bush-32-smart'], description: 'Affordable smart entertainment.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.0, reviewsCount: 50, brand: 'BUSH',
+        keyFeatures: ['Smart Connectivity', 'HD Ready', 'Clear Sound'], offers: [], specs: { 'Screen Size': '32 Inch', 'Resolution': 'HD' }
+    },
+    {
+        id: 'tv-bush-43-smart', name: 'Bush Smart 43 Inch LED TV', price: 15500, originalPrice: 25990,
+        slug: 'bush-43-smart', category: 'Television', images: TV_IMAGES['tv-bush-43-smart'], description: 'Smart TV for everyone.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 75, brand: 'BUSH',
+        keyFeatures: ['FHD Resolution', 'Multiple Ports', 'Smart Apps'], offers: [], specs: { 'Screen Size': '43 Inch', 'Resolution': 'FHD' }
+    },
+    {
+        id: 'tv-bush-50-4k', name: 'Bush Smart 50 Inch 4K LED TV', price: 21990, originalPrice: 39990,
+        slug: 'bush-50-4k', category: 'Television', images: TV_IMAGES['tv-bush-50-4k'], description: '4K clarity at a great price.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 60, brand: 'BUSH',
+        keyFeatures: ['4K UHD', 'Smart Interface', 'Wide Viewing Angle'], offers: [], specs: { 'Screen Size': '50 Inch', 'Resolution': '4K' }
+    },
+    {
+        id: 'tv-bush-55-4k', name: 'Bush Smart 55 Inch 4K LED TV', price: 29990, originalPrice: 49990,
+        slug: 'bush-55-4k', category: 'Television', images: TV_IMAGES['tv-bush-55-4k'], description: 'Immersive 4K experience.', stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 45, brand: 'BUSH',
+        keyFeatures: ['4K Display', 'Smart Features', 'Thin Bezel'], offers: [], specs: { 'Screen Size': '55 Inch', 'Resolution': '4K' }
+    },
+    {
+        id: 'tv-bush-65-4k', name: 'Bush Smart 65 Inch 4K TV', price: 39990, originalPrice: 65990,
+        slug: 'bush-65-4k', category: 'Television', images: TV_IMAGES['tv-bush-65-4k'], description: 'Large screen 4K entertainment.', stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 30, brand: 'BUSH',
+        keyFeatures: ['Big Screen', '4K Ultra HD', 'Premium Sound'], offers: [], specs: { 'Screen Size': '65 Inch', 'Resolution': '4K' }
+    },
+    {
+        id: 'tv-bush-75-smart', name: 'Bush Smart 75 Inch', price: 65990, originalPrice: 99990,
+        slug: 'bush-75-smart', category: 'Television', images: TV_IMAGES['tv-bush-75-smart'], description: 'Currently Not Available.', stock: 0, createdAt: new Date(), updatedAt: new Date(), rating: 0, reviewsCount: 0, brand: 'BUSH',
+        keyFeatures: ['75 Inch Display'], offers: [], specs: { 'Screen Size': '75 Inch' }
+    },
+    {
+        id: 'tv-daisun-32-smart', name: 'Daisun Smart 32 Inch TV', price: 10990, originalPrice: 16990,
+        slug: 'daisun-32-smart', category: 'Television', images: TV_IMAGES['tv-daisun-32-smart'], description: 'Budget friendly smart TV.', stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.1, reviewsCount: 40, brand: 'DAISUN',
+        keyFeatures: ['Smart Features', 'HD Ready', 'Energy Efficient'], offers: [], specs: { 'Screen Size': '32 Inch', 'Resolution': 'HD' }
+    },
+    {
+        id: 'tv-daisun-43-smart', name: 'Daisun Smart 43 Inch TV', price: 18990, originalPrice: 26990,
+        slug: 'daisun-43-smart', category: 'Television', images: TV_IMAGES['tv-daisun-43-smart'], description: 'Value for money 43 inch TV.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 60, brand: 'DAISUN',
+        keyFeatures: ['Full HD', 'Smart Connectivity', 'Sleek Design'], offers: [], specs: { 'Screen Size': '43 Inch', 'Resolution': 'FHD' }
+    },
+    {
+        id: 'tv-daisun-55-4k', name: 'Daisun 55 Inch 4K TV', price: 30990, originalPrice: 56990,
+        slug: 'daisun-55-4k', category: 'Television', images: TV_IMAGES['tv-daisun-55-4k'], description: 'Affordable 4K option.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 50, brand: 'DAISUN',
+        keyFeatures: ['4K Resolution', 'Smart TV', 'HDMI inputs'], offers: [], specs: { 'Screen Size': '55 Inch', 'Resolution': '4K' }
+    },
+    {
+        id: 'tv-daisun-55-webos', name: 'Daisun WebOS 55 Inch 4K TV', price: 34990, originalPrice: 61990,
+        slug: 'daisun-55-webos', category: 'Television', images: TV_IMAGES['tv-daisun-55-webos'], description: 'WebOS powered 4K TV.', stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 45, brand: 'DAISUN',
+        keyFeatures: ['WebOS Interface', '4K UHD', 'Magic Remote Support'], offers: [], specs: { 'Screen Size': '55 Inch', 'OS': 'WebOS' }
+    },
+    {
+        id: 'tv-daisun-65-smart', name: 'Daisun 65 Inch', price: 45990, originalPrice: 75990,
+        slug: 'daisun-65-smart', category: 'Television', images: TV_IMAGES['tv-daisun-65-smart'], description: 'Currently Not Available.', stock: 0, createdAt: new Date(), updatedAt: new Date(), rating: 0, reviewsCount: 0, brand: 'DAISUN',
+        keyFeatures: ['65 Inch Display'], offers: [], specs: { 'Screen Size': '65 Inch' }
+    },
+    {
+        id: 'tv-cellecor-32-fhd', name: 'Cellecor Smart 32 Inch Full HD TV', price: 9990, originalPrice: 20990,
+        slug: 'cellecor-32-fhd', category: 'Television', images: TV_IMAGES['tv-cellecor-32-fhd'], description: 'Full HD in 32 inch size.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 30, brand: 'CELLECOR',
+        keyFeatures: ['Full HD Resolution', 'Smart Features', 'A+ Grade Panel'], offers: [], specs: { 'Screen Size': '32 Inch', 'Resolution': 'FHD' }
+    },
+    {
+        id: 'tv-cellecor-43-smart', name: 'Cellecor Smart 43 Inch TV', price: 18490, originalPrice: 39990,
+        slug: 'cellecor-43-smart', category: 'Television', images: TV_IMAGES['tv-cellecor-43-smart'], description: 'Smart entertainment hub.', stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 50, brand: 'CELLECOR',
+        keyFeatures: ['Smart TV', 'Connectivity Options', 'Dynamic Contrast'], offers: [], specs: { 'Screen Size': '43 Inch' }
+    },
+    {
+        id: 'tv-cellecor-55-google', name: 'Cellecor Smart Google 55 Inch TV', price: 33990, originalPrice: 69990,
+        slug: 'cellecor-55-google', category: 'Television', images: TV_IMAGES['tv-cellecor-55-google'], description: 'Google TV experience.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 70, brand: 'CELLECOR',
+        keyFeatures: ['Google TV', 'Voice Control', '4K UHD'], offers: [], specs: { 'Screen Size': '55 Inch', 'OS': 'Google TV' }
+    },
+    {
+        id: 'tv-cellecor-65-google', name: 'Cellecor Smart Google 65 Inch TV', price: 48490, originalPrice: 89990,
+        slug: 'cellecor-65-google', category: 'Television', images: TV_IMAGES['tv-cellecor-65-google'], description: 'Large screen Google TV.', stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 40, brand: 'CELLECOR',
+        keyFeatures: ['Google TV', 'Big Screen', 'Dolby Audio'], offers: [], specs: { 'Screen Size': '65 Inch', 'OS': 'Google TV' }
+    },
+    {
+        id: 'tv-cellecor-75-google', name: 'Cellecor Smart Google 75 Inch', price: 0, originalPrice: 0,
+        slug: 'cellecor-75-google', category: 'Television', images: TV_IMAGES['tv-cellecor-75-google'], description: 'Currently Not Available.', stock: 0, createdAt: new Date(), updatedAt: new Date(), rating: 0, reviewsCount: 0, brand: 'CELLECOR',
+        keyFeatures: ['75 Inch Display', 'Google TV'], offers: [], specs: { 'Screen Size': '75 Inch' }
     },
 
     // --- SMARTPHONES ---
