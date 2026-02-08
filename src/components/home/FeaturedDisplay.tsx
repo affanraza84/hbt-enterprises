@@ -9,47 +9,47 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 // Mock Data for Display
 const NEW_ARRIVALS: Product[] = [
   {
-    id: "1", name: "Sony WH-1000XM5", price: 29990, originalPrice: 34990,
-    slug: "sony-wh-1000xm5", category: "Audio", images: ["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"], description: "", stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 124
+    id: "1", name: "Samsung Galaxy S24 Ultra", price: 129999, originalPrice: 134999,
+    slug: "samsung-s24-ultra", category: "Smart Phone", images: ["https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=600&q=80"], description: "", stock: 45, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 1240
   },
   {
-    id: "2", name: "Samsung Galaxy S24 Ultra", price: 129999, originalPrice: 134999,
-    slug: "samsung-s24-ultra", category: "Smart Phone", images: ["https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=600&q=80"], description: "", stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 89
+    id: "2", name: "Zebronics Juke Bar 9700 Pro", price: 14999, originalPrice: 22999,
+    slug: "zebronics-9700-pro", category: "Soundbar", images: ["https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80"], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 450
   },
   {
-    id: "3", name: "MacBook Air M3", price: 114900, originalPrice: 119900,
-    slug: "macbook-air-m3", category: "Laptops", images: ["https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"], description: "", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 56
+    id: "3", name: "LG 8 Kg Front Load", price: 34990, originalPrice: 45990,
+    slug: "lg-8kg-front-load", category: "Washing Machine", images: ["https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?auto=format&fit=crop&w=600&q=80"], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 320
   },
   {
-    id: "4", name: "Dyson V15 Detect", price: 65900,
-    slug: "dyson-v15", category: "Home Appliances", images: ["https://images.unsplash.com/photo-1599652523502-1ce28d324493?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 34
+    id: "4", name: "Honeywell Desert Cooler", price: 14990,
+    slug: "honeywell-desert-cooler", category: "Cooler", images: ["https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=800&q=80"], description: "", stock: 100, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 89
   },
   {
-    id: "5", name: "PlayStation 5 Slim", price: 54990,
-    slug: "ps5-slim", category: "Gaming", images: ["https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=600&q=80"], description: "", stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 200
-  },
+    id: "cooler-durotek-aero-22", name: "Durotek Aero Cool 22\"", price: 10990, originalPrice: 21990,
+    slug: "durotek-aero-22", category: "Cooler", images: ["/images/coolers/durotek-aero-22.jpg"], description: "Commercial E-Frame cooler", stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 15
+  }
 ];
 
 const TRENDING: Product[] = [
   {
-    id: "6", name: "Apple AirPods Pro 2", price: 24900,
-    slug: "airpods-pro-2", category: "Audio", images: ["https://images.unsplash.com/photo-1603351154351-5cf233081d35?auto=format&fit=crop&w=600&q=80"], description: "", stock: 50, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 500
+    id: "6", name: "Nothing Phone (2a)", price: 23999,
+    slug: "nothing-phone-2a", category: "Smart Phone", images: ["https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=800&q=80"], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 67
   },
   {
-    id: "7", name: "LG 1.5 Ton AC", price: 34500, originalPrice: 55000,
-    slug: "lg-ac-1.5", category: "Air Conditioner", images: ["https://images.unsplash.com/photo-1614631446505-b0aa00640f0c?auto=format&fit=crop&w=600&q=80"], description: "", stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 45
+    id: "sb-4", name: "Samsung HW-Q990C Soundbar", price: 99990, originalPrice: 129990,
+    slug: "samsung-q990c", category: "Soundbar", images: ["https://plus.unsplash.com/premium_photo-1680985551009-05107cd2752c?auto=format&fit=crop&w=800&q=80"], description: "Wireless Dolby Atmos.", stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 120
   },
   {
-    id: "8", name: "GoPro Hero 12", price: 39990, originalPrice: 45000,
-    slug: "gopro-hero-12", category: "Camera", images: ["https://images.unsplash.com/photo-1592155931558-515f2d527011?auto=format&fit=crop&w=600&q=80"], description: "", stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 78
+    id: "8", name: "Whirlpool Top Load", price: 16490, originalPrice: 20400,
+    slug: "whirlpool-7.5kg-top-load", category: "Washing Machine", images: ["https://images.unsplash.com/photo-1626806775351-538068f2f480?auto=format&fit=crop&w=800&q=80"], description: "", stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 89
   },
   {
-    id: "9", name: "Samsung 55\" 4K TV", price: 44990, originalPrice: 69900,
-    slug: "samsung-4k-tv", category: "Smart TV", images: ["https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80"], description: "", stock: 4, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 112
+    id: "9", name: "boAt Aavante Bar 1500", price: 4999, originalPrice: 12999,
+    slug: "boat-aavante-1500", category: "Soundbar", images: ["https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=600&q=80"], description: "", stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 1500
   },
   {
-    id: "10", name: "Nothing Phone (2a)", price: 23999,
-    slug: "nothing-phone-2a", category: "Smart Phone", images: ["https://images.unsplash.com/photo-1603923407983-054ceb847846?auto=format&fit=crop&w=600&q=80"], description: "", stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 67
+    id: "10", name: "Apple iPhone 15 Pro Max", price: 148900, originalPrice: 159900,
+    slug: "iphone-15-pro-max", category: "Smart Phone", images: ["https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80"], description: "", stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 1200
   },
 ];
 

@@ -7,31 +7,36 @@ import { Button } from "@/components/ui/Button";
 const PODIUM_ITEMS = [
   {
     id: 1,
-    title: "MICROWAVE",
-    price: "7,700",
-    image: "https://images.unsplash.com/photo-1585659722983-48356c9a702b?auto=format&fit=crop&w=600&q=80", // Microwave
-    link: "/products/lg-28l-convection", // Using existing slug
+    title: "TELEVISION",
+    price: "13,990",
+    image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80", // TV
+    link: "/products/samsung-32-hd-smart",
   },
   {
     id: 2,
     title: "SMARTPHONE",
-    price: "8,240",
-    image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=600&q=80", // Samsung-syle phone
-    link: "/products/samsung-s24-ultra", // Using existing slug
+    price: "23,999",
+    image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=600&q=80", // Phone
+    link: "/products/nothing-phone-2a",
   },
   {
     id: 3,
-    title: "TWS & HEADPHONES",
-    price: "449",
-    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80", // Headphones
-    link: "/products/sony-wh-1000xm5", // Using existing slug
+    title: "WASHING MACHINE",
+    price: "16,490",
+    image: "https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?auto=format&fit=crop&w=600&q=80", // WM
+    link: "/products/whirlpool-7.5kg-top-load",
   },
   {
     id: 4,
-    title: "SMARTWATCH",
-    price: "1,399",
-    image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=600&q=80", // Smartwatch
-    link: "/products/apple-watch-s9", // Using existing slug
+    title: "HOME THEATRE",
+    price: "14,999",
+    image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80", // Zebronics Juke Bar Image
+    // Using a generic soundbar image if external URL is risky, but previous code used Unsplash.
+    // I will use a reliable Unsplash or existing image.
+    // Let's use the one from `soundbars.ts` if accessible or Unsplash.
+    // Unsplash soundbar/speaker:
+    // https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=600&q=80
+    link: "/products/zebronics-9700-pro",
   }
 ];
 

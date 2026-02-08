@@ -79,15 +79,26 @@ export function MainNavbar({ className }: { className?: string }) {
           <div className="flex items-center justify-between gap-4 relative">
             {/* Logo Section */}
             <div className="flex-shrink-0 flex items-center gap-2 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 md:left-auto">
-              <Link href="/" className="group flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-accent to-blue-600 border border-white/10 shadow-[0_0_15px_rgba(0,198,255,0.3)] flex items-center justify-center text-primary-dark font-bold text-xs tracking-tighter group-hover:scale-105 transition-transform duration-300">
-                  <span className="text-white">HBT</span>
-                </div>
-                <div className="block">
-                  <span className="block font-heading font-bold text-xl leading-none text-primary dark:text-white tracking-tight">
-                    HBT Enterprises
+              <Link href="/" className="group flex items-center gap-3">
+                {/* Logo Icon */}
+                <div className="w-10 h-10 rounded-xl bg-[#0A2540] dark:bg-white flex items-center justify-center relative overflow-hidden shadow-md group-hover:shadow-[0_0_15px_rgba(0,198,255,0.4)] transition-all duration-300 border border-white/10 dark:border-neutral-200">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#00C6FF]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="text-white dark:text-[#0A2540] font-['Orbitron'] font-black text-xs tracking-widest relative z-10">
+                    HBT
                   </span>
-                  <span className="block text-[10px] font-medium text-neutral-500 tracking-widest uppercase mt-0.5 group-hover:text-accent transition-colors">
+                </div>
+                
+                {/* Logo Text */}
+                <div className="flex flex-col justify-center">
+                  <div className="flex items-baseline gap-1 leading-none">
+                    <span className="font-['Orbitron'] font-black text-xl text-[#0A2540] dark:text-white tracking-wide group-hover:text-[#00C6FF] transition-colors duration-300">
+                      HBT
+                    </span>
+                    <span className="font-heading font-medium text-lg text-[#0A2540] dark:text-white tracking-tight group-hover:text-[#00C6FF] transition-colors duration-300">
+                      Enterprises
+                    </span>
+                  </div>
+                  <span className="text-[9px] font-bold text-neutral-500 tracking-[0.3em] uppercase mt-0.5 group-hover:text-[#0A2540] dark:group-hover:text-neutral-300 transition-colors">
                     Premium Tech Gear
                   </span>
                 </div>

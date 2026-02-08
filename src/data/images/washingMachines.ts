@@ -1,9 +1,13 @@
 export const WASHING_MACHINE_IMAGES: Record<string, string[]> = {
-    'wm-1': ['https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?auto=format&fit=crop&w=800&q=80'],
-    'wm-2': ['https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&w=800&q=80'],
-    'wm-3': ['https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&w=800&q=80'],
-    'wm-4': ['https://images.unsplash.com/photo-1626806775351-538068f2f480?auto=format&fit=crop&w=800&q=80'],
-    'wm-5': ['https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&w=800&q=80'],
-    'wm-6': ['https://images.unsplash.com/photo-1545173168-9f1947eebb8f?auto=format&fit=crop&w=800&q=80'],
-    'wm-feat-whirl': ['https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?auto=format&fit=crop&w=800&q=80'],
+    // Legacy images removed
+
+    // Dia Sun Images (Local)
+    'diasun-wm-90-half': ['/images/washing-machines/diasun-wm-90-half.png'],
+    'diasun-wm-11-full': ['/images/washing-machines/diasun-wm-11-full.png'],
+    'diasun-wm-85-full': ['/images/washing-machines/diasun-wm-85-full.png'],
+    'diasun-wm-75-opaque': ['/images/washing-machines/diasun-wm-75-opaque.png'],
+    'diasun-wm-10-full': ['/images/washing-machines/diasun-wm-10-full.png'],
+    'diasun-wm-105-grey': ['/images/washing-machines/diasun-wm-105-grey.png'],
+    'diasun-wm-95-gold': ['/images/washing-machines/diasun-wm-95-gold.png'],
+    'diasun-wm-75-maroon': ['/images/washing-machines/diasun-wm-75-maroon.png'],
 };

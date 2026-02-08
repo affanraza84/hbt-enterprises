@@ -8,3 +8,4 @@ export * from './airConditioners';
 export * from './accessories';
 export * from './soundbars';
 export * from './featured';
+export * from './coolers';

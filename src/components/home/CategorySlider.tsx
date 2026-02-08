@@ -3,32 +3,21 @@
 import Link from "next/link";
 import { 
   Smartphone, 
-  Laptop, 
-  Headphones, 
-  Gamepad2, 
   Tv, 
-  Wind, 
-  Printer, 
-  Refrigerator, 
-  Microwave, 
   Fan,
-  Lightbulb
+  Speaker,
+  Waves
 } from "lucide-react";
 
 import { motion, Variants } from "framer-motion";
 
-// Expanded categories based on user request and modern tech store needs
+// Expanded categories based on user request
 const categories = [
-  { name: "Air Conditioner", icon: Wind, href: "/category/air-conditioners", animation: "spin" },
-  { name: "Laptops & Printer", icon: Laptop, href: "/category/laptops-printers", animation: "scale" },
-  { name: "Home Appliances", icon: Refrigerator, href: "/category/home-appliances", animation: "wiggle" },
-  { name: "Televisions", icon: Tv, href: "/category/televisions", animation: "pulse" },
-  { name: "Smart Phone", icon: Smartphone, href: "/category/smart-phones", animation: "shake" },
-  { name: "Microwaves", icon: Microwave, href: "/category/microwaves", animation: "scale" },
-  { name: "Air Coolers", icon: Fan, href: "/category/air-coolers", animation: "spin" },
-  { name: "Smart Home", icon: Lightbulb, href: "/category/smart-home", animation: "pulse" },
-  { name: "Accessories", icon: Headphones, href: "/category/accessories", animation: "bounce" },
-  { name: "Gaming", icon: Gamepad2, href: "/category/gaming", animation: "shake" },
+  { name: "Televisions", icon: Tv, href: "/products?category=Television", animation: "pulse" },
+  { name: "Smart Phones", icon: Smartphone, href: "/products?category=Smart Phone", animation: "shake" },
+  { name: "Washing Machines", icon: Waves, href: "/products?category=Washing Machine", animation: "spin" },
+  { name: "Air Coolers", icon: Fan, href: "/products?category=Cooler", animation: "spin" },
+  { name: "Home Theatres", icon: Speaker, href: "/products?category=Soundbar", animation: "bounce" },
 ];
 
 const iconVariants: Variants = {

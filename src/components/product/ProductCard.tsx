@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/Button';
 import { Heart, ShoppingCart, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useCart } from '@/context/CartContext';
+import { useWishlist } from '@/context/WishlistContext';
 import toast from 'react-hot-toast';
 
 interface ProductCardProps {
@@ -16,6 +17,8 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
+  const { isInWishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  const isWishlisted = isInWishlist(product.id);
 
   // Mock rating if not present (remove mock logic when backend provides real data)
   const rating = product.rating || 4.5;
@@ -42,17 +45,32 @@ export function ProductCard({ product }: ProductCardProps) {
     });
   };
 
+  const toggleWishlist = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (isWishlisted) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist(product);
+    }
+  };
+
   return (
     <div className="group relative bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:border-accent/50 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] flex flex-col h-full overflow-hidden">
       
       {/* Image Container */}
       <div className={cn(
-        "relative overflow-hidden bg-neutral-100 dark:bg-neutral-800/50 p-4",
-        product.category === 'Television' ? "aspect-video" : "aspect-square"
+        "relative overflow-hidden bg-neutral-100 dark:bg-neutral-800/50 p-4 aspect-square"
       )}>
         {/* Wishlist Button */}
-        <button className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm flex items-center justify-center text-neutral-400 hover:text-red-500 hover:scale-110 transition-all shadow-sm border border-neutral-200 dark:border-neutral-800">
-           <Heart className="w-4 h-4" />
+        <button 
+          onClick={toggleWishlist}
+          className={cn(
+            "absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm flex items-center justify-center transition-all shadow-sm border border-neutral-200 dark:border-neutral-800 hover:scale-110",
+            isWishlisted ? "text-red-500 fill-current" : "text-neutral-400 hover:text-red-500"
+          )}
+        >
+           <Heart className={cn("w-4 h-4", isWishlisted && "fill-current")} />
         </button>
 
         {/* Badges */}
@@ -76,8 +94,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 alt={product.name}
                 fill
                 className={cn(
-                    "transition-transform duration-500 group-hover:scale-105",
-                    product.category === 'Television' ? "object-contain p-2" : "object-cover"
+                    "transition-transform duration-500 group-hover:scale-105 object-cover"
                 )}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />

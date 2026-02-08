@@ -39,10 +39,12 @@ export function TopBar({ className }: { className?: string }) {
               </div>
            </SignedIn>
            <span className="text-primary/20">|</span>
-           <Link href="/wishlist" className="flex items-center gap-1.5 text-primary hover:text-accent transition-colors">
-               <Heart className="w-3.5 h-3.5" />
-               <span>Wishlist</span>
-           </Link>
+           <div className="flex items-center gap-1.5 text-primary hover:text-accent transition-colors relative">
+               <Link href="/wishlist" className="flex items-center gap-1.5">
+                   <Heart className="w-3.5 h-3.5" />
+                   <span>Wishlist</span>
+               </Link>
+           </div>
         </div>
       </div>
     </div>

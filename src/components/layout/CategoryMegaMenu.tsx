@@ -9,171 +9,52 @@ import { useTheme } from "next-themes";
 // Data Structure based on User Images
 export const CATEGORIES = [
   {
-    id: "accessories",
-    label: "Accessories",
-    subgroups: [
-      {
-        title: "Bluetooth Speakers",
-        items: ["Saregama", "boAt", "Marshall", "LG", "Bose"],
-      },
-      {
-        title: "Neckband & Earbuds",
-        items: ["boAt", "URBAN", "Zebronics", "Marshall", "JBL"],
-      },
-      {
-        title: "Smart Watch",
-        items: ["boAt", "Fire Boltt", "Noise"],
-      },
-      {
-        title: "Bluetooth Headphone",
-        items: ["boAt", "Zebronics", "Marshall", "JBL"],
-      },
-      {
-        title: "Wired Earphones",
-        items: ["boAt", "Zebronics", "JBL"],
-      },
-    ],
-  },
-  {
-    id: "air-conditioner",
-    label: "Air Conditioner",
-    subgroups: [
-      {
-        title: "Brand",
-        items: [
-          "Carrier",
-          "Daikin",
-          "Electrolux",
-          "Godrej",
-          "Hitachi",
-          "Kelvinator",
-          "LG",
-          "Lloyd",
-          "Mitsubishi",
-          "O General",
-          "Onida",
-          "Samsung",
-          "Voltas",
-          "Blue Star",
-          "HAIER",
-        ],
-      },
-      {
-        title: "Split AC",
-        items: [
-          "0.8 Ton",
-          "1.0 Ton",
-          "1.5 Ton",
-          "1.8 Ton",
-          "2.0 Ton",
-          "2.2 Ton",
-          "2.5 Ton",
-          "1.9 Ton",
-        ],
-      },
-      {
-        title: "Window",
-        items: ["1.1 TON", "1.0 Ton", "1.5 Ton", "2.0 Ton"],
-      },
-    ],
-  },
-  {
-    id: "laptops-printer",
-    label: "Laptops & Printer",
-    subgroups: [
-      {
-        title: "Desktop",
-        items: ["Pentium", "Intel Celeron", "All in one"],
-      },
-      {
-        title: "Laptops",
-        items: ["HP", "Lenovo"],
-      },
-      {
-        title: "Printers",
-        items: ["HP"],
-      },
-    ],
-  },
-  {
-    id: "home-appliances",
-    label: "Home Appliances",
-    subgroups: [
-      {
-        title: "Refrigerator",
-        items: ["Direct Cool", "Frost Free", "Side-By-Side", "Deep Freezer"],
-      },
-      {
-        title: "Washing Machine",
-        items: [
-          "Semi Automatic",
-          "Front Loading",
-          "Top Loading",
-          "Washer Dryer",
-          "WashTower",
-        ],
-      },
-      {
-        title: "Dishwashers",
-        items: ["Free Standing"],
-      },
-      {
-        title: "Dryers",
-        items: ["Condenser", "Vented", "Heat Pump Dryer"],
-      },
-      {
-        title: "Air Purifiers",
-        items: [], // No items shown in snippet but category exists
-      },
-      {
-        title: "Water Purifier",
-        items: ["RO", "RO + UV", "RO + UV + UF"],
-      },
-      {
-        title: "Home Security",
-        items: ["SAFE & LOCKERS"],
-      },
-    ],
-  },
-  {
     id: "home-entertainment",
-    label: "Home Entertainment",
+    label: "Televisions",
     subgroups: [
       {
-        title: "Televisions",
-        items: ["LED TV", "QLED TV", "OLED TV", "4K Ultra HD", "Smart TV"],
+        title: "Brands",
+        items: ["Samsung", "LG", "Bush", "Daisun", "Cellecor"],
       },
       {
-        title: "Audio Systems",
-        items: ["Soundbars", "Home Theatre", "Party Speakers"],
+        title: "Type",
+        items: ["Smart TV", "4K Ultra HD", "QLED", "LED"],
       },
     ],
   },
   {
     id: "smart-phone",
-    label: "Smart Phone",
+    label: "Smart Phones",
     subgroups: [
       {
         title: "Brands",
         items: [
-          "Apple",
           "Samsung",
+          "Apple",
           "OnePlus",
+          "Google",
           "Xiaomi",
-          "Vivo",
-          "Oppo",
-          "Realme",
+          "Nothing",
         ],
       },
     ],
   },
   {
-    id: "microwaves",
-    label: "Microwaves",
+    id: "home-appliances",
+    label: "Washing Machines",
     subgroups: [
       {
-        title: "Types",
-        items: ["Solo", "Grill", "Convection"],
+        title: "Type",
+        items: [
+          "Front Load",
+          "Top Load",
+          "Semi Automatic",
+          "Fully Automatic",
+        ],
+      },
+      {
+        title: "Brands",
+        items: ["LG", "Samsung", "Whirlpool", "IFB", "Bosch", "Haier"],
       },
     ],
   },
@@ -182,8 +63,26 @@ export const CATEGORIES = [
     label: "Air Coolers",
     subgroups: [
       {
-        title: "Types",
-        items: ["Personal", "Desert", "Window", "Tower"],
+        title: "Type",
+        items: ["Desert", "Personal", "Window", "Tower"],
+      },
+      {
+        title: "Brands",
+        items: ["Honeywell", "Symphony", "Bajaj", "Crompton"],
+      },
+    ],
+  },
+  {
+    id: "soundbar",
+    label: "Home Theatres",
+    subgroups: [
+      {
+        title: "Featured Brand",
+        items: ["Zebronics"],
+      },
+      {
+        title: "Other Brands",
+        items: ["Sony", "JBL", "Samsung", "Bose", "boat"],
       },
     ],
   },

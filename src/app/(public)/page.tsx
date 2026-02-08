@@ -30,20 +30,43 @@ export default async function Home() {
       <FeaturedDisplay />
       
       <CategorySection 
+        title="Televisions" 
+        subtitle="Cinematic Experience" 
+        products={getProductsByCategory('Television').slice(0, 6)} 
+        viewAllLink="/products?category=television" 
+      />
+
+      <CategorySection 
         title="Washing Machines" 
         subtitle="Laundry Care" 
-        products={getProductsByCategory('Washing Machine')} 
+        products={getProductsByCategory('Washing Machine').slice(0, 6)} 
         viewAllLink="/products?category=washing-machine" 
+      />
+
+      <CategorySection 
+        title="Smart Phones" 
+        subtitle="Connect & Create" 
+        products={getProductsByCategory('Smart Phone').slice(0, 6)} 
+        viewAllLink="/products?category=smart-phone" 
       />
 
       <CategoryBannerGrid />
 
       <CategorySection 
-        title="Televisions" 
-        subtitle="Cinematic Experience" 
-        products={getProductsByCategory('Television')} 
-        viewAllLink="/products?category=television" 
+        title="Coolers" 
+        subtitle="Beat the Heat" 
+        products={getProductsByCategory('Cooler').slice(0, 6)} 
+        viewAllLink="/products?category=cooler" 
       />
+
+      <CategorySection 
+        title="Soundbars" 
+        subtitle="Immersive Audio" 
+        products={getProductsByCategory('Soundbar').slice(0, 6)} 
+        viewAllLink="/products?category=soundbar" 
+      />
+
+      <PurpleProductGrid />
 
       <CategorySection 
         title="Refrigerators" 
@@ -66,27 +89,11 @@ export default async function Home() {
         viewAllLink="/products?category=microwave" 
       />
 
-      <PurpleProductGrid />
-
-      <CategorySection 
-        title="Smart Phones" 
-        subtitle="Connect & Create" 
-        products={getProductsByCategory('Smart Phone')} 
-        viewAllLink="/products?category=smart-phone" 
-      />
-
       <CategorySection 
         title="Laptops & Printers" 
         subtitle="Work & Play" 
         products={getProductsByCategories(['Laptop', 'Printer'])} 
         viewAllLink="/products?category=laptops" 
-      />
-
-      <CategorySection 
-        title="Soundbars" 
-        subtitle="Immersive Audio" 
-        products={getProductsByCategory('Soundbar')} 
-        viewAllLink="/products?category=soundbar" 
       />
 
       <CategorySection 

@@ -9,7 +9,8 @@ import {
     AC_IMAGES,
     ACCESSORY_IMAGES,
     SOUNDBAR_IMAGES,
-    FEATURED_IMAGES
+    FEATURED_IMAGES,
+    COOLER_IMAGES
 } from '@/data/images';
 
 const MOCK_PRODUCTS: Product[] = [
@@ -209,213 +210,140 @@ const MOCK_PRODUCTS: Product[] = [
         keyFeatures: ['Leica Summilux Lens', 'Snapdragon 8 Gen 3', 'WQHD+ AMOLED'], offers: ['₹5000 off on Exchange'], specs: { 'Camera': 'Quad 50MP', 'Battery': '5000 mAh' }
     },
 
-    // --- LAPTOPS & PRINTERS ---
-    {
-        id: 'lp-1', name: 'Apple MacBook Air M3 Chip 13-inch', price: 114900, originalPrice: 134900,
-        slug: 'macbook-air-m3', category: 'Laptop', images: LAPTOP_IMAGES['lp-1'], description: 'Lean. Mean. M3 Machine.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 320, brand: 'APPLE',
-        keyFeatures: ['Supercharged by M3', 'Up to 18 hrs battery', 'Liquid Retina Display'], offers: ['Student Discount'], specs: { 'Chip': 'Apple M3', 'RAM': '8GB', 'SSD': '256GB' }
-    },
-    {
-        id: 'lp-2', name: 'HP Pavilion 15 12th Gen Intel Core i5', price: 62990, originalPrice: 78000,
-        slug: 'hp-pavilion-15', category: 'Laptop', images: LAPTOP_IMAGES['lp-2'], description: 'Performance that lasts.', stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 210, brand: 'HP',
-        keyFeatures: ['Intel Core i5 12th Gen', 'Backlit Keyboard', 'Bang & Olufsen Audio'], offers: ['Free Mouse'], specs: { 'Processor': 'i5-1240P', 'RAM': '16GB', 'Storage': '512GB SSD' }
-    },
-    {
-        id: 'lp-3', name: 'Canon Pixma G3000 All-in-One Ink Tank Colour Printer', price: 12499, originalPrice: 15995,
-        slug: 'canon-pixma-g3000', category: 'Printer', images: LAPTOP_IMAGES['lp-3'], description: 'High volume printing.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 500, brand: 'CANON',
-        keyFeatures: ['High Yield Ink Bottles', 'Wireless Printing', 'Integrated Ink Tanks'], offers: ['Extra Ink Bottle'], specs: { 'Type': 'Ink Tank', 'Connectivity': 'Wi-Fi, USB' }
-    },
-    {
-        id: 'lp-4', name: 'Dell XPS 13 Plus Laptop Evo Core i7', price: 199990, originalPrice: 240000,
-        slug: 'dell-xps-13', category: 'Laptop', images: LAPTOP_IMAGES['lp-4'], description: 'Designed to be the best.', stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 150, brand: 'DELL',
-        keyFeatures: ['Zero-lattice Keyboard', 'Capacitive Touch Row', 'OLED 3.5K Display'], offers: ['No Cost EMI'], specs: { 'Processor': 'i7-1360P', 'RAM': '32GB', 'SSD': '1TB' }
-    },
-    {
-        id: 'lp-5', name: 'ASUS ROG Zephyrus G14 Gaming Laptop', price: 149990, originalPrice: 180990,
-        slug: 'asus-rog-g14', category: 'Laptop', images: LAPTOP_IMAGES['lp-5'], description: 'World\'s most powerful 14-inch gaming laptop.', stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 220, brand: 'ASUS',
-        keyFeatures: ['AniMe Matrix LED', 'AMD Ryzen 9', 'RTX 4060', 'Nebula Display'], offers: ['Game Pass Included'], specs: { 'Processor': 'Ryzen 9 7940HS', 'GPU': 'RTX 4060 8GB' }
-    },
-    {
-        id: 'lp-6', name: 'Epson EcoTank L3250 Wi-Fi All-in-One Ink Tank Printer', price: 13999, originalPrice: 16999,
-        slug: 'epson-ecotank-l3250', category: 'Printer', images: LAPTOP_IMAGES['lp-6'], description: 'Economical and Eco-friendly.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 400, brand: 'EPSON',
-        keyFeatures: ['Heat-Free Technology', 'Smart Panel App', 'Spill-free Refilling'], offers: ['1 Year Extended Warranty'], specs: { 'Print Speed': '33 ppm', 'Cost per page': '7 paise' }
-    },
 
-    // --- MICROWAVES ---
-    {
-        id: 'mw-1', name: 'LG 28 L Convection Microwave Oven', price: 11990, originalPrice: 16490,
-        slug: 'lg-28l-convection', category: 'Microwave', images: MICROWAVE_IMAGES['mw-1'], description: 'All in one convection oven.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 380, brand: 'LG',
-        keyFeatures: ['Charcoal Lighting Heater', 'Diet Fry', 'Indian Roti Basket'], offers: ['Starter Kit Included'], specs: { 'Capacity': '28L', 'Type': 'Convection' }
-    },
-    {
-        id: 'mw-2', name: 'Samsung 28 L Convection Microwave Oven', price: 11590, originalPrice: 15500,
-        slug: 'samsung-28l-convection', category: 'Microwave', images: MICROWAVE_IMAGES['mw-2'], description: 'Curd making and tandoor technology.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 310, brand: 'SAMSUNG',
-        keyFeatures: ['Slim Fry Technology', 'Tandoor Technology', 'Curd Making'], offers: ['10% Cashback'], specs: { 'Capacity': '28L', 'Power': '900W' }
-    },
-    {
-        id: 'mw-3', name: 'IFB 20 L Convection Microwave Oven', price: 9490, originalPrice: 13490,
-        slug: 'ifb-20l-convection', category: 'Microwave', images: MICROWAVE_IMAGES['mw-3'], description: 'Multi-stage cooking.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 190, brand: 'IFB',
-        keyFeatures: ['Keep Warm', 'Deodorize', 'Auto Cook Menus'], offers: [], specs: { 'Capacity': '20L', 'Control': 'Keypad' }
-    },
-    {
-        id: 'mw-4', name: 'Panasonic 27 L Convection Microwave Oven', price: 12990, originalPrice: 16990,
-        slug: 'panasonic-27l-convection', category: 'Microwave', images: MICROWAVE_IMAGES['mw-4'], description: 'Magic grill technology.', stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 220, brand: 'PANASONIC',
-        keyFeatures: ['Twin Turbo Cooking', 'Magic Grill', 'Zero Oil Recipes'], offers: ['Free Glass Bowl'], specs: { 'Capacity': '27L', 'Turntable': 'Glass' }
-    },
-    {
-        id: 'mw-5', name: 'Bajaj 17 L Solo Microwave Oven', price: 4990, originalPrice: 6500,
-        slug: 'bajaj-17l-solo', category: 'Microwave', images: MICROWAVE_IMAGES['mw-5'], description: 'Compact and efficient.', stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 150, brand: 'BAJAJ',
-        keyFeatures: ['Cooking Complete Alarm', 'Defrost', 'Mechanical Knob'], offers: [], specs: { 'Capacity': '17L', 'Type': 'Solo' }
-    },
-    {
-        id: 'mw-6', name: 'Morphy Richards 25 L Convection Microwave Oven', price: 10990, originalPrice: 14990,
-        slug: 'morphy-richards-25l', category: 'Microwave', images: MICROWAVE_IMAGES['mw-6'], description: 'Premium design.', stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 110, brand: 'MORPHY RICHARDS',
-        keyFeatures: ['Combination Cooking', 'Stainless Steel Cavity', 'Child Lock'], offers: ['2 Years Warranty'], specs: { 'Capacity': '25L', 'Color': 'Silver' }
-    },
 
-    // --- REFRIGERATORS ---
-    {
-        id: 'ref-1', name: 'Samsung 236 L 3 Star Digital Inverter Frost Free Double Door', price: 24990, originalPrice: 31990,
-        slug: 'samsung-236l-double-door', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-1'], description: 'Convertible 3-in-1.', stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 280, brand: 'SAMSUNG',
-        keyFeatures: ['Digital Inverter', 'Convertible 3-in-1', 'Stabilizer Free Operation'], offers: ['Exchange Up To ₹4000'], specs: { 'Capacity': '236L', 'Star Rating': '3 Star' }
-    },
-    {
-        id: 'ref-2', name: 'LG 242 L 3 Star Smart Inverter Frost-Free Double Door', price: 25990, originalPrice: 33990,
-        slug: 'lg-242l-double-door', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-2'], description: 'Smart diagnosis.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 210, brand: 'LG',
-        keyFeatures: ['Smart Inverter Compressor', 'Door Cooling+', 'Smart Diagnosis'], offers: [], specs: { 'Capacity': '242L', 'Cooling': 'Frost Free' }
-    },
-    {
-        id: 'ref-3', name: 'Whirlpool 265 L 3 Star Inverter Frost-Free Double Door', price: 27490, originalPrice: 35100,
-        slug: 'whirlpool-265l-double-door', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-3'], description: 'Intellisense inverter.', stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 150, brand: 'WHIRLPOOL',
-        keyFeatures: ['Intellisense Inverter', '12 Days Garden Fresh', 'Zeolite Technology'], offers: [], specs: { 'Capacity': '265L', 'Compressor': 'Inverter' }
-    },
-    {
-        id: 'ref-4', name: 'Haier 190 L 4 Star Single Door Refrigerator', price: 14990, originalPrice: 19900,
-        slug: 'haier-190l-single-door', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-4'], description: '1 Hour Icing Technology.', stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 120, brand: 'HAIER',
-        keyFeatures: ['1 Hour Icing Technology', 'Stabiliser Free', 'Toughened Glass Shelves'], offers: ['Instant ₹500 Off'], specs: { 'Capacity': '190L', 'Door': 'Single' }
-    },
-    {
-        id: 'ref-5', name: 'Godrej 223 L 3 Star Nano Shield Technology Inverter Frost Free', price: 22990, originalPrice: 28990,
-        slug: 'godrej-223l-double-door', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-5'], description: 'Nano shield disinfection.', stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 90, brand: 'GODREJ',
-        keyFeatures: ['Nano Shield Disinfection', 'Inverter Compressor', 'Cool Shower Technology'], offers: [], specs: { 'Capacity': '223L', 'Color': 'Blue' }
-    },
-    {
-        id: 'ref-6', name: 'Samsung 653 L 3 Star Convertible 5-in-1 Side by Side Refrigerator', price: 79990, originalPrice: 103000,
-        slug: 'samsung-653l-side-by-side', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-6'], description: 'SpaceMax technology.', stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 350, brand: 'SAMSUNG',
-        keyFeatures: ['Convertible 5-in-1', 'SpaceMax Technology', 'Twin Cooling Plus'], offers: ['EMI from ₹4000'], specs: { 'Capacity': '653L', 'Type': 'Side by Side' }
-    },
-    {
-        id: 'ref-feat-lg', name: 'LG French Door Refrigerator', description: 'Keep your food fresh with linear cooling technology.', price: 84990, slug: 'lg-french-door-fridge', images: REFRIGERATOR_IMAGES['ref-feat-lg'], category: 'Refrigerator', stock: 15, createdAt: new Date(), updatedAt: new Date(), brand: 'LG',
-        keyFeatures: ['Linear Cooling', 'Door Cooling+', 'Hygiene Fresh+'], offers: [], specs: { 'Capacity': '594L', 'Compressor': 'Inverter Linear' }
-    },
+
+
+
 
     // --- WASHING MACHINES ---
+
+
+    // --- DIA SUN WASHING MACHINES ---
     {
-        id: 'wm-1', name: 'LG 8 Kg 5 Star Inverter Fully Automatic Front Load', price: 34990, originalPrice: 45990,
-        slug: 'lg-8kg-front-load', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['wm-1'], description: 'Direct Drive Motor.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 320, brand: 'LG',
-        keyFeatures: ['AI Direct Drive', 'Steam Wash', 'ThinQ'], offers: ['5% off on Prepaid'], specs: { 'Capacity': '8 Kg', 'Type': 'Front Load' }
+        id: 'diasun-wm-90-half', name: 'Dia Sun 9.0 Kg Semi Automatic Top Load (Half Glass)', price: 10990, originalPrice: 14990,
+        slug: 'diasun-9kg-semi-automatic', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['diasun-wm-90-half'], description: 'Smart AI Clean Wash with Half Glass Lid.', stock: 50, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 25, brand: 'DIA SUN',
+        keyFeatures: ['Smart AI Clean Wash', 'Half Glass Lid', '9.0 Kg Capacity'], offers: ['5 Year Warranty'], specs: { 'Capacity': '9.0 Kg', 'Type': 'Semi Automatic', 'Lid': 'Half Glass' }
     },
     {
-        id: 'wm-2', name: 'Samsung 7 Kg 5 Star Inverter Fully Automatic Top Load', price: 18990, originalPrice: 22500,
-        slug: 'samsung-7kg-top-load', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['wm-2'], description: 'Eco Bubble Technology.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 150, brand: 'SAMSUNG',
-        keyFeatures: ['Eco Bubble', 'Digital Inverter', 'Soft Close Lid'], offers: [], specs: { 'Capacity': '7 Kg', 'Type': 'Top Load' }
+        id: 'diasun-wm-11-full', name: 'Dia Sun 11 Kg Semi Automatic Top Load (Full Glass)', price: 13490, originalPrice: 18990,
+        slug: 'diasun-11kg-full-glass', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['diasun-wm-11-full'], description: 'Large capacity with premium Full Glass design.', stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 30, brand: 'DIA SUN',
+        keyFeatures: ['11 Kg Large Capacity', 'Full Glass Lid', 'Smart AI Wash'], offers: ['Free Installation'], specs: { 'Capacity': '11 Kg', 'Type': 'Semi Automatic', 'Lid': 'Full Glass' }
     },
     {
-        id: 'wm-3', name: 'Whirlpool 7.5 Kg 5 Star Stainwash Pro Top Load', price: 16490, originalPrice: 20400,
-        slug: 'whirlpool-7.5kg-top-load', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['wm-3'], description: 'Hard water wash.', stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 89, brand: 'WHIRLPOOL',
-        keyFeatures: ['Hard Water Wash', 'Zero Pressure Fill', 'Spiro Wash'], offers: [], specs: { 'Capacity': '7.5 Kg', 'Heater': 'Yes' }
+        id: 'diasun-wm-85-full', name: 'Dia Sun 8.5 Kg Semi Automatic Top Load (Full Glass)', price: 10490, originalPrice: 13990,
+        slug: 'diasun-8.5kg-full-glass', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['diasun-wm-85-full'], description: 'Stylish Full Glass design with powerful wash.', stock: 45, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 15, brand: 'DIA SUN',
+        keyFeatures: ['8.5 Kg Capacity', 'Full Glass Lid', 'Rust Proof Body'], offers: [], specs: { 'Capacity': '8.5 Kg', 'Type': 'Semi Automatic', 'Lid': 'Full Glass' }
     },
     {
-        id: 'wm-4', name: 'IFB 8 Kg 5 Star AI Powered Front Load', price: 36990, originalPrice: 48990,
-        slug: 'ifb-8kg-ai-front-load', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['wm-4'], description: 'AI powered wash.', stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 205, brand: 'IFB',
-        keyFeatures: ['AI Powered', 'Oxyjet Technology', 'Power Steam'], offers: ['Exchange Bonus'], specs: { 'Capacity': '8 Kg', 'RPM': '1400' }
+        id: 'diasun-wm-75-opaque', name: 'Dia Sun 7.5 Kg Semi Automatic Top Load (Opaque)', price: 8990, originalPrice: 11990,
+        slug: 'diasun-7.5kg-opaque', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['diasun-wm-75-opaque'], description: 'Durable Opaque lid for rough use.', stock: 60, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 40, brand: 'DIA SUN',
+        keyFeatures: ['7.5 Kg Capacity', 'Opaque Lid', 'Smart Scrub Station'], offers: [], specs: { 'Capacity': '7.5 Kg', 'Type': 'Semi Automatic', 'Lid': 'Opaque' }
     },
     {
-        id: 'wm-5', name: 'Bosch 7 Kg 5 Star Inverter Touch Control Front Load', price: 30990, originalPrice: 39500,
-        slug: 'bosch-7kg-front-load', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['wm-5'], description: 'Hygiene Wash.', stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 180, brand: 'BOSCH',
-        keyFeatures: ['Hygiene Wash', 'Anti-Tangle', 'Vario Drum'], offers: [], specs: { 'Capacity': '7 Kg', 'Motor': 'EcoSilence Drive' }
+        id: 'diasun-wm-10-full', name: 'Dia Sun 10.0 Kg Semi Automatic Top Load (Blue Flower Design)', price: 12490, originalPrice: 16990,
+        slug: 'diasun-10kg-blue-flower', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['diasun-wm-10-full'], description: 'Elegant Blue Flower design with 10kg capacity.', stock: 35, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 20, brand: 'DIA SUN',
+        keyFeatures: ['10.0 Kg Capacity', 'Blue Flower Design', 'Powerful Motor'], offers: [], specs: { 'Capacity': '10.0 Kg', 'Type': 'Semi Automatic', 'Design': 'Blue Flower' }
     },
     {
-        id: 'wm-6', name: 'Haier 8.5 Kg 5 Star Anti-Bacterial Vortex Top Load', price: 22990, originalPrice: 32000,
-        slug: 'haier-8.5kg-top-load', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['wm-6'], description: 'Oceanus Wave Drum.', stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 95, brand: 'HAIER',
-        keyFeatures: ['Oceanus Wave Drum', 'Double Magic Filter', 'Near Zero Pressure'], offers: [], specs: { 'Capacity': '8.5 Kg', 'Body': 'Steel' }
+        id: 'diasun-wm-105-grey', name: 'Dia Sun 10.5 Kg Semi Automatic Top Load (Grey Full Glass)', price: 13990, originalPrice: 17990,
+        slug: 'diasun-10.5kg-grey-full-glass', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['diasun-wm-105-grey'], description: 'Premium Grey finish with Full Glass Lid.', stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 10, brand: 'DIA SUN',
+        keyFeatures: ['10.5 Kg Capacity', 'Full Glass Lid', 'Smart AI Clean Wash'], offers: ['Free Installation'], specs: { 'Capacity': '10.5 Kg', 'Type': 'Semi Automatic', 'Lid': 'Full Glass' }
     },
     {
-        id: 'wm-feat-whirl', name: 'Whirlpool Front Load Washer', description: 'Advanced stain removal and steam clean technology.', price: 34990, slug: 'whirlpool-front-load', images: WASHING_MACHINE_IMAGES['wm-feat-whirl'], category: 'Washing Machine', stock: 20, createdAt: new Date(), updatedAt: new Date(), brand: 'WHIRLPOOL',
-        keyFeatures: ['FreshCare+', '6th Sense SoftMove', 'Steam Refresh'], offers: ['Installation Free'], specs: { 'Capacity': '7 Kg', 'Energy': '5 Star' }
+        id: 'diasun-wm-95-gold', name: 'Dia Sun 9.5 Kg Semi Automatic Top Load (Gold Abstract)', price: 11990, originalPrice: 15490,
+        slug: 'diasun-9.5kg-gold-abstract', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['diasun-wm-95-gold'], description: 'Stunning Gold Abstract design on Glass Lid.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 15, brand: 'DIA SUN',
+        keyFeatures: ['9.5 Kg Capacity', 'Gold Abstract Design', 'Smart AI Clean Wash'], offers: [], specs: { 'Capacity': '9.5 Kg', 'Type': 'Semi Automatic', 'Lid': 'Full Glass' }
+    },
+    {
+        id: 'diasun-wm-75-maroon', name: 'Dia Sun 7.5 Kg Semi Automatic Top Load (Maroon Opaque)', price: 9490, originalPrice: 12490,
+        slug: 'diasun-7.5kg-maroon-opaque', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['diasun-wm-75-maroon'], description: 'Durable Maroon and White design.', stock: 50, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 30, brand: 'DIA SUN',
+        keyFeatures: ['7.5 Kg Capacity', 'Opaque Lid', 'Smart AI Clean Wash'], offers: [], specs: { 'Capacity': '7.5 Kg', 'Type': 'Semi Automatic', 'Lid': 'Opaque' }
     },
 
-    // --- AIR CONDITIONERS ---
+
+
+
+
+
+    // --- COOLERS ---
     {
-        id: 'ac-1', name: 'Voltas 1.5 Ton 5 Star Inverter Split AC', price: 38990, originalPrice: 68990,
-        slug: 'voltas-1.5-split', category: 'Air Conditioner', images: AC_IMAGES['ac-1'], description: 'Quick cooling and energy efficient.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 300, brand: 'VOLTAS',
-        keyFeatures: ['Adjustable Cooling', 'Anti-Dust Filter', 'Copper Condenser'], offers: ['Free Installation'], specs: { 'Capacity': '1.5 Ton', 'Rating': '5 Star' }
+        id: 'cooler-air-punch-22', name: 'Air Punch 22" Long Tank', price: 9990, originalPrice: 12990,
+        slug: 'air-punch-22-long-tank', category: 'Cooler', images: COOLER_IMAGES['cooler-air-punch-22'], description: 'Powerful desert cooler with 150L tank capacity.', stock: 50, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 45, brand: 'AIR PUNCH',
+        keyFeatures: ['150 Liters Tank Capacity', 'Large Honeycomb Pad', '22 Inch Ring Size', 'Auto Swing'], offers: ['Free Delivery'], specs: { 'Tank': '150 Liters', 'Height': '63 Inches', 'Type': 'Desert Cooler' }
     },
     {
-        id: 'ac-2', name: 'LG 1.5 Ton 5 Star AI DUAL Inverter Split AC', price: 44490, originalPrice: 78990,
-        slug: 'lg-1.5-split-ai', category: 'Air Conditioner', images: AC_IMAGES['ac-2'], description: 'AI Convertible 6-in-1.', stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 410, brand: 'LG',
-        keyFeatures: ['AI Convertible 6-in-1', 'Viraat Mode', 'HD Filter'], offers: ['Cashback on Select Cards'], specs: { 'Capacity': '1.5 Ton', 'Compressor': 'Dual Inverter' }
+        id: 'cooler-java-glass-lavender', name: 'Java Glass Top (Lavender)', price: 7490, originalPrice: 9990,
+        slug: 'java-glass-top-lavender', category: 'Cooler', images: COOLER_IMAGES['cooler-java-glass-lavender'], description: 'Stylish glass top cooler in Lavender.', stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 30, brand: 'JAVA',
+        keyFeatures: ['100 Liters Tank Capacity', 'Glass Top', '16 Inch Blade Size', '3 Side Honeycomb Pads'], offers: [], specs: { 'Tank': '100 Liters', 'Height': '53 Inches', 'Color': 'Lavender' }
     },
     {
-        id: 'ac-3', name: 'Daikin 1.5 Ton 5 Star Inverter Split AC', price: 45490, originalPrice: 67200,
-        slug: 'daikin-1.5-split', category: 'Air Conditioner', images: AC_IMAGES['ac-3'], description: 'Dew clean technology.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 350, brand: 'DAIKIN',
-        keyFeatures: ['Dew Clean Technology', 'Triple Display', 'PM 2.5 Filter'], offers: [], specs: { 'Capacity': '1.5 Ton', 'Coil': 'Copper' }
+        id: 'cooler-jak-tower-grey', name: 'Jak Tower (Grey)', price: 8990, originalPrice: 11490,
+        slug: 'jak-tower-grey', category: 'Cooler', images: COOLER_IMAGES['cooler-jak-tower-grey'], description: 'Modern tower cooler design in Grey.', stock: 35, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 25, brand: 'JAK',
+        keyFeatures: ['120 Liters Tank Capacity', '18 Inch Blade Size', 'Ice Box', '3 Side Honeycomb Pads'], offers: [], specs: { 'Tank': '120 Liters', 'Height': '56 Inches', 'Color': 'Grey' }
     },
     {
-        id: 'ac-4', name: 'Carrier 1.5 Ton 5 Star AI Flexicool Inverter Split AC', price: 41990, originalPrice: 76000,
-        slug: 'carrier-1.5-split', category: 'Air Conditioner', images: AC_IMAGES['ac-4'], description: 'Convertible 6-in-1.', stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 220, brand: 'CARRIER',
-        keyFeatures: ['Convertible 6-in-1', 'Dual Filtration', 'Aqua Clear Protection'], offers: [], specs: { 'Capacity': '1.5 Ton', 'Refrigerant': 'R32' }
+        id: 'cooler-jak-tower-brown', name: 'Jak Tower (Brown)', price: 8990, originalPrice: 11490,
+        slug: 'jak-tower-brown', category: 'Cooler', images: COOLER_IMAGES['cooler-jak-tower-brown'], description: 'Modern tower cooler design in Brown.', stock: 35, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 20, brand: 'JAK',
+        keyFeatures: ['120 Liters Tank Capacity', '18 Inch Blade Size', 'Ice Box', '3 Side Honeycomb Pads'], offers: [], specs: { 'Tank': '120 Liters', 'Height': '56 Inches', 'Color': 'Brown' }
     },
     {
-        id: 'ac-5', name: 'Blue Star 1.5 Ton 5 Star Inverter Split AC', price: 42990, originalPrice: 75000,
-        slug: 'blue-star-1.5-split', category: 'Air Conditioner', images: AC_IMAGES['ac-5'], description: 'Turbo cool.', stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 180, brand: 'BLUE STAR',
-        keyFeatures: ['Turbo Cool', '5-in-1 Convertible', 'Smart Ready'], offers: [], specs: { 'Capacity': '1.5 Ton', 'Noise': 'Low' }
+        id: 'cooler-java-glass-orange', name: 'Java Glass Top (Orange)', price: 7490, originalPrice: 9990,
+        slug: 'java-glass-top-orange', category: 'Cooler', images: COOLER_IMAGES['cooler-java-glass-orange'], description: 'Stylish glass top cooler in Orange.', stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 35, brand: 'JAVA',
+        keyFeatures: ['100 Liters Tank Capacity', 'Glass Top', '16 Inch Blade Size', '3 Side Honeycomb Pads'], offers: [], specs: { 'Tank': '100 Liters', 'Height': '53 Inches', 'Color': 'Orange' }
     },
     {
-        id: 'ac-6', name: 'Panasonic 1.5 Ton 5 Star Wi-Fi Inverter Smart Split AC', price: 42990, originalPrice: 63400,
-        slug: 'panasonic-1.5-smart-split', category: 'Air Conditioner', images: AC_IMAGES['ac-6'], description: 'Miraie App enabled.', stock: 14, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 290, brand: 'PANASONIC',
-        keyFeatures: ['7-in-1 Convertible', 'Wi-Fi Enabled', 'PM 0.1 Filter'], offers: ['Smart Plug Free'], specs: { 'Capacity': '1.5 Ton', 'App': 'Miraie' }
+        id: 'cooler-air-punch-18', name: 'Air Punch 18"', price: 8490, originalPrice: 10990,
+        slug: 'air-punch-18', category: 'Cooler', images: COOLER_IMAGES['cooler-air-punch-18'], description: 'Compact desert cooler with 100L capacity.', stock: 45, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 22, brand: 'AIR PUNCH',
+        keyFeatures: ['100 Liters Tank Capacity', '18 Inch Blade Size', 'Auto Swing', '3 Side Honeycomb Pads'], offers: [], specs: { 'Tank': '100 Liters', 'Height': '58 Inches', 'Type': 'Desert Cooler' }
     },
     {
-        id: 'ac-7', name: 'LG 1.5 Ton AC', price: 34500, originalPrice: 55000, slug: 'lg-ac-1.5', category: 'Air Conditioner', images: AC_IMAGES['ac-7'], description: '', stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 45, brand: 'LG',
-        keyFeatures: ['Dual Inverter', 'Ocean Black Fins', 'Low Gas Detection'], offers: [], specs: { 'Capacity': '1.5 Ton', 'Star': '3 Star' }
+        id: 'cooler-durotek-aero-22', name: 'Durotek Aero Cool 22"', price: 10990, originalPrice: 21990,
+        slug: 'durotek-aero-22', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-aero-22'], description: 'Commercial E-Frame cooler with 22 inch motor.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 15, brand: 'DUROTEK',
+        keyFeatures: ['22" Aero Cool Flappy', '22 Inch Motor', '5 Ft Height', 'Heavy Metal Body'], offers: ['1 Year Warranty'], specs: { 'Height': '5 Ft', 'Motor': '22 Inch', 'Type': 'Commercial' }
+    },
+    {
+        id: 'cooler-durotek-commando-14', name: 'Durotek Commando 14"', price: 6990, originalPrice: 8990,
+        slug: 'durotek-commando-14', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-commando-14'], description: 'Compact commercial cooler with flappy swing.', stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 18, brand: 'DUROTEK',
+        keyFeatures: ['14" Flappy Swing', '3 Side Honeycomb', '3 Ft Height', 'Compact Design'], offers: [], specs: { 'Height': '3 Ft', 'Type': 'Commercial', 'Swing': 'Flappy' }
+    },
+    {
+        id: 'cooler-durotek-red', name: 'Durotek Red Cool', price: 9490, originalPrice: 11990,
+        slug: 'durotek-red-cool', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-red'], description: 'Stylish Red & White cooler design.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 12, brand: 'DUROTEK',
+        keyFeatures: ['Red & White Body', 'High Air Delivery', 'Honeycomb Pads', 'Inverter Compatible'], offers: [], specs: { 'Color': 'Red/White', 'Type': 'Personal', 'Blade': '16 Inch' }
     },
 
-    // --- ACCESSORIES , AUDIO & WEARABLES ---
     {
-        id: 'acc-1', name: 'Apple Watch Series 9 GPS', price: 41900, originalPrice: 44900,
-        slug: 'apple-watch-s9', category: 'Smartwatch', images: ACCESSORY_IMAGES['acc-1'], description: 'Smarter. Brighter. Mightier.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 300, brand: 'APPLE',
-        keyFeatures: ['S9 SiP', 'Double Tap Gesture', 'Brighter Display'], offers: ['Card Offer ₹2500'], specs: { 'Size': '41mm', 'Case': 'Aluminum' }
+        id: 'cooler-durotek-air-punch-22', name: 'Durotek Air Punch 22"', price: 11490, originalPrice: 14990,
+        slug: 'durotek-air-punch-22', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-air-punch-22'], description: 'Large commercial cooler with H-Frame Motor.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 8, brand: 'DUROTEK',
+        keyFeatures: ['150 Liters Capacity', 'H-Frame Motor 5.40 Ft', '22" Air Punch Swing', 'Heavy Duty'], offers: ['Free Delivery'], specs: { 'Height': '5.40 Ft', 'Type': 'Commercial', 'Tank': '150 Liters' }
     },
     {
-        id: 'acc-2', name: 'Samsung Galaxy Watch 6 Classic', price: 36999, originalPrice: 42999,
-        slug: 'samsung-watch-6', category: 'Smartwatch', images: ACCESSORY_IMAGES['acc-2'], description: 'Focus on your health.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 250, brand: 'SAMSUNG',
-        keyFeatures: ['Rotating Bezel', 'Sleep Tracking', 'Sapphire Crystal'], offers: [], specs: { 'Size': '43mm', 'Connectivity': 'Bluetooth' }
+        id: 'cooler-durotek-vaayu-15', name: 'Durotek Vaayu 15" (3.5 Ft)', price: 4490, originalPrice: 9990,
+        slug: 'durotek-vaayu-15', category: 'Cooler', images: COOLER_IMAGES['cooler-vaayu-smart'], description: 'Compact 3.5 Ft cooler with 15 inch motor.', stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 15, brand: 'DUROTEK',
+        keyFeatures: ['15 Inch Motor', '3.5 Ft Height', 'Honeycomb Pads', 'Efficient Cooling'], offers: [], specs: { 'Height': '3.5 Ft', 'Motor': '15 Inch' }
     },
     {
-        id: 'acc-3', name: 'Sony WF-1000XM5 TWS', price: 24990, originalPrice: 29990,
-        slug: 'sony-wf-1000xm5', category: 'Headphones', images: ACCESSORY_IMAGES['acc-3'], description: 'The Best Noise Cancelling.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 180, brand: 'SONY',
-        keyFeatures: ['Active Noise Cancellation', 'Hi-Res Audio', 'Multipoint Connection'], offers: [], specs: { 'Battery': '8H + 16H', 'Driver': '8.4mm' }
+        id: 'cooler-durotek-commando-21', name: 'Durotek Commando 21"', price: 7990, originalPrice: 14990,
+        slug: 'durotek-commando-21', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-commando-21'], description: '4 Ft cooler with heavy duty motor.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 10, brand: 'DUROTEK',
+        keyFeatures: ['21" Flappy Swing', '3 Side Honeycomb', '4 Ft Height', '110 Motor'], offers: [], specs: { 'Height': '4 Ft', 'Type': 'Commercial', 'Motor': '110' }
     },
     {
-        id: 'acc-4', name: 'AirPods Pro (2nd Generation)', price: 24900, originalPrice: 26900,
-        slug: 'airpods-pro-2', category: 'Headphones', images: ACCESSORY_IMAGES['acc-4'], description: 'Magic like you’ve never heard.', stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 1500, brand: 'APPLE',
-        keyFeatures: ['H2 Chip', 'Adaptive Audio', 'Conversation Awareness'], offers: [], specs: { 'Charging': 'USB-C/MagSafe', 'Type': 'In-ear' }
+        id: 'cooler-vaayu-smart-v2', name: 'Vaayu Smart Air Cooler (New)', price: 9990, originalPrice: 12990,
+        slug: 'vaayu-smart-cooler-v2', category: 'Cooler', images: COOLER_IMAGES['cooler-vaayu-smart-v2'], description: 'Advanced smart cooler with enhanced features.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 5, brand: 'VAAYU',
+        keyFeatures: ['Enhanced Smart Cooling', 'Premium Design', 'Honeycomb Pads', 'Remote Control'], offers: ['Introductory Offer'], specs: { 'Type': 'Smart Cooler', 'Color': 'Premium White/Blue' }
     },
     {
-        id: 'acc-5', name: 'Logitech MX Master 3S', price: 9995, originalPrice: 10995,
-        slug: 'logitech-mx-master-3s', category: 'Accessories', images: ACCESSORY_IMAGES['acc-5'], description: 'Performance mastered.', stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 400, brand: 'LOGITECH',
-        keyFeatures: ['8000 DPI Sensor', 'Quiet Clicks', 'MagSpeed Scrolling'], offers: [], specs: { 'Connectivity': 'Bluetooth/Bolt', 'Buttons': '7' }
+        id: 'cooler-durotek-glass-18', name: 'Durotek Glass Top 18"', price: 7990, originalPrice: 13990,
+        slug: 'durotek-glass-top-18', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-glass-18'], description: 'Premium Glass Top cooler with 18 inch motor.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 8, brand: 'DUROTEK',
+        keyFeatures: ['Glass Top', '18 Inch Motor', '4 Ft Height', 'Premium Finish'], offers: [], specs: { 'Height': '4 Ft', 'Motor': '18 Inch' }
     },
     {
-        id: 'acc-6', name: 'Dell 7-in-1 USB-C Hub', price: 6999, originalPrice: 9999,
-        slug: 'dell-usb-hub', category: 'Accessories', images: ACCESSORY_IMAGES['acc-6'], description: 'Connectivity simplified.', stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 120, brand: 'DELL',
-        keyFeatures: ['4K HDMI', 'Power Delivery', 'Compact Design'], offers: [], specs: { 'Ports': '7', 'Interface': 'USB-C' }
+        id: 'cooler-durotek-mini-35', name: 'Durotek Mini Cooler 3.5 Ft', price: 3990, originalPrice: 7990,
+        slug: 'durotek-mini-35', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-mini-35'], description: 'Compact and affordable 3.5 Ft cooler.', stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 20, brand: 'DUROTEK',
+        keyFeatures: ['3.5 Ft Height', 'Budget Friendly', 'Efficient Cooling', 'Compact Design'], offers: [], specs: { 'Height': '3.5 Ft', 'Type': 'Personal' }
     },
-    {
-        id: 'audio-sony-feat', name: 'Sony WH-1000XM5', price: 29990, originalPrice: 34990, slug: 'sony-wh-1000xm5', category: 'Audio', images: ACCESSORY_IMAGES['audio-sony-feat'], description: '', stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 124, brand: 'SONY',
-        keyFeatures: ['Two Processors Control 8 Mics', 'Auto NC Optimizer', 'Up to 30 Hours Battery'], offers: [], specs: { 'Type': 'Over-ear', 'Color': 'Silver' }
-    },
+
 
     // --- SOUNDBARS ---
     {
@@ -450,25 +378,8 @@ const MOCK_PRODUCTS: Product[] = [
     },
 
     // --- FEATURED & OTHERS ---
-    {
-        id: 'feat-4', name: 'Dyson V15 Detect', price: 65900,
-        slug: 'dyson-v15', category: 'Home Appliances', images: FEATURED_IMAGES['feat-4'], description: 'Powerful cleaning.', stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 34, brand: 'DYSON',
-        keyFeatures: ['Laser Dust Detection', 'Piezo Sensor', 'Root Cyclone'], offers: [], specs: { 'Run time': '60 mins', 'Bin': '0.77 L' }
-    },
-    {
-        id: 'feat-5', name: 'PlayStation 5 Slim', price: 54990,
-        slug: 'ps5-slim', category: 'Gaming', images: FEATURED_IMAGES['feat-5'], description: 'Play Has No Limits.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 200, brand: 'SONY',
-        keyFeatures: ['Ultra-High Speed SSD', 'Ray Tracing', 'Haptic Feedback'], offers: [], specs: { 'Storage': '1TB SSD', 'Edition': 'Disc' }
-    },
-    {
-        id: 'feat-8', name: 'GoPro Hero 12', price: 39990, originalPrice: 45000,
-        slug: 'gopro-hero-12', category: 'Camera', images: FEATURED_IMAGES['feat-8'], description: 'Capture everything.', stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 78, brand: 'GOPRO',
-        keyFeatures: ['5.3K Video', 'HyperSmooth 6.0', 'HDR Photo + Video'], offers: ['Free SD Card'], specs: { 'Waterproof': '10m', 'Battery': 'Enduro' }
-    },
-    {
-        id: 'cooler-7', name: 'Honeywell Desert Cooler', description: 'Powerful airflow for large living spaces.', price: 14990, slug: 'honeywell-desert-cooler', images: FEATURED_IMAGES['cooler-7'], category: 'Cooler', stock: 100, createdAt: new Date(), updatedAt: new Date(), brand: 'HONEYWELL',
-        keyFeatures: ['Honeycomb Pads', 'Inverter Compatible', 'Ice Chamber'], offers: [], specs: { 'Tank': '55L', 'Air Delivery': '4000 m3/hr' }
-    }
+
+
 ];
 
 export const ProductService = {

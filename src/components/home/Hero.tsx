@@ -16,8 +16,8 @@ export function Hero() {
     const fetchProducts = async () => {
       try {
         const allProducts = await ProductService.getProducts();
-        // Get 30 products for the 5x6 matrix
-        setProducts(allProducts.slice(0, 30));
+        // Get 30 random products for the 5x6 matrix
+        setProducts(allProducts.sort(() => 0.5 - Math.random()).slice(0, 30));
       } catch (error) {
         console.error("Failed to fetch products for hero matrix", error);
       } finally {
