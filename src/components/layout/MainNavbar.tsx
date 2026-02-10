@@ -156,26 +156,8 @@ export function MainNavbar({ className }: { className?: string }) {
               
               {/* Profile - Desktop */}
               {/* Profile - Desktop (Only show when authenticated) */}
-              {isAuthenticated && (
-                <div className="hidden sm:flex items-center gap-2">
-                  <Link href="/profile" className="group flex items-center gap-2">
-                    <div className="relative p-2">
-                      <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 flex items-center justify-center overflow-hidden group-hover:border-accent transition-colors">
-                          {user?.imageUrl ? (
-                              <img src={user.imageUrl} alt={user.fullName || "User"} className="w-full h-full object-cover" />
-                          ) : (
-                              <span className="text-xs font-bold text-neutral-700 dark:text-neutral-300 group-hover:text-accent">
-                                  {user?.firstName ? user.firstName[0].toUpperCase() : <UserCircle className="w-4 h-4" />}
-                              </span>
-                          )}
-                      </div>
-                    </div>
-                    <span className="text-sm font-bold text-neutral-700 dark:text-neutral-300 group-hover:text-primary transition-colors">
-                      Profile
-                    </span>
-                  </Link>
-                </div>
-              )}
+              {/* Profile - Desktop (REMOVED as per user request to move to TopBar) */}
+              {/* isAuthenticated check removed provided other nav elements are minimal */}
 
               {/* Mobile Toggle - REMOVED */}
           </div>

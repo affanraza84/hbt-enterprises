@@ -3,10 +3,12 @@
 import React from "react";
 import Link from "next/link";
 import { MapPin, Phone, Heart, UserCircle, Info } from "lucide-react";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 
 export function TopBar({ className }: { className?: string }) {
+  const { user } = useUser();
+
   return (
     <div className={cn("hidden md:block w-full z-50 bg-neutral-light", className)}>
       <div className="bg-neutral-light text-[11px] font-medium py-1.5 px-4 sm:px-6 lg:px-8">
@@ -34,10 +36,16 @@ export function TopBar({ className }: { className?: string }) {
                </Link>
            </SignedOut>
            <SignedIn>
-               <div className="flex items-center gap-1.5 text-primary">
-                   <UserButton afterSignOutUrl="/" />
-                   <span className="text-xs">My Account</span>
-               </div>
+               <Link href="/profile" className="flex items-center gap-2 text-primary hover:text-accent transition-colors group">
+                   <div className="w-5 h-5 rounded-full bg-neutral-100 border border-neutral-200 overflow-hidden relative">
+                        {user?.imageUrl ? (
+                            <img src={user.imageUrl} alt="Profile" className="w-full h-full object-cover" />
+                        ) : (
+                            <UserCircle className="w-full h-full text-neutral-400" />
+                        )}
+                   </div>
+                   <span className="text-xs font-bold group-hover:text-accent transition-colors">My Account</span>
+               </Link>
            </SignedIn>
            <span className="text-primary/20">|</span>
            <div className="flex items-center gap-1.5 text-primary hover:text-accent transition-colors relative">

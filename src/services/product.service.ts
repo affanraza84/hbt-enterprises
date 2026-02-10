@@ -391,6 +391,15 @@ export const ProductService = {
         return MOCK_PRODUCTS.find(p => p.slug === slug) || null;
     },
 
+    async getProductById(id: string): Promise<Product | null> {
+        return MOCK_PRODUCTS.find(p => p.id === id) || null;
+    },
+
+    async getProductsByIds(ids: string[]): Promise<Product[]> {
+        if (!ids || ids.length === 0) return [];
+        return MOCK_PRODUCTS.filter(p => ids.includes(p.id));
+    },
+
     async searchProducts(query: string): Promise<Product[]> {
         if (!query) return [];
         const lowerQuery = query.toLowerCase();
