@@ -69,7 +69,7 @@ export function LoginRequiredModal({ isOpen, onClose, message = "You need to be 
             <Link 
               href="/sign-in" 
               onClick={onClose}
-              className="block w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 rounded-xl transition-colors shadow-lg shadow-primary/25"
+              className="block w-full bg-primary hover:bg-primary/90 text-white dark:text-neutral-900 font-medium py-3 rounded-xl transition-colors shadow-lg shadow-primary/25"
             >
               Sign In Now
             </Link>

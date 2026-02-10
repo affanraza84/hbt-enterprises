@@ -149,19 +149,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
 
   const addToCart = (product: Product) => {
-    // ALLOW guests to add to cart now that we handle persistence?
-    // User originally had: if (!isAuthenticated) { open modal }
-    // If we want to allow guest cart -> merge on login, we should remove this check.
-    // Based on user request "previously saved items ... should come", implying login is key.
-    // However, standard e-commerce allows guest cart. 
-    // BUT, the existing code forced login. Let's stick to the existing behavior for now unless requested otherwise,
-    // OR, better, allow guest cart because that's a better UX and I implemented guest loading logic above.
-    
-    // Changing check: Allow guest cart.
-    // if (!isSignedIn) {
-    //   setIsLoginModalOpen(true);
-    //   return;
-    // }
+    // Check if user is signed in
+    if (!isSignedIn) {
+      setIsLoginModalOpen(true);
+      return;
+    }
 
     toast.success(`item added to cart!`, {
         icon: '🛒',

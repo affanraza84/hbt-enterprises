@@ -49,17 +49,12 @@ export default function ProfilePage() {
 
             <Link 
                 href="/sign-in" 
-                className="block w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/25 mb-4 active:scale-95"
+                className="block w-full bg-primary hover:bg-primary/90 text-white dark:text-neutral-900 font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/25 mb-4 active:scale-95"
             >
                 Sign In / Sign Up
             </Link>
 
-            <Link 
-                href="/"
-                className="block w-full bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-500 dark:text-neutral-400 font-medium py-3 rounded-xl transition-colors"
-            >
-                Continue as Guest
-            </Link>
+
         </div>
       </div>
     );

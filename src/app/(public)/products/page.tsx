@@ -1,5 +1,6 @@
 import { ProductGrid } from '@/components/product/ProductGrid';
 import { ProductService } from '@/services/product.service';
+import { ProductSort } from '@/components/product/ProductSort';
 
 export const revalidate = 3600;
 
@@ -38,17 +39,29 @@ export default async function ProductsPage(props: ProductsPageProps) {
       );
   }
   
+  // Apply Sort
+  const sort = typeof searchParams.sort === 'string' ? searchParams.sort : 'newest';
+  
+  if (sort === 'price_asc') {
+    products.sort((a, b) => a.price - b.price);
+  } else if (sort === 'price_desc') {
+    products.sort((a, b) => b.price - a.price);
+  } else {
+    // Default to newest
+    products.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  }
+  
   const title = q ? `Search Results for "${q}"` : (category ? `${category.charAt(0).toUpperCase() + category.slice(1)} Products` : 'All Products');
 
   return (
-    <div className="min-h-screen bg-neutral-light">
+    <div className="min-h-screen bg-neutral-light dark:bg-neutral-900">
       {/* Header */}
-      <div className="bg-neutral-light border-b border-neutral-default">
+      <div className="bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800">
          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-             <h1 className="text-3xl font-bold tracking-tight text-primary font-heading capitalize">
+             <h1 className="text-3xl font-bold tracking-tight text-primary dark:text-white font-heading capitalize">
                 {title.replace('-', ' ')}
              </h1>
-             <p className="mt-4 text-base text-neutral-dark max-w-2xl">
+             <p className="mt-4 text-base text-neutral-500 dark:text-neutral-400 max-w-2xl">
                 Browse our complete catalog of high-performance electronics. 
                 Filter by category or sort by price to find exactly what you need.
              </p>
@@ -56,20 +69,12 @@ export default async function ProductsPage(props: ProductsPageProps) {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8 pb-4 border-b border-neutral-default">
-           <div className="text-sm text-neutral-dark">
-               Showing <span className="font-bold text-primary">{products.length}</span> results
+        <div className="flex flex-col md:flex-row items-center justify-between mb-8 pb-4 border-b border-neutral-200 dark:border-neutral-800 gap-4">
+           <div className="text-sm text-neutral-500 dark:text-neutral-400">
+               Showing <span className="font-bold text-primary dark:text-white">{products.length}</span> results
            </div>
            
-           {/* Simple Sort Placeholder */}
-           <div className="flex items-center gap-2">
-               <span className="text-sm text-neutral-500">Sort by:</span>
-               <select className="text-sm border-none bg-transparent font-medium text-primary focus:ring-0 cursor-pointer">
-                   <option>Newest</option>
-                   <option>Price: Low to High</option>
-                   <option>Price: High to Low</option>
-               </select>
-           </div>
+           <ProductSort />
         </div>
 
         {products.length > 0 ? (
