@@ -9,6 +9,7 @@ import {
   Mail,
   MessageCircle,
   CreditCard,
+  Linkedin,
 } from "lucide-react";
 
 export function Footer() {
@@ -269,14 +270,33 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="bg-accent text-white py-4">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm font-medium text-center md:text-left">
-            &copy; {new Date().getFullYear()}{" "}
-            <span className="font-bold">HBT Enterprises</span> - All rights
-            reserved
-          </p>
+      {/* Bottom Bar with Developer Badge */}
+      <div className="bg-accent text-white py-4 relative overflow-hidden">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-center md:text-left">
+            <p className="text-sm font-medium">
+              &copy; {new Date().getFullYear()}{" "}
+              <span className="font-bold">HBT Enterprises</span> - All rights
+              reserved
+            </p>
+            
+            {/* Compact Developer Badge */}
+            <Link 
+              href="https://www.linkedin.com/in/mohammad-affan-raza-b6039b288?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+              target="_blank"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/30 transition-all duration-300 group"
+            >
+              <span className="text-[10px] uppercase tracking-wider font-semibold opacity-70 group-hover:opacity-100 transition-opacity">
+                Created by
+              </span>
+              <div className="flex items-center gap-1.5">
+                <span className="font-bold text-xs group-hover:text-white transition-colors">
+                  Affan Raza
+                </span>
+                <Linkedin className="w-3 h-3 opacity-70 group-hover:opacity-100 transition-opacity" />
+              </div>
+            </Link>
+          </div>
 
           {/* Payment Icons */}
           <div className="flex items-center gap-3 opacity-90">
