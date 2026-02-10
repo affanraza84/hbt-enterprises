@@ -10,11 +10,15 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { SearchResults } from "@/components/search/SearchResults";
 import { CategoryMegaMenu, CATEGORIES } from "./CategoryMegaMenu";
 import { useCart } from "@/context/CartContext";
+import { useUser } from "@clerk/nextjs";
+import { UserCircle } from "lucide-react";
 
 export function MainNavbar({ className }: { className?: string }) {
   const router = useRouter();
   const { openSearch, closeSearch, isSearchOpen, searchQuery, setSearchQuery } = useSearch();
   const { cartCount } = useCart();
+  const { isSignedIn, user } = useUser();
+  const isAuthenticated = isSignedIn;
   const [isScrolled, setIsScrolled] = useState(false);
   // Mobile menu state removed
   
@@ -134,7 +138,7 @@ export function MainNavbar({ className }: { className?: string }) {
               </div>
 
               {/* Cart */}
-              <div className="flex items-center gap-2">
+              <div className="hidden md:flex items-center gap-2">
                 <Link href="/cart" className="group flex items-center gap-2">
                   <div className="relative p-2">
                     <ShoppingCart className="w-6 h-6 text-neutral-700 dark:text-neutral-300 group-hover:text-accent transition-colors" />
@@ -149,6 +153,29 @@ export function MainNavbar({ className }: { className?: string }) {
                   </span>
                 </Link>
               </div>
+              
+              {/* Profile - Desktop */}
+              {/* Profile - Desktop (Only show when authenticated) */}
+              {isAuthenticated && (
+                <div className="hidden sm:flex items-center gap-2">
+                  <Link href="/profile" className="group flex items-center gap-2">
+                    <div className="relative p-2">
+                      <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 flex items-center justify-center overflow-hidden group-hover:border-accent transition-colors">
+                          {user?.imageUrl ? (
+                              <img src={user.imageUrl} alt={user.fullName || "User"} className="w-full h-full object-cover" />
+                          ) : (
+                              <span className="text-xs font-bold text-neutral-700 dark:text-neutral-300 group-hover:text-accent">
+                                  {user?.firstName ? user.firstName[0].toUpperCase() : <UserCircle className="w-4 h-4" />}
+                              </span>
+                          )}
+                      </div>
+                    </div>
+                    <span className="text-sm font-bold text-neutral-700 dark:text-neutral-300 group-hover:text-primary transition-colors">
+                      Profile
+                    </span>
+                  </Link>
+                </div>
+              )}
 
               {/* Mobile Toggle - REMOVED */}
           </div>

@@ -35,14 +35,7 @@ export function ProductCard({ product }: ProductCardProps) {
     e.stopPropagation();
     
     addToCart(product);
-    toast.success(`Added ${product.name} to cart!`, {
-        icon: '🛒',
-        style: {
-            borderRadius: '10px',
-            background: '#333',
-            color: '#fff',
-        },
-    });
+
   };
 
   const toggleWishlist = (e: React.MouseEvent) => {

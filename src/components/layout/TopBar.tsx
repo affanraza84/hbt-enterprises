@@ -26,17 +26,18 @@ export function TopBar({ className }: { className?: string }) {
               <span>Contact Us</span>
            </Link>
            <span className="text-primary/20">|</span>
+           
            <SignedOut>
-              <Link href="/sign-in" className="flex items-center gap-1.5 text-primary hover:text-accent transition-colors">
-                  <UserCircle className="w-3.5 h-3.5" />
-                  <span>Register / Sign in</span>
-              </Link>
+               <Link href="/sign-in" className="flex items-center gap-1.5 text-primary hover:text-accent transition-colors">
+                   <UserCircle className="w-3.5 h-3.5" />
+                   <span>Register / Sign in</span>
+               </Link>
            </SignedOut>
            <SignedIn>
-              <div className="flex items-center gap-1.5 text-primary">
-                  <UserButton afterSignOutUrl="/" />
-                  <span className="text-xs">My Account</span>
-              </div>
+               <div className="flex items-center gap-1.5 text-primary">
+                   <UserButton afterSignOutUrl="/" />
+                   <span className="text-xs">My Account</span>
+               </div>
            </SignedIn>
            <span className="text-primary/20">|</span>
            <div className="flex items-center gap-1.5 text-primary hover:text-accent transition-colors relative">

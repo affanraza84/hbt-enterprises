@@ -1,6 +1,10 @@
 "use client";
 
+import { useUser } from "@clerk/nextjs";
+// import { useAuth } from "@/context/AuthContext";
+import { LoginRequiredModal } from "@/components/auth/LoginRequiredModal";
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import toast from "react-hot-toast";
 import { Product } from "@/types/product";
 
 export interface CartItem extends Product {
@@ -22,6 +26,9 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const { isSignedIn } = useUser();
+  const isAuthenticated = isSignedIn;
 
   // Load cart from LocalStorage on mount
   useEffect(() => {
@@ -49,6 +56,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [items, isInitialized]);
 
   const addToCart = (product: Product) => {
+    if (!isAuthenticated) {
+      setIsLoginModalOpen(true);
+      return;
+    }
+
+    toast.success(`item added to cart!`, {
+        icon: '🛒',
+        style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+        },
+    });
+
     console.log("[Cart] Adding product:", product.name);
     setItems((prev) => {
       const existing = prev.find((item) => item.id === product.id);
@@ -104,6 +125,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }}
     >
       {children}
+      <LoginRequiredModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+        message="Please sign in to add items to your cart."
+      />
     </CartContext.Provider>
   );
 }

@@ -17,14 +17,7 @@ export function ProductActions({ product }: ProductActionsProps) {
 
   const handleAddToCart = () => {
     addToCart(product);
-    toast.success(`Added ${product.name} to cart!`, {
-        icon: '🛒',
-        style: {
-            borderRadius: '10px',
-            background: '#333',
-            color: '#fff',
-        },
-    });
+
   };
 
   const handleBuyNow = () => {

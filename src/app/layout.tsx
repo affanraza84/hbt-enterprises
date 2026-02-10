@@ -11,6 +11,7 @@ import { Toaster } from "react-hot-toast";
 import { CartProvider } from '@/context/CartContext';
 import { WishlistProvider } from '@/context/WishlistContext';
 
+
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
@@ -46,29 +47,29 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${plusJakarta.variable} ${orbitron.variable} antialiased bg-neutral-light text-primary font-sans transition-colors duration-300`}>
         <ClerkProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <CartProvider>
-              <WishlistProvider>
-                <SearchProvider>
-                  <div className="flex min-h-screen flex-col pb-16 md:pb-0">
-                    <MobileSearchOverlay />
-                    <Navbar />
-                    <main className="flex-1 w-full">
-                      {children}
-                    </main>
-                    <Footer />
-                    <BottomNav />
-                  </div>
-                  <Toaster position="bottom-right" />
-                </SearchProvider>
-              </WishlistProvider>
-            </CartProvider>
-          </ThemeProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <CartProvider>
+                <WishlistProvider>
+                  <SearchProvider>
+                    <div className="flex min-h-screen flex-col pb-16 md:pb-0">
+                      <MobileSearchOverlay />
+                      <Navbar />
+                      <main className="flex-1 w-full">
+                        {children}
+                      </main>
+                      <Footer />
+                      <BottomNav />
+                    </div>
+                    <Toaster position="bottom-right" />
+                  </SearchProvider>
+                </WishlistProvider>
+              </CartProvider>
+            </ThemeProvider>
         </ClerkProvider>
       </body>
     </html>
