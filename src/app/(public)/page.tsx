@@ -3,7 +3,7 @@ import { CategorySlider } from "@/components/home/CategorySlider";
 import { FeaturedDisplay } from "@/components/home/FeaturedDisplay";
 import { CategoryBannerGrid } from "@/components/home/CategoryBannerGrid";
 import { PurpleProductGrid } from "@/components/home/PurpleProductGrid";
-import { TechInnovationPromo } from "@/components/home/TechInnovationPromo";
+
 import { WhyChooseHBT } from "@/components/home/WhyChooseHBT";
 import { BrandShowcase } from "@/components/home/BrandShowcase";
 import { PromoBanner } from "@/components/home/PromoBanner";
@@ -103,25 +103,12 @@ export default async function Home() {
         viewAllLink="/products?category=accessories" 
       />
 
-      <TechInnovationPromo />
+
       <WhyChooseHBT />
       <BrandShowcase />
       <PromoBanner />
       
-      <section className="py-24 bg-neutral-light border-t border-neutral-default">
-         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-                 <h2 className="text-3xl sm:text-4xl font-bold text-primary font-heading mb-4">Latest Arrivals</h2>
-                 <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-                    Stay ahead of the curve with our newest additions. 
-                    Merging cutting-edge technology with premium design.
-                 </p>
-            </div>
-            <Suspense fallback={<div className="flex justify-center p-20"><Loader size="lg" /></div>}>
-                <ProductGrid products={products} />
-            </Suspense>
-         </div>
-      </section>
+
     </>
   );
 }
