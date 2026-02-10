@@ -66,7 +66,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <button 
           onClick={toggleWishlist}
           className={cn(
-            "absolute top-3 right-3 z-20 w-10 h-10 rounded-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm flex items-center justify-center transition-all shadow-sm border border-neutral-200 dark:border-neutral-800 hover:scale-110",
+            "absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm flex items-center justify-center transition-all shadow-sm border border-neutral-200 dark:border-neutral-800 hover:scale-110",
             isWishlisted ? "text-red-500 fill-current" : "text-neutral-400 hover:text-red-500"
           )}
         >

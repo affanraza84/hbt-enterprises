@@ -65,13 +65,13 @@ export function Hero() {
              Matrix Grid
           */}
           {loading ? (
-             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 animate-pulse">
+             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 animate-pulse">
                 {[...Array(30)].map((_, i) => (
                     <div key={i} className="aspect-[3/4] bg-neutral-200 dark:bg-neutral-800 rounded-2xl" />
                 ))}
              </div>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 xl:gap-5">
+            <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 xl:gap-5">
                 {products.map((product, index) => (
                     <Link href={`/products/${product.slug}`} key={product.id || index} className="group block h-full select-none">
                     <motion.div
