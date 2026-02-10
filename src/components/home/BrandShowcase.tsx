@@ -7,18 +7,16 @@ import { Button } from "@/components/ui/Button";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 const BRANDS = [
-  { id: 1, name: "Sony", logo: "/images/brands/sony.jpg" },
-  { id: 2, name: "Samsung", logo: "/images/brands/samsung.png" },
-  { id: 3, name: "LG", logo: "/images/brands/lg.png" },
-  { id: 4, name: "Dell", logo: "/images/brands/dell.png" },
-  { id: 5, name: "HP", logo: "/images/brands/hp.png" },
-  { id: 6, name: "Apple", logo: "/images/brands/apple.png" },
-  { id: 7, name: "Bose", logo: "/images/brands/bose.png" },
-  { id: 8, name: "Canon", logo: "/images/brands/canon.png" },
-  { id: 9, name: "JBL", logo: "/images/brands/jbl.png" },
-  { id: 10, name: "OnePlus", logo: "/images/brands/oneplus.png" },
-  { id: 11, name: "Lenovo", logo: "/images/brands/lenovo.png" },
-  { id: 12, name: "Asus", logo: "/images/brands/asus.png" },
+  { id: 1, name: "Sony", logo: "https://cdn.simpleicons.org/sony/000000" },
+  { id: 2, name: "Samsung", logo: "https://cdn.simpleicons.org/samsung" },
+  { id: 3, name: "LG", logo: "https://cdn.simpleicons.org/lg" },
+  { id: 5, name: "HP", logo: "https://cdn.simpleicons.org/hp" },
+  { id: 6, name: "Apple", logo: "https://cdn.simpleicons.org/apple" },
+  { id: 9, name: "JBL", logo: "https://cdn.simpleicons.org/jbl" },
+  { id: 10, name: "OnePlus", logo: "https://cdn.simpleicons.org/oneplus" },
+  { id: 11, name: "Lenovo", logo: "https://cdn.simpleicons.org/lenovo/000000" },
+  { id: 13, name: "Realme", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Realme_logo.svg" },
+  { id: 14, name: "Xiaomi", logo: "https://cdn.simpleicons.org/xiaomi" },
 ];
 
 export function BrandShowcase() {
