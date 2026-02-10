@@ -4,6 +4,8 @@ import { Inter, Plus_Jakarta_Sans, Orbitron } from 'next/font/google';
 import '@/styles/globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { BottomNav } from '@/components/layout/BottomNav';
+import { MobileSearchOverlay } from '@/components/search/MobileSearchOverlay';
 import { siteConfig } from '@/config/site';
 import { SearchProvider } from '@/providers/search-provider';
 import { ThemeProvider } from "@/providers/theme-provider";
