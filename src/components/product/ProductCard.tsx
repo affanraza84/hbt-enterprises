@@ -150,10 +150,10 @@ export function ProductCard({ product }: ProductCardProps) {
              <Button 
                 size="sm" 
                 onClick={handleAddToCart}
-                className="rounded-full shadow-sm hover:shadow-md transition-all active:scale-95 bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white border border-neutral-200 dark:border-neutral-700 hover:border-transparent p-0 w-8 h-8 sm:w-auto sm:h-9 sm:px-3 flex items-center justify-center gap-2"
+                className="rounded-full shadow-sm hover:shadow-md transition-all active:scale-95 bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white border border-neutral-200 dark:border-neutral-700 hover:border-transparent p-0 w-11 h-11 sm:w-auto sm:h-9 sm:px-4 flex items-center justify-center gap-2"
                 aria-label="Add to Cart"
              >
-                <ShoppingCart className="w-4 h-4" />
+                <ShoppingCart className="w-5 h-5 sm:w-4 sm:h-4" />
                 <span className="hidden sm:inline text-xs font-bold">Add</span>
              </Button>
         </div>

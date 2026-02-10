@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   description: siteConfig.description,
 };
 
+import { BottomNav } from '@/components/layout/BottomNav';
+import { MobileSearchOverlay } from '@/components/search/MobileSearchOverlay';
+
 export default function RootLayout({
   children,
 }: {
@@ -52,12 +55,14 @@ export default function RootLayout({
             <CartProvider>
               <WishlistProvider>
                 <SearchProvider>
-                  <div className="flex min-h-screen flex-col">
+                  <div className="flex min-h-screen flex-col pb-16 md:pb-0">
+                    <MobileSearchOverlay />
                     <Navbar />
                     <main className="flex-1 w-full">
                       {children}
                     </main>
                     <Footer />
+                    <BottomNav />
                   </div>
                   <Toaster position="bottom-right" />
                 </SearchProvider>

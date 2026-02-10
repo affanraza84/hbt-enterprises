@@ -73,7 +73,10 @@ export default async function ProductsPage(props: ProductsPageProps) {
         </div>
 
         {products.length > 0 ? (
-            <ProductGrid products={products} />
+            <ProductGrid 
+                products={products} 
+                isDense={category ? ['television', 'smart phone', 'washing machine', 'cooler', 'soundbar'].includes(category.toLowerCase()) : false} 
+            />
         ) : (
             <div className="text-center py-20 text-neutral-500">
                 <p className="text-xl">No products found.</p>

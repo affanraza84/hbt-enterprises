@@ -53,11 +53,11 @@ export function CategorySlider() {
                 >
                     <div className="relative">
                         {/* Glow Effect */}
-                        <div className="absolute inset-0 bg-accent/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute inset-0 bg-accent/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         
                         {/* Icon Container */}
-                        <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-800 dark:to-neutral-900 flex items-center justify-center relative z-10 
-                                      border border-neutral-200 dark:border-neutral-700 group-hover:border-accent dark:group-hover:border-accent
+                        <div className="w-[72px] h-[72px] rounded-full bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-800 dark:to-neutral-900 flex items-center justify-center relative z-10 
+                                      border-2 border-neutral-200 dark:border-neutral-700 group-hover:border-accent dark:group-hover:border-accent
                                       shadow-sm group-hover:shadow-[0_0_20px_rgba(0,198,255,0.4)] transition-all duration-300 ease-out">
                              <motion.div
                                 variants={iconVariants}
@@ -65,13 +65,13 @@ export function CategorySlider() {
                                 custom={cat.animation}
                              >
                                <cat.icon 
-                                  className="w-9 h-9 text-neutral-500 dark:text-neutral-400 group-hover:text-accent transition-colors duration-300 stroke-[1.5px]" 
+                                  className="w-8 h-8 text-neutral-500 dark:text-neutral-400 group-hover:text-accent transition-colors duration-300 stroke-[1.5px]" 
                                />
                              </motion.div>
                         </div>
                     </div>
                     
-                    <span className="text-sm font-medium text-neutral-600 dark:text-neutral-400 text-center whitespace-normal max-w-[110px] leading-tight 
+                    <span className="text-xs font-medium text-neutral-600 dark:text-neutral-400 text-center whitespace-nowrap max-w-[100px] overflow-hidden text-ellipsis
                                    group-hover:text-primary dark:group-hover:text-white transition-colors duration-300">
                         {cat.name}
                     </span>

@@ -24,7 +24,8 @@ const CATEGORY_MAP: Record<string, { title: string; categories: string[] }> = {
   'gaming': { title: 'Gaming', categories: ['Gaming'] },
   'refrigerators': { title: 'Refrigerators', categories: ['Refrigerator'] },
   'washing-machines': { title: 'Washing Machines', categories: ['Washing Machine'] },
-  'televisions': { title: 'Televisions', categories: ['Television'] }
+  'televisions': { title: 'Televisions', categories: ['Television'] },
+  'soundbar': { title: 'Home Theatres', categories: ['Soundbar'] }
 };
 
 export default async function CategoryPage(props: CategoryPageProps) {
@@ -75,7 +76,7 @@ export default async function CategoryPage(props: CategoryPageProps) {
         </div>
 
         {categoryProducts.length > 0 ? (
-            <ProductGrid products={categoryProducts} />
+            <ProductGrid products={categoryProducts} isDense={['televisions', 'smart-phones', 'washing-machines', 'air-coolers', 'soundbar'].includes(slug)} />
         ) : (
             <div className="text-center py-20 text-neutral-500">
                 <p className="text-xl">No products found in this category.</p>

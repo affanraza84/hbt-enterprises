@@ -16,20 +16,15 @@ export function MainNavbar({ className }: { className?: string }) {
   const { openSearch, closeSearch, isSearchOpen, searchQuery, setSearchQuery } = useSearch();
   const { cartCount } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mobileView, setMobileView] = useState<'main' | 'categories'>('main');
-  const [expandedMobileCategory, setExpandedMobileCategory] = useState<string | null>(null);
+  // Mobile menu state removed
   
   const desktopSearchRef = React.useRef<HTMLDivElement>(null);
-  const mobileSearchRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
         desktopSearchRef.current &&
-        !desktopSearchRef.current.contains(event.target as Node) &&
-        mobileSearchRef.current &&
-        !mobileSearchRef.current.contains(event.target as Node)
+        !desktopSearchRef.current.contains(event.target as Node)
       ) {
         closeSearch();
       }
@@ -49,16 +44,7 @@ export function MainNavbar({ className }: { className?: string }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Reset mobile view when menu is closed
-  useEffect(() => {
-    if (!isMobileMenuOpen) {
-      const timeout = setTimeout(() => {
-        setMobileView('main');
-        setExpandedMobileCategory(null);
-      }, 300); // 300ms to match potential transition duration
-      return () => clearTimeout(timeout);
-    }
-  }, [isMobileMenuOpen]);
+
 
   return (
     <div
@@ -164,46 +150,11 @@ export function MainNavbar({ className }: { className?: string }) {
                 </Link>
               </div>
 
-              {/* Mobile Toggle */}
-              <button
-                className="lg:hidden p-2 text-neutral-600 dark:text-neutral-400 hover:text-primary"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              >
-                {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <MenuIcon className="w-6 h-6" />
-                )}
-              </button>
-            </div>
+              {/* Mobile Toggle - REMOVED */}
+          </div>
           </div>
 
-          {/* Row 2: Mobile Search Bar */}
-          <div ref={mobileSearchRef} className="md:hidden w-full relative z-10">
-            <div className="w-full flex items-center relative rounded-full border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 focus-within:ring-2 focus-within:ring-accent/50 focus-within:border-accent transition-all overflow-hidden shadow-sm z-20">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="w-full bg-transparent border-none px-4 py-2 text-sm outline-none text-neutral-800 dark:text-neutral-200 placeholder:text-neutral-400"
-                value={searchQuery}
-                onFocus={openSearch}
-                onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    if (!isSearchOpen) openSearch();
-                }}
-              />
-              <button className="bg-accent hover:bg-accent/90 text-white px-4 py-2 flex items-center justify-center transition-colors">
-                <Search className="w-4 h-4" />
-              </button>
-            </div>
-            {/* Mobile Inline Results */}
-            {searchQuery.length > 0 && isSearchOpen && (
-              <SearchResults
-                query={searchQuery}
-                onClose={closeSearch}
-              />
-            )}
-          </div>
+          {/* Row 2: Mobile Search Bar - REMOVED (Moved to BottomNav/Overlay) */}
         </div>
       </div>
 
@@ -234,108 +185,7 @@ export function MainNavbar({ className }: { className?: string }) {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden fixed top-[110px] left-0 w-full h-[calc(100vh-110px)] bg-neutral-light overflow-y-auto animate-in slide-in-from-right-5 z-40 pb-20">
-             {mobileView === 'main' ? (
-                <div className="flex flex-col p-4 space-y-1">
-                   {/* Main Links */}
-                   <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
-                       <Home className="w-5 h-5 text-accent" />
-                       Home
-                   </Link>
-                   <Link href="/hot-deals" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
-                       <Zap className="w-5 h-5 text-warning" />
-                       Hot Deals
-                   </Link>
-                   <Link href="/stores" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
-                       <ArrowRight className="w-5 h-5 text-success" />
-                       Brand Stores
-                   </Link>
-
-                   {/* All Categories Trigger */}
-                   <button 
-                      onClick={() => setMobileView('categories')}
-                      className="flex items-center justify-between w-full px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium text-left group"
-                   >
-                      <div className="flex items-center gap-3">
-                        <MenuIcon className="w-5 h-5 text-primary" />
-                        <span>All Categories</span>
-                      </div>
-                      <ChevronRight className="w-5 h-5 text-neutral-400 group-hover:text-accent" />
-                   </button>
-
-                   <div className="h-px bg-neutral-200 dark:bg-neutral-800 my-2 mx-4" />
-
-                   <Link href="/stores" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
-                       <MapPin className="w-5 h-5" />
-                       Store Locator
-                   </Link>
-                   <Link href="/wishlist" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
-                       <Heart className="w-5 h-5" />
-                       Wishlist
-                   </Link>
-                   <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
-                       <Info className="w-5 h-5" />
-                       About Us
-                   </Link>
-                   <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors font-medium">
-                       <Phone className="w-5 h-5" />
-                       Contact Us
-                   </Link>
-                </div>
-             ) : (
-                <div className="flex flex-col min-h-full">
-                   {/* Categories Header */}
-                   <div className="sticky top-0 bg-neutral-light z-10 border-b border-neutral-200 dark:border-neutral-800 px-4 py-4 flex items-center gap-3">
-                      <button 
-                         onClick={() => setMobileView('main')}
-                         className="p-2 -ml-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-full transition-colors"
-                       >
-                         <ArrowLeft className="w-5 h-5 text-neutral-800 dark:text-neutral-200" />
-                       </button>
-                       <span className="font-bold text-lg text-primary">All Categories</span>
-                   </div>
-
-                   {/* Categories Accordion */}
-                   <div className="p-4 space-y-2">
-                      {CATEGORIES.map((cat) => (
-                         <div key={cat.id} className="border border-neutral-200 dark:border-neutral-800 rounded-lg overflow-hidden bg-white dark:bg-neutral-900/50">
-                            <button 
-                               onClick={() => setExpandedMobileCategory(expandedMobileCategory === cat.id ? null : cat.id)}
-                               className="flex items-center justify-between w-full px-4 py-3 font-medium text-neutral-800 dark:text-neutral-200"
-                            >
-                               <span>{cat.label}</span>
-                               <ChevronDown className={cn("w-4 h-4 text-neutral-400 transition-transform duration-200", expandedMobileCategory === cat.id ? "rotate-180" : "")} />
-                            </button>
-                            {expandedMobileCategory === cat.id && (
-                               <div className="bg-neutral-50 dark:bg-black/50 border-t border-neutral-200 dark:border-neutral-800 px-4 py-2 space-y-4">
-                                  {cat.subgroups.map((group, idx) => (
-                                     <div key={idx} className="space-y-2">
-                                        <h4 className="text-xs font-bold text-accent uppercase tracking-wider">{group.title}</h4>
-                                        <div className="grid grid-cols-1 gap-1 pl-2 border-l-2 border-neutral-200 dark:border-neutral-800">
-                                            {group.items.map((item, i) => (
-                                                <Link 
-                                                    key={i} 
-                                                    href={`/products?category=${cat.id}&type=${item}`}
-                                                    onClick={() => setIsMobileMenuOpen(false)}
-                                                    className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary dark:hover:text-white py-1 block transition-colors"
-                                                >
-                                                    {item}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                     </div>
-                                  ))}
-                               </div>
-                            )}
-                         </div>
-                      ))}
-                   </div>
-                </div>
-             )}
-        </div>
-      )}
+      {/* Mobile Menu Overlay - REMOVED */}
     </div>
   );
 }

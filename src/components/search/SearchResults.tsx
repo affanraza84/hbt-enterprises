@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, Search } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { formatCurrency } from "@/lib/helpers";
 import { ProductService } from "@/services/product.service";
 import { Product } from "@/types/product";
@@ -11,9 +12,10 @@ import { Product } from "@/types/product";
 interface SearchResultsProps {
   query: string;
   onClose: () => void;
+  className?: string; // NEW
 }
 
-export function SearchResults({ query, onClose }: SearchResultsProps) {
+export function SearchResults({ query, onClose, className }: SearchResultsProps) {
   const [results, setResults] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -44,7 +46,10 @@ export function SearchResults({ query, onClose }: SearchResultsProps) {
   if (!query.trim() && results.length === 0) return null;
 
   return (
-    <div className="absolute top-full left-0 w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl mt-2 shadow-xl overflow-hidden z-[100] max-h-[60vh] overflow-y-auto">
+    <div className={cn(
+        "absolute top-full left-0 w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl mt-2 shadow-xl overflow-hidden z-[100] max-h-[60vh] overflow-y-auto",
+        className
+    )}>
       {isLoading ? (
         <div className="flex justify-center py-6">
           <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-accent"></div>
