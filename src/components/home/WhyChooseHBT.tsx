@@ -85,15 +85,7 @@ export function WhyChooseHBT() {
         </div>
 
         {/* CTA Button */}
-        <div className="flex justify-center">
-            <Button 
-                size="lg" 
-                className="bg-accent hover:bg-accent/90 text-white font-bold rounded-full px-8 h-14 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all gap-2"
-            >
-                <Headphones className="w-5 h-5" />
-                Connect to Expert
-            </Button>
-        </div>
+
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 const BRANDS = [
-  { id: 1, name: "Sony", logo: "/images/brands/sony.png" },
+  { id: 1, name: "Sony", logo: "/images/brands/sony.jpg" },
   { id: 2, name: "Samsung", logo: "/images/brands/samsung.png" },
   { id: 3, name: "LG", logo: "/images/brands/lg.png" },
   { id: 4, name: "Dell", logo: "/images/brands/dell.png" },
@@ -49,9 +49,8 @@ export function BrandShowcase() {
 
         {/* Carousel Container */}
         <div className="relative group">
-          
           {/* Left Arrow */}
-          <button 
+          <button
             onClick={() => scroll("left")}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white dark:bg-neutral-800 rounded-full shadow-lg flex items-center justify-center text-neutral-900 dark:text-white hover:bg-accent hover:text-white dark:hover:bg-accent transition-all opacity-0 group-hover:opacity-100 disabled:opacity-50"
             aria-label="Scroll left"
@@ -60,47 +59,36 @@ export function BrandShowcase() {
           </button>
 
           {/* Scroll Area */}
-          <div 
+          <div
             ref={scrollRef}
             className="flex gap-6 overflow-x-auto scrollbar-hide py-4 px-2 snap-x"
           >
             {BRANDS.map((brand) => (
-              <div 
+              <div
                 key={brand.id}
                 className="flex-shrink-0 w-[160px] h-[160px] sm:w-[180px] sm:h-[180px] bg-white rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex items-center justify-center snap-center cursor-pointer border border-neutral-100 dark:border-none p-6"
               >
                 <div className="relative w-full h-full">
-                    <Image
-                        src={brand.logo}
-                        alt={brand.name}
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 768px) 160px, 180px"
-                    />
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 160px, 180px"
+                  />
                 </div>
               </div>
             ))}
           </div>
 
           {/* Right Arrow */}
-          <button 
+          <button
             onClick={() => scroll("right")}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white dark:bg-neutral-800 rounded-full shadow-lg flex items-center justify-center text-neutral-900 dark:text-white hover:bg-accent hover:text-white dark:hover:bg-accent transition-all opacity-0 group-hover:opacity-100"
             aria-label="Scroll right"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
-        </div>
-
-        {/* View All Button */}
-        <div className="flex justify-center mt-12">
-            <Button 
-                variant="outline" 
-                className="rounded-full px-8 py-6 border-accent text-accent hover:bg-accent hover:text-white transition-all font-bold tracking-wide gap-2 group"
-            >
-                VIEW ALL
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
         </div>
       </div>
     </section>

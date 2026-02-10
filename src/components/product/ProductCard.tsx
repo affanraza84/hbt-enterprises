@@ -49,7 +49,7 @@ export function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <div className="group relative bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:border-accent/50 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] flex flex-col h-full overflow-hidden">
+    <div className="group/card relative bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:border-accent/50 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] flex flex-col h-full overflow-hidden">
       
       {/* Image Container */}
       <div className={cn(
@@ -87,7 +87,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 alt={product.name}
                 fill
                 className={cn(
-                    "transition-transform duration-500 group-hover:scale-105 object-cover"
+                    "transition-transform duration-500 group-hover/card:scale-105 object-cover"
                 )}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
@@ -105,7 +105,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <div>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-1">{product.category}</p>
                 <Link href={`/products/${product.slug}`}>
-                    <h3 className="text-sm font-bold text-neutral-800 dark:text-neutral-100 leading-tight line-clamp-2 group-hover:text-primary dark:group-hover:text-accent transition-colors">
+                    <h3 className="text-sm font-bold text-neutral-800 dark:text-neutral-100 leading-tight line-clamp-2 group-hover/card:text-primary dark:group-hover/card:text-accent transition-colors">
                     {product.name}
                     </h3>
                 </Link>
@@ -125,7 +125,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <span className="text-[10px] text-neutral-500 font-medium">({reviewsCount} reviews)</span>
         </div>
 
-        <div className="mt-auto pt-3 border-t border-neutral-100 dark:border-neutral-800 flex items-center justify-between gap-2">
+        <div className="mt-auto pt-3 border-t border-neutral-100 dark:border-neutral-800 flex items-center justify-center gap-2">
              <div className="flex flex-col">
                  <div className="flex items-baseline gap-2">
                      <span className="text-lg font-bold text-primary dark:text-white">

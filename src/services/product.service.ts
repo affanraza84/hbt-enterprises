@@ -151,7 +151,7 @@ const MOCK_PRODUCTS: Product[] = [
         keyFeatures: ['Google TV', 'Big Screen', 'Dolby Audio'], offers: [], specs: { 'Screen Size': '65 Inch', 'OS': 'Google TV' }
     },
     {
-        id: 'tv-cellecor-75-google', name: 'Cellecor Smart Google 75 Inch', price: 0, originalPrice: 0,
+        id: 'tv-cellecor-75-google', name: 'Cellecor Smart Google 75 Inch', price: 55999, originalPrice: 99999,
         slug: 'cellecor-75-google', category: 'Television', images: TV_IMAGES['tv-cellecor-75-google'], description: 'Currently Not Available.', stock: 0, createdAt: new Date(), updatedAt: new Date(), rating: 0, reviewsCount: 0, brand: 'CELLECOR',
         keyFeatures: ['75 Inch Display', 'Google TV'], offers: [], specs: { 'Screen Size': '75 Inch' }
     },
@@ -213,8 +213,145 @@ const MOCK_PRODUCTS: Product[] = [
 
 
 
+    {
+        id: 'ph-google-pixel-8-pro', name: 'Google Pixel 8 Pro (128 GB)', price: 79999, originalPrice: 106999,
+        slug: 'google-pixel-8-pro', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-google-pixel-8-pro'], description: 'The most pro Pixel ever.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 350, brand: 'GOOGLE',
+        keyFeatures: ['Google Tensor G3', 'Super Actua Display', 'Pro Camera System'], offers: ['Bank Offer ₹4000'], specs: { 'Display': '6.7 inch', 'Battery': '5050 mAh', 'RAM': '12 GB' }
+    },
 
 
+
+    // --- Apple iPhones ---
+    {
+        id: 'ph-apple-15', name: 'Apple iPhone 15 (128 GB)', price: 70999, originalPrice: 79900,
+        slug: 'apple-iphone-15', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-apple-15'], description: 'Dynamic Island, 48MP Main camera, and USB-C.', stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 950, brand: 'APPLE',
+        keyFeatures: ['Dynamic Island', '48MP Main Camera', 'A16 Bionic Chip'], offers: ['Instant Savings ₹4000'], specs: { 'Display': '6.1 inch', 'Chip': 'A16 Bionic', 'Storage': '128 GB' }
+    },
+    {
+        id: 'ph-apple-15-plus', name: 'Apple iPhone 15 Plus (256 GB)', price: 89900, originalPrice: 99900,
+        slug: 'apple-iphone-15-plus', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-apple-15-plus'], description: 'Super-high-resolution photos and 2x Telephoto.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 420, brand: 'APPLE',
+        keyFeatures: ['6.7 inch Display', 'All-day battery life', 'Durable color-infused glass'], offers: [], specs: { 'Display': '6.7 inch', 'Chip': 'A16 Bionic', 'Storage': '256 GB' }
+    },
+    {
+        id: 'ph-apple-14', name: 'Apple iPhone 14 (128 GB)', price: 61999, originalPrice: 69900,
+        slug: 'apple-iphone-14', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-apple-14'], description: 'Vital safety features. Ceramic Shield.', stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 2100, brand: 'APPLE',
+        keyFeatures: ['A15 Bionic chip', '12MP Main Camera', 'Action mode'], offers: [], specs: { 'Display': '6.1 inch', 'Chip': 'A15 Bionic', 'Storage': '128 GB' }
+    },
+    {
+        id: 'ph-apple-13', name: 'Apple iPhone 13 (128 GB)', price: 49999, originalPrice: 59900,
+        slug: 'apple-iphone-13', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-apple-13'], description: 'Super bright Super Retina XDR display.', stock: 50, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 5500, brand: 'APPLE',
+        keyFeatures: ['A15 Bionic chip', 'Advanced dual-camera system', 'Durable design'], offers: [], specs: { 'Display': '6.1 inch', 'Chip': 'A15 Bionic', 'Storage': '128 GB' }
+    },
+
+    // --- Samsung Smartphones ---
+    {
+        id: 'ph-samsung-s23fe', name: 'Samsung Galaxy S23 FE 5G', price: 39999, originalPrice: 79999,
+        slug: 'samsung-galaxy-s23-fe', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-samsung-s23fe'], description: 'Iconic design with a floating camera.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 320, brand: 'SAMSUNG',
+        keyFeatures: ['Nightography', 'High-resolution photo', 'Long lasting battery'], offers: ['Bank Offer ₹1000'], specs: { 'Display': '6.4 inch', 'Battery': '4500 mAh', 'RAM': '8 GB' }
+    },
+    {
+        id: 'ph-samsung-a55', name: 'Samsung Galaxy A55 5G', price: 39999, originalPrice: 45999,
+        slug: 'samsung-galaxy-a55', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-samsung-a55'], description: 'Awesome design, awesome performance.', stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 150, brand: 'SAMSUNG',
+        keyFeatures: ['Metal Frame', 'Nightography', 'Knox Security'], offers: [], specs: { 'Display': '6.6 inch', 'Battery': '5000 mAh', 'RAM': '8 GB' }
+    },
+    {
+        id: 'ph-samsung-a35', name: 'Samsung Galaxy A35 5G', price: 30999, originalPrice: 33999,
+        slug: 'samsung-galaxy-a35', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-samsung-a35'], description: 'Premium glass back design.', stock: 35, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 110, brand: 'SAMSUNG',
+        keyFeatures: ['Super AMOLED', '50MP Camera', 'IP67 Rating'], offers: [], specs: { 'Display': '6.6 inch', 'Battery': '5000 mAh', 'RAM': '8 GB' }
+    },
+    {
+        id: 'ph-samsung-m34', name: 'Samsung Galaxy M34 5G', price: 15999, originalPrice: 24499,
+        slug: 'samsung-galaxy-m34', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-samsung-m34'], description: 'Monster display, monster battery.', stock: 60, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 2500, brand: 'SAMSUNG',
+        keyFeatures: ['120Hz sAMOLED', '6000 mAh Battery', '50MP No Shake Cam'], offers: [], specs: { 'Display': '6.5 inch', 'Battery': '6000 mAh', 'RAM': '6 GB' }
+    },
+
+    // --- Realme Smartphones ---
+    {
+        id: 'ph-realme-12pro-plus', name: 'Realme 12 Pro+ 5G', price: 29999, originalPrice: 34999,
+        slug: 'realme-12-pro-plus', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-realme-12pro-plus'], description: 'Portrait Master with Periscope Camera.', stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 520, brand: 'REALME',
+        keyFeatures: ['Periscope Portrait Camera', 'Snapdragon 7s Gen 2', '120Hz Curved Vision'], offers: ['Exchange Bonus ₹2000'], specs: { 'Display': '6.7 inch', 'Battery': '5000 mAh', 'RAM': '8/12 GB' }
+    },
+    {
+        id: 'ph-realme-12pro', name: 'Realme 12 Pro 5G', price: 25999, originalPrice: 29999,
+        slug: 'realme-12-pro', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-realme-12pro'], description: 'Luxury Watch Design.', stock: 35, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 300, brand: 'REALME',
+        keyFeatures: ['Telephoto Portrait', '120Hz Curved Display', 'Snapdragon 6 Gen 1'], offers: [], specs: { 'Display': '6.7 inch', 'Battery': '5000 mAh', 'RAM': '8 GB' }
+    },
+    {
+        id: 'ph-realme-narzo70', name: 'Realme Narzo 70 Pro 5G', price: 19999, originalPrice: 24999,
+        slug: 'realme-narzo-70-pro', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-realme-narzo70'], description: 'Best Camera in Segment.', stock: 50, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 180, brand: 'REALME',
+        keyFeatures: ['Sony IMX890 OIS', 'Glass Design', '67W SUPERVOOC'], offers: ['Coupon ₹2000'], specs: { 'Display': '6.67 inch', 'Battery': '5000 mAh', 'RAM': '8 GB' }
+    },
+    {
+        id: 'ph-realme-c67', name: 'Realme C67 5G', price: 12999, originalPrice: 16999,
+        slug: 'realme-c67', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-realme-c67'], description: '5G Champion.', stock: 60, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 800, brand: 'REALME',
+        keyFeatures: ['33W Charge', '50MP Camera', 'Slim Design'], offers: [], specs: { 'Display': '6.72 inch', 'Battery': '5000 mAh', 'RAM': '4/6 GB' }
+    },
+
+    // --- Vivo Smartphones ---
+    {
+        id: 'ph-vivo-x100', name: 'Vivo X100 Pro 5G', price: 89999, originalPrice: 96999,
+        slug: 'vivo-x100-pro', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-vivo-x100'], description: 'Zeiss Co-engineered Photography.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 120, brand: 'VIVO',
+        keyFeatures: ['Zeiss APO Floating Telephoto', 'Dimensity 9300', 'IP68'], offers: ['HDFC ₹5000 Off'], specs: { 'Display': '6.78 inch', 'Battery': '5400 mAh', 'RAM': '16 GB' }
+    },
+    {
+        id: 'ph-vivo-v30', name: 'Vivo V30 Pro 5G', price: 41999, originalPrice: 46999,
+        slug: 'vivo-v30-pro', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-vivo-v30'], description: 'Zeiss Portrait Master.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 220, brand: 'VIVO',
+        keyFeatures: ['Studio Quality Aura Light', 'Zeiss Style Portrait', 'Slimmest 5000mAh'], offers: [], specs: { 'Display': '6.78 inch', 'Battery': '5000 mAh', 'RAM': '8/12 GB' }
+    },
+    {
+        id: 'ph-vivo-y200e', name: 'Vivo Y200e 5G', price: 19999, originalPrice: 23999,
+        slug: 'vivo-y200e', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-vivo-y200e'], description: 'Durable Eco-Fiber Leather.', stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 150, brand: 'VIVO',
+        keyFeatures: ['120Hz sAMOLED', 'Durable Logic', 'Dual Stereo Speakers'], offers: [], specs: { 'Display': '6.67 inch', 'Battery': '5000 mAh', 'RAM': '6/8 GB' }
+    },
+    {
+        id: 'ph-vivo-t3', name: 'Vivo T3 5G', price: 19999, originalPrice: 22999,
+        slug: 'vivo-t3', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-vivo-t3'], description: 'Turbo Performance.', stock: 45, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 300, brand: 'VIVO',
+        keyFeatures: ['Sony IMX882 OIS', 'Dimensity 7200', '120Hz Display'], offers: [], specs: { 'Display': '6.67 inch', 'Battery': '5000 mAh', 'RAM': '8 GB' }
+    },
+
+    // --- Motorola Smartphones ---
+    {
+        id: 'ph-moto-edge50', name: 'Motorola Edge 50 Pro 5G', price: 31999, originalPrice: 36999,
+        slug: 'moto-edge-50-pro', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-moto-edge50'], description: 'Intelligence meets Art.', stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 400, brand: 'MOTOROLA',
+        keyFeatures: ['AI Powered Camera', 'Pantone Validated Colors', '125W Charging'], offers: ['Launch Offer ₹2000'], specs: { 'Display': '6.7 inch pOLED', 'Battery': '4500 mAh', 'RAM': '8/12 GB' }
+    },
+    {
+        id: 'ph-moto-g84', name: 'Motorola Moto G84 5G', price: 17999, originalPrice: 22999,
+        slug: 'moto-g84', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-moto-g84'], description: 'Breathtaking Colors.', stock: 50, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 850, brand: 'MOTOROLA',
+        keyFeatures: ['120Hz pOLED', '12GB RAM', 'OIS Camera'], offers: [], specs: { 'Display': '6.55 inch', 'Battery': '5000 mAh', 'RAM': '12 GB' }
+    },
+    {
+        id: 'ph-moto-g54', name: 'Motorola Moto G54 5G', price: 13999, originalPrice: 18999,
+        slug: 'moto-g54', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-moto-g54'], description: 'Best 5G Phone.', stock: 60, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 1200, brand: 'MOTOROLA',
+        keyFeatures: ['6000 mAh Battery', 'OIS Camera', 'Dimensity 7020'], offers: [], specs: { 'Display': '6.5 inch', 'Battery': '6000 mAh', 'RAM': '8/12 GB' }
+    },
+    {
+        id: 'ph-moto-razr40', name: 'Motorola Razr 40', price: 44999, originalPrice: 99999,
+        slug: 'moto-razr-40', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-moto-razr40'], description: 'Iconic Flip Design.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 150, brand: 'MOTOROLA',
+        keyFeatures: ['Flex View', 'External Display', 'Vegan Leather'], offers: [], specs: { 'Display': '6.9 inch', 'Battery': '4200 mAh', 'RAM': '8 GB' }
+    },
+
+    // --- Xiaomi Smartphones ---
+    {
+        id: 'ph-xiaomi-14', name: 'Xiaomi 14 5G', price: 69999, originalPrice: 79999,
+        slug: 'xiaomi-14', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-xiaomi-14'], description: 'Leica Co-engineered.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 350, brand: 'XIAOMI',
+        keyFeatures: ['Leica Summilux Lens', 'Snapdragon 8 Gen 3', 'HyperOS'], offers: ['Exchange Bonus ₹5000'], specs: { 'Display': '6.36 inch', 'Battery': '4610 mAh', 'RAM': '12 GB' }
+    },
+    {
+        id: 'ph-xiaomi-rn13pro-plus', name: 'Redmi Note 13 Pro+ 5G', price: 31999, originalPrice: 35999,
+        slug: 'redmi-note-13-pro-plus', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-xiaomi-rn13pro-plus'], description: 'SuperNote. SuperCamera.', stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 1500, brand: 'XIAOMI',
+        keyFeatures: ['200MP OIS Camera', 'IP68 Rating', '120W HyperCharge'], offers: [], specs: { 'Display': '6.67 inch Curved', 'Battery': '5000 mAh', 'RAM': '8/12 GB' }
+    },
+    {
+        id: 'ph-xiaomi-rn13pro', name: 'Redmi Note 13 Pro 5G', price: 25999, originalPrice: 30999,
+        slug: 'redmi-note-13-pro', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-xiaomi-rn13pro'], description: 'SuperPower. SuperNote.', stock: 50, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 2200, brand: 'XIAOMI',
+        keyFeatures: ['200MP Camera', 'Snapdragon 7s Gen 2', '67W Carge'], offers: [], specs: { 'Display': '6.67 inch', 'Battery': '5100 mAh', 'RAM': '8/12 GB' }
+    },
+    {
+        id: 'ph-xiaomi-13pro', name: 'Xiaomi 13 Pro 5G', price: 74999, originalPrice: 89999,
+        slug: 'xiaomi-13-pro', category: 'Smart Phone', images: SMARTPHONE_IMAGES['ph-xiaomi-13pro'], description: 'Masterpiece in Sight.', stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 600, brand: 'XIAOMI',
+        keyFeatures: ['Leica Professional Optical Lens', '1 Inch Sensor', 'Snapdragon 8 Gen 2'], offers: [], specs: { 'Display': '6.73 inch', 'Battery': '4820 mAh', 'RAM': '12 GB' }
+    },
 
     // --- WASHING MACHINES ---
 
@@ -342,6 +479,11 @@ const MOCK_PRODUCTS: Product[] = [
         id: 'cooler-durotek-mini-35', name: 'Durotek Mini Cooler 3.5 Ft', price: 3990, originalPrice: 7990,
         slug: 'durotek-mini-35', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-mini-35'], description: 'Compact and affordable 3.5 Ft cooler.', stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 20, brand: 'DUROTEK',
         keyFeatures: ['3.5 Ft Height', 'Budget Friendly', 'Efficient Cooling', 'Compact Design'], offers: [], specs: { 'Height': '3.5 Ft', 'Type': 'Personal' }
+    },
+    {
+        id: 'cooler-java-gt-100', name: 'Java GT 100', price: 11990, originalPrice: 14990,
+        slug: 'java-gt-100', category: 'Cooler', images: COOLER_IMAGES['cooler-java-gt-100'], description: 'Premium Java cooler with 100L capacity and Glass Top.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 10, brand: 'JAVA',
+        keyFeatures: ['100 Liters Tank', 'Glass Top', 'Heavy Duty Motor', 'Honeycomb Pads'], offers: [], specs: { 'Tank': '100 Liters', 'Type': 'Desert Cooler', 'Top': 'Glass' }
     },
 
 
