@@ -15,7 +15,8 @@ export default function AdminPage() {
     const [data, setData] = useState<any>(null);
     const [activeTab, setActiveTab] = useState<'orders' | 'users'>('orders');
 
-    // Check session storage on mount
+    // Removed session storage check to enforce login on every visit/reload
+    /* 
     useEffect(() => {
         const checkAuth = async () => {
              const storedCode = sessionStorage.getItem('adminCode');
@@ -25,22 +26,23 @@ export default function AdminPage() {
         };
         checkAuth();
     }, []);
+    */
 
-    const handleLogin = async (code: string, isAuto = false) => {
+    const handleLogin = async (code: string) => {
         if (!code) return;
         setIsLoading(true);
         try {
             const isValid = await verifyAdmin(code);
             if (isValid) {
                 setIsAuthenticated(true);
-                if(!isAuto) sessionStorage.setItem('adminCode', code);
+                // sessionStorage.setItem('adminCode', code); // Disabled persistence
                 // Fetch data immediately
                 const dashboardData = await getAdminData(code);
                 setData(dashboardData);
-                if(!isAuto) toast.success("Welcome, Admin");
+                toast.success("Welcome, Admin");
             } else {
-                if(!isAuto) toast.error("Invalid Access Code");
-                sessionStorage.removeItem('adminCode');
+                toast.error("Invalid Access Code");
+                // sessionStorage.removeItem('adminCode');
             }
         } catch (error) {
             console.error(error);
@@ -54,7 +56,7 @@ export default function AdminPage() {
         setIsAuthenticated(false);
         setData(null);
         setAccessCode("");
-        sessionStorage.removeItem('adminCode');
+        // sessionStorage.removeItem('adminCode');
         toast.success("Logged out");
     };
 
