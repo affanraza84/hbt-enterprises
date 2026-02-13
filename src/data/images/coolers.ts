@@ -23,5 +23,5 @@ export const COOLER_IMAGES: Record<string, string[]> = {
     'cooler-durotek-fp-brown': ['/images/coolers/durotek-fp-brown.jpg'],
     'cooler-durotek-air-punch-22-v2': ['/images/coolers/durotek-air-punch-22-v2.jpg'],
     'cooler-durotek-glass-18': ['/images/coolers/durotek-grey-white.jpg'],
-    'cooler-durotek-mini-35': ['/images/coolers/durotek-fp-brown.jpg'],
+
 };

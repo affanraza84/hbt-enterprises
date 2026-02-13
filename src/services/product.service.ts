@@ -495,11 +495,7 @@ const MOCK_PRODUCTS: Product[] = [
         slug: 'durotek-glass-top-18', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-glass-18'], description: 'Premium Glass Top cooler with 18 inch motor.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 8, brand: 'DUROTEK',
         keyFeatures: ['Glass Top', '18 Inch Motor', '4 Ft Height', 'Premium Finish'], offers: [], specs: { 'Height': '4 Ft', 'Motor': '18 Inch' }
     },
-    {
-        id: 'cooler-durotek-mini-35', name: 'Durotek Mini Cooler 3.5 Ft', price: 3990, originalPrice: 7990,
-        slug: 'durotek-mini-35', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-mini-35'], description: 'Compact and affordable 3.5 Ft cooler.', stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 20, brand: 'DUROTEK',
-        keyFeatures: ['3.5 Ft Height', 'Budget Friendly', 'Efficient Cooling', 'Compact Design'], offers: [], specs: { 'Height': '3.5 Ft', 'Type': 'Personal' }
-    },
+
     {
         id: 'cooler-altitu-16', name: 'Altitu 16" (70 Ltr) with Wheel', price: 8990, originalPrice: 12990,
         slug: 'altitu-16-70l', category: 'Cooler', images: COOLER_IMAGES['cooler-altitu-16'], description: '16 inch cooler with 70 Liters capacity and wheels.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 7, brand: 'ALTITU',
