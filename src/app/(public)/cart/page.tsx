@@ -204,9 +204,11 @@ export default function CartPage() {
                             </div>
                         </div>
 
-                        <Button className="w-full h-12 bg-[#003087] hover:bg-[#00205b] text-white font-bold rounded-full text-base shadow-md">
-                            Proceed to checkout
-                        </Button>
+                        <Link href="/checkout" className="block w-full">
+                            <Button className="w-full h-12 bg-[#003087] hover:bg-[#00205b] text-white font-bold rounded-full text-base shadow-md">
+                                Proceed to checkout
+                            </Button>
+                        </Link>
                     </div>
 
                 </div>
