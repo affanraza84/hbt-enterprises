@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { verifyAdmin, getAdminData } from "@/app/actions/admin";
+import { verifyAdmin, getAdminData } from "../actions/admin";
 import { formatCurrency } from "@/lib/helpers";
 import { Loader2, Lock, LayoutDashboard, ShoppingBag, Users as UsersIcon, LogOut, CheckCircle, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
