@@ -7,16 +7,16 @@ import { Button } from "@/components/ui/Button";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 const BRANDS = [
-  { id: 1, name: "Sony", logo: "https://cdn.simpleicons.org/sony/000000" },
-  { id: 2, name: "Samsung", logo: "https://cdn.simpleicons.org/samsung" },
-  { id: 3, name: "LG", logo: "https://cdn.simpleicons.org/lg" },
-  { id: 5, name: "HP", logo: "https://cdn.simpleicons.org/hp" },
-  { id: 6, name: "Apple", logo: "https://cdn.simpleicons.org/apple" },
-  { id: 9, name: "JBL", logo: "https://cdn.simpleicons.org/jbl" },
-  { id: 10, name: "OnePlus", logo: "https://cdn.simpleicons.org/oneplus" },
-  { id: 11, name: "Lenovo", logo: "https://cdn.simpleicons.org/lenovo/000000" },
-  { id: 13, name: "Realme", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Realme_logo.svg" },
-  { id: 14, name: "Xiaomi", logo: "https://cdn.simpleicons.org/xiaomi" },
+  { id: 1, name: "Sony", logo: "/images/brand-logos/sony.svg" },
+  { id: 2, name: "Samsung", logo: "/images/brand-logos/samsung.svg" },
+  { id: 3, name: "LG", logo: "/images/brand-logos/lg.svg" },
+  { id: 5, name: "HP", logo: "/images/brand-logos/hp.svg" },
+  { id: 6, name: "Apple", logo: "/images/brand-logos/apple.svg" },
+  { id: 9, name: "JBL", logo: "/images/brand-logos/jbl.svg" },
+  { id: 10, name: "OnePlus", logo: "/images/brand-logos/oneplus.svg" },
+  { id: 11, name: "Lenovo", logo: "/images/brand-logos/lenovo.svg" },
+  { id: 13, name: "Realme", logo: "/images/brand-logos/realme.svg" },
+  { id: 14, name: "Xiaomi", logo: "/images/brand-logos/xiaomi.svg" },
 ];
 
 export function BrandShowcase() {
