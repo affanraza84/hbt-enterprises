@@ -10,6 +10,7 @@ import {
   MessageCircle,
   CreditCard,
   Linkedin,
+  Lock,
 } from "lucide-react";
 
 export function Footer() {
@@ -295,6 +296,18 @@ export function Footer() {
                 </span>
                 <Linkedin className="w-3 h-3 opacity-70 group-hover:opacity-100 transition-opacity" />
               </div>
+            </Link>
+
+            {/* Admin Access Link - Appealing Button */}
+            <Link
+              href="/admin"
+              className="ml-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 group"
+              title="Admin Panel"
+            >
+              <Lock className="w-3 h-3 text-blue-500 group-hover:text-blue-400 transition-colors" />
+              <span className="text-[10px] uppercase font-bold text-blue-500 group-hover:text-blue-400 transition-colors">
+                Admin
+              </span>
             </Link>
           </div>
 
