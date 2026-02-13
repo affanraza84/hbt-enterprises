@@ -12,6 +12,8 @@ import { useRouter } from 'next/navigation';
 
 import { useCart } from '@/context/CartContext';
 import { useEffect } from 'react';
+import { useUser } from '@clerk/nextjs';
+import { getUserProfile } from '@/app/actions/user-profile';
 
 interface Product {
   id: string;
@@ -41,6 +43,7 @@ declare global {
 export function CheckoutForm({ product, razorpayKeyId }: CheckoutFormProps) {
   const router = useRouter();
   const { items: cartItems, cartTotal, clearCart } = useCart();
+  const { user, isLoaded } = useUser();
   const [loading, setLoading] = useState(false);
   
   // Determine if we are in "Buy Now" mode or "Cart Checkout" mode
@@ -66,6 +69,41 @@ export function CheckoutForm({ product, razorpayKeyId }: CheckoutFormProps) {
     state: '',
     pincode: '',
   });
+
+  // Pre-fill from Saved Profile or Clerk
+  useEffect(() => {
+    const fetchProfile = async () => {
+        if (!user) return;
+        
+        // 1. Try to fetch from our DB
+        const profile = await getUserProfile();
+        
+        if (profile) {
+            setFormData(prev => ({
+                ...prev,
+                phone: profile.phone || prev.phone,
+                firstName: profile.firstName || prev.firstName,
+                lastName: profile.lastName || prev.lastName,
+                address: profile.address || prev.address,
+                city: profile.city || prev.city,
+                state: profile.state || prev.state,
+                pincode: profile.pincode || prev.pincode,
+            }));
+        } else {
+            // 2. Fallback to Clerk details if no DB profile
+            setFormData(prev => ({
+                ...prev,
+                firstName: user.firstName || '',
+                lastName: user.lastName || '',
+                // email: user.primaryEmailAddress?.emailAddress || '', // Email removed from form
+            }));
+        }
+    };
+
+    if (isLoaded && user) {
+        fetchProfile();
+    }
+  }, [isLoaded, user]);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -177,6 +215,7 @@ export function CheckoutForm({ product, razorpayKeyId }: CheckoutFormProps) {
                     image: item.images?.[0]
                 })),
                 amount: totalAmount,
+                userId: user?.id, // Pass Clerk ID to save profile
               }),
             });
 

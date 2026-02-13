@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import crypto from 'crypto';
 import dbConnect from '@/lib/db';
 import Order from '@/models/Order';
+import User from '@/models/User';
 
 export async function POST(request: Request) {
     try {
@@ -14,6 +15,7 @@ export async function POST(request: Request) {
             customerDetails,
             items,
             amount,
+            userId, // Clerk User ID
         } = await request.json();
 
         const body = razorpay_order_id + '|' + razorpay_payment_id;
@@ -36,6 +38,18 @@ export async function POST(request: Request) {
                 razorpaySignature: razorpay_signature,
                 paymentStatus: 'paid',
             });
+
+            // Save/Update User Profile
+            if (userId) {
+                await User.findOneAndUpdate(
+                    { clerkId: userId },
+                    {
+                        clerkId: userId,
+                        ...customerDetails
+                    },
+                    { upsert: true, new: true }
+                );
+            }
 
             return NextResponse.json({
                 message: 'Payment verified and order created',
