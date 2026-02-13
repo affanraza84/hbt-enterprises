@@ -440,7 +440,7 @@ const MOCK_PRODUCTS: Product[] = [
         keyFeatures: ['22" Aero Cool Flappy', '22 Inch Motor', '5 Ft Height', 'Heavy Metal Body'], offers: ['1 Year Warranty'], specs: { 'Height': '5 Ft', 'Motor': '22 Inch', 'Type': 'Commercial' }
     },
     {
-        id: 'cooler-durotek-commando-14', name: 'Durotek Commando 14"', price: 6990, originalPrice: 8990,
+        id: 'cooler-durotek-commando-14', name: 'Durotek Commando 14"', price: 3990, originalPrice: 8990,
         slug: 'durotek-commando-14', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-commando-14'], description: 'Compact commercial cooler with flappy swing.', stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 18, brand: 'DUROTEK',
         keyFeatures: ['14" Flappy Swing', '3 Side Honeycomb', '3 Ft Height', 'Compact Design'], offers: [], specs: { 'Height': '3 Ft', 'Type': 'Commercial', 'Swing': 'Flappy' }
     },
@@ -461,9 +461,29 @@ const MOCK_PRODUCTS: Product[] = [
         keyFeatures: ['15 Inch Motor', '3.5 Ft Height', 'Honeycomb Pads', 'Efficient Cooling'], offers: [], specs: { 'Height': '3.5 Ft', 'Motor': '15 Inch' }
     },
     {
-        id: 'cooler-durotek-commando-21', name: 'Durotek Commando 21"', price: 7990, originalPrice: 14990,
-        slug: 'durotek-commando-21', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-commando-21'], description: '4 Ft cooler with heavy duty motor.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 10, brand: 'DUROTEK',
+        id: 'cooler-durotek-commando-21', name: 'Durotek Commando 21"', price: 8500, originalPrice: 14990,
+        slug: 'durotek-commando-21', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-commando-21'], description: '21 inch commercial cooler.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 10, brand: 'DUROTEK',
         keyFeatures: ['21" Flappy Swing', '3 Side Honeycomb', '4 Ft Height', '110 Motor'], offers: [], specs: { 'Height': '4 Ft', 'Type': 'Commercial', 'Motor': '110' }
+    },
+    {
+        id: 'cooler-samat-45', name: 'Samat 45L', price: 3250, originalPrice: 5990,
+        slug: 'samat-45l', category: 'Cooler', images: COOLER_IMAGES['cooler-samat-45'], description: '45 Liters capacity cooler.', stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 5, brand: 'SAMAT',
+        keyFeatures: ['45 Liters Tank', 'Efficient Cooling', 'Compact Design'], offers: [], specs: { 'Tank': '45 Liters', 'Type': 'Personal' }
+    },
+    {
+        id: 'cooler-durotek-storm-130', name: 'Durotek Storm 130L', price: 11990, originalPrice: 15990,
+        slug: 'durotek-storm-130', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-storm-130'], description: '130 Liters capacity, Storm series.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 8, brand: 'DUROTEK',
+        keyFeatures: ['130 Liters Tank', 'Storm Series', 'Heavy Duty'], offers: [], specs: { 'Tank': '130 Liters', 'Type': 'Desert Cooler' }
+    },
+    {
+        id: 'cooler-durotek-spectra-16', name: 'Durotek Spectra 16"', price: 5990, originalPrice: 8990,
+        slug: 'durotek-spectra-16', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-spectra-16'], description: 'Spectra Swing with 3 Side Honeycomb and Ice Chamber.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 12, brand: 'DUROTEK',
+        keyFeatures: ['Spectra Swing', '3 Side Honeycomb', 'Ice Chamber'], offers: [], specs: { 'Type': 'Personal', 'Swing': 'Spectra' }
+    },
+    {
+        id: 'cooler-durotek-aero-cool-11', name: 'Durotek Aero Cool 11" (5 Ft)', price: 11990, originalPrice: 14990,
+        slug: 'durotek-aero-cool-11', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-aero-cool-11'], description: '5 Ft height commercial cooler with Aero Cool technology.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 6, brand: 'DUROTEK',
+        keyFeatures: ['11 Inch Motor', '5 Ft Height', 'Aero Cool'], offers: [], specs: { 'Height': '5 Ft', 'Motor': '11 Inch', 'Type': 'Commercial' }
     },
     {
         id: 'cooler-vaayu-smart-v2', name: 'Vaayu Smart Air Cooler (New)', price: 5500, originalPrice: 9990,
@@ -479,6 +499,11 @@ const MOCK_PRODUCTS: Product[] = [
         id: 'cooler-durotek-mini-35', name: 'Durotek Mini Cooler 3.5 Ft', price: 3990, originalPrice: 7990,
         slug: 'durotek-mini-35', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-mini-35'], description: 'Compact and affordable 3.5 Ft cooler.', stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 20, brand: 'DUROTEK',
         keyFeatures: ['3.5 Ft Height', 'Budget Friendly', 'Efficient Cooling', 'Compact Design'], offers: [], specs: { 'Height': '3.5 Ft', 'Type': 'Personal' }
+    },
+    {
+        id: 'cooler-altitu-16', name: 'Altitu 16" (70 Ltr) with Wheel', price: 8990, originalPrice: 12990,
+        slug: 'altitu-16-70l', category: 'Cooler', images: COOLER_IMAGES['cooler-altitu-16'], description: '16 inch cooler with 70 Liters capacity and wheels.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 7, brand: 'ALTITU',
+        keyFeatures: ['70 Liters Tank', '16 Inch Motor', 'With Wheels', 'High Air Delivery'], offers: [], specs: { 'Tank': '70 Liters', 'Motor': '16 Inch', 'Type': 'Commercial' }
     },
     {
         id: 'cooler-java-gt-100', name: 'Java GT 100', price: 7490, originalPrice: 14990,
