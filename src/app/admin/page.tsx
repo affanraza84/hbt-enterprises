@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { verifyAdmin, getAdminData } from "../actions/admin";
 import { formatCurrency } from "@/lib/helpers";
-import { Loader2, Lock, LayoutDashboard, ShoppingBag, Users as UsersIcon, LogOut, CheckCircle, XCircle } from "lucide-react";
+import { Loader2, Lock, LayoutDashboard, ShoppingBag, Users as UsersIcon, LogOut, CheckCircle, XCircle, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import toast from "react-hot-toast";
@@ -12,6 +12,7 @@ export default function AdminPage() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [accessCode, setAccessCode] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [data, setData] = useState<any>(null);
     const [activeTab, setActiveTab] = useState<'orders' | 'users'>('orders');
 
@@ -73,13 +74,22 @@ export default function AdminPage() {
                     </div>
                     
                     <form onSubmit={(e) => { e.preventDefault(); handleLogin(accessCode); }} className="space-y-4">
-                        <Input 
-                            type="password" 
-                            placeholder="Access Code" 
-                            value={accessCode} 
-                            onChange={(e) => setAccessCode(e.target.value)}
-                            className="bg-gray-50 dark:bg-neutral-800 border-gray-200 dark:border-neutral-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-neutral-500 focus:border-blue-500 focus:ring-blue-500"
-                        />
+                        <div className="relative">
+                            <Input 
+                                type={showPassword ? "text" : "password"} 
+                                placeholder="Access Code" 
+                                value={accessCode} 
+                                onChange={(e) => setAccessCode(e.target.value)}
+                                className="bg-gray-50 dark:bg-neutral-800 border-gray-200 dark:border-neutral-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-neutral-500 focus:border-blue-500 focus:ring-blue-500 pr-10"
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 dark:text-neutral-500 dark:hover:text-neutral-300 transition-colors"
+                            >
+                                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                            </button>
+                        </div>
                         <Button 
                             type="submit" 
                             className="w-full bg-blue-600 hover:bg-blue-700 text-white h-12 font-medium"
