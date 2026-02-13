@@ -246,9 +246,9 @@ export function CheckoutForm({ product, razorpayKeyId }: CheckoutFormProps) {
       const paymentObject = new window.Razorpay(options);
       paymentObject.open();
 
-    } catch (error) {
+    } catch (error: any) {
       console.error('Payment error:', error);
-      toast.error('Something went wrong. Please try again.');
+      toast.error(error.message || 'Something went wrong. Please try again.');
     } finally {
       setLoading(false);
     }
