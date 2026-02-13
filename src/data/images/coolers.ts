@@ -9,7 +9,7 @@ export const COOLER_IMAGES: Record<string, string[]> = {
     'cooler-durotek-air-punch-22': ['/images/coolers/durotek-air-punch-22.jpg'],
     'cooler-durotek-aero-22': ['/images/coolers/durotek-aero-22.jpg'],
     'cooler-durotek-commando-14': ['/images/coolers/durotek-commando-14.jpg'],
-    'cooler-durotek-commando-21': ['/images/coolers/durotek-commando-21.jpg'],
+    'cooler-durotek-commando-21': ['/images/coolers/durotek-commando-21.jpeg'],
     'cooler-vaayu-smart': ['/images/coolers/vaayu-smart.png'],
     'cooler-vaayu-smart-v2': ['/images/coolers/vaayu-smart-v2.jpg'],
     'cooler-durotek-aero-22-v2': ['/images/coolers/durotek-aero-22-v2.jpg'],

@@ -445,7 +445,7 @@ const MOCK_PRODUCTS: Product[] = [
         keyFeatures: ['14" Flappy Swing', '3 Side Honeycomb', '3 Ft Height', 'Compact Design'], offers: [], specs: { 'Height': '3 Ft', 'Type': 'Commercial', 'Swing': 'Flappy' }
     },
     {
-        id: 'cooler-durotek-red', name: 'Durotek Red Cool', price: 9490, originalPrice: 11990,
+        id: 'cooler-durotek-red', name: 'Durotek Red Cool', price: 5500, originalPrice: 11990,
         slug: 'durotek-red-cool', category: 'Cooler', images: COOLER_IMAGES['cooler-durotek-red'], description: 'Stylish Red & White cooler design.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 12, brand: 'DUROTEK',
         keyFeatures: ['Red & White Body', 'High Air Delivery', 'Honeycomb Pads', 'Inverter Compatible'], offers: [], specs: { 'Color': 'Red/White', 'Type': 'Personal', 'Blade': '16 Inch' }
     },
@@ -466,7 +466,7 @@ const MOCK_PRODUCTS: Product[] = [
         keyFeatures: ['21" Flappy Swing', '3 Side Honeycomb', '4 Ft Height', '110 Motor'], offers: [], specs: { 'Height': '4 Ft', 'Type': 'Commercial', 'Motor': '110' }
     },
     {
-        id: 'cooler-vaayu-smart-v2', name: 'Vaayu Smart Air Cooler (New)', price: 9990, originalPrice: 12990,
+        id: 'cooler-vaayu-smart-v2', name: 'Vaayu Smart Air Cooler (New)', price: 5500, originalPrice: 9990,
         slug: 'vaayu-smart-cooler-v2', category: 'Cooler', images: COOLER_IMAGES['cooler-vaayu-smart-v2'], description: 'Advanced smart cooler with enhanced features.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 5, brand: 'VAAYU',
         keyFeatures: ['Enhanced Smart Cooling', 'Premium Design', 'Honeycomb Pads', 'Remote Control'], offers: ['Introductory Offer'], specs: { 'Type': 'Smart Cooler', 'Color': 'Premium White/Blue' }
     },
@@ -481,7 +481,7 @@ const MOCK_PRODUCTS: Product[] = [
         keyFeatures: ['3.5 Ft Height', 'Budget Friendly', 'Efficient Cooling', 'Compact Design'], offers: [], specs: { 'Height': '3.5 Ft', 'Type': 'Personal' }
     },
     {
-        id: 'cooler-java-gt-100', name: 'Java GT 100', price: 11990, originalPrice: 14990,
+        id: 'cooler-java-gt-100', name: 'Java GT 100', price: 7490, originalPrice: 14990,
         slug: 'java-gt-100', category: 'Cooler', images: COOLER_IMAGES['cooler-java-gt-100'], description: 'Premium Java cooler with 100L capacity and Glass Top.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 10, brand: 'JAVA',
         keyFeatures: ['100 Liters Tank', 'Glass Top', 'Heavy Duty Motor', 'Honeycomb Pads'], offers: [], specs: { 'Tank': '100 Liters', 'Type': 'Desert Cooler', 'Top': 'Glass' }
     },
