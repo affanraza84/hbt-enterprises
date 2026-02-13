@@ -298,15 +298,15 @@ export function Footer() {
               </div>
             </Link>
 
-            {/* Admin Access Link - Appealing Button */}
+            {/* Admin Access Link - Larger Button */}
             <Link
               href="/admin"
-              className="ml-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 group"
+              className="ml-4 flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 group"
               title="Admin Panel"
             >
-              <Lock className="w-3 h-3 text-blue-500 group-hover:text-blue-400 transition-colors" />
-              <span className="text-[10px] uppercase font-bold text-blue-500 group-hover:text-blue-400 transition-colors">
-                Admin
+              <Lock className="w-4 h-4 text-blue-500 group-hover:text-blue-400 transition-colors" />
+              <span className="text-xs uppercase font-bold text-blue-500 group-hover:text-blue-400 transition-colors">
+                Admin Access
               </span>
             </Link>
           </div>
