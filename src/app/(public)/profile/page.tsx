@@ -18,15 +18,21 @@ import { cn } from '@/lib/utils';
 
 import { useUser, useClerk } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { SignOutModal } from "@/components/auth/SignOutModal";
 
 export default function ProfilePage() {
   const { user, isSignedIn } = useUser();
   const { signOut } = useClerk();
   const isAuthenticated = isSignedIn;
   const router = useRouter();
+  const [isSignOutModalOpen, setIsSignOutModalOpen] = useState(false);
   
-  const logout = async () => {
+  const logout = () => {
+      setIsSignOutModalOpen(true);
+  };
+
+  const handleConfirmLogout = async () => {
       await signOut();
       router.push("/");
   };
@@ -175,6 +181,13 @@ export default function ProfilePage() {
             </p>
         </div>
       </div>
+
+      
+      <SignOutModal 
+        isOpen={isSignOutModalOpen}
+        onClose={() => setIsSignOutModalOpen(false)}
+        onConfirm={handleConfirmLogout}
+      />
     </div>
   );
 }
