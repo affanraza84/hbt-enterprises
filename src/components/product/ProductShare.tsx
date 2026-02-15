@@ -14,7 +14,6 @@ export function ProductShare({ productName, slug }: ProductShareProps) {
     const url = `${window.location.origin}/products/${slug}`;
     const shareData = {
       title: productName,
-      text: `Check out ${productName} on HBT Enterprises!`,
       url: url,
     };
 
