@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, Share2, Tag, Check, Award } from 'lucide-react';
 import { ProductImageGallery } from '@/components/product/ProductImageGallery';
+import { ProductShare } from '@/components/product/ProductShare';
 import { ProductBuyingSidebar } from '@/components/product/ProductBuyingSidebar';
 import { ProductCard } from '@/components/product/ProductCard';
 
@@ -62,9 +63,9 @@ export default async function ProductPage(props: ProductPageProps) {
             <div className="lg:col-span-6 xl:col-span-5 relative">
                  <div className="sticky top-24">
                      {/* Share Button (Absolute) */}
-                     <button className="absolute right-0 top-0 z-10 w-8 h-8 rounded-full bg-white shadow-sm border border-neutral-200 flex items-center justify-center text-neutral-500 hover:text-blue-600 max-lg:hidden">
-                        <Share2 className="w-4 h-4" />
-                     </button>
+                     {/* Share Button (Absolute) */}
+                     <ProductShare productName={product.name} slug={product.slug} />
+
                      <ProductImageGallery images={product.images || []} name={product.name} />
                  </div>
             </div>
