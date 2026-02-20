@@ -82,26 +82,7 @@ export default async function Home() {
         viewAllLink="/products?category=air-conditioner" 
       />
 
-      <CategorySection 
-        title="Microwaves" 
-        subtitle="Kitchen Essentials" 
-        products={getProductsByCategory('Microwave')} 
-        viewAllLink="/products?category=microwave" 
-      />
 
-      <CategorySection 
-        title="Laptops & Printers" 
-        subtitle="Work & Play" 
-        products={getProductsByCategories(['Laptop', 'Printer'])} 
-        viewAllLink="/products?category=laptops" 
-      />
-
-      <CategorySection 
-        title="Accessories" 
-        subtitle="Essential Gadgets" 
-        products={getProductsByCategories(['Smartwatch', 'Headphones', 'Accessories', 'Audio'])} 
-        viewAllLink="/products?category=accessories" 
-      />
 
 
       <WhyChooseHBT />

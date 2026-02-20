@@ -41,10 +41,9 @@ export function Footer() {
                   Got questions? Call us!
                 </p>
                 <a
-                  href="tel:02261636464"
-                  className="text-xl font-bold text-neutral-900 dark:text-white hover:text-accent transition-colors block"
+                  className="text-xl font-bold text-neutral-900 dark:text-white hover:text-accent transition-colors block whitespace-nowrap"
                 >
-                  022 6163 6464
+                  965 7866 739
                 </a>
               </div>
             </div>
@@ -72,68 +71,49 @@ export function Footer() {
             </h4>
             <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
               <Link
-                href="/products?category=accessories"
-                className="hover:text-accent transition-colors"
-              >
-                Accessories
-              </Link>
-              <Link
-                href="/products?category=smart-phone"
-                className="hover:text-accent transition-colors"
-              >
-                Smart Phone
-              </Link>
-
-              <Link
-                href="/products?category=air-conditioner"
-                className="hover:text-accent transition-colors"
-              >
-                Air Conditioner
-              </Link>
-              <Link
-                href="/products?category=microwave"
-                className="hover:text-accent transition-colors"
-              >
-                Microwaves
-              </Link>
-
-              <Link
-                href="/products?category=laptops"
-                className="hover:text-accent transition-colors"
-              >
-                Laptops & Printer
-              </Link>
-              <Link
-                href="/products?category=air-cooler"
-                className="hover:text-accent transition-colors"
-              >
-                Air Coolers
-              </Link>
-
-              <Link
-                href="/products?category=home-appliances"
-                className="hover:text-accent transition-colors"
-              >
-                Home Appliances
-              </Link>
-              <Link
-                href="/products?category=tv"
+                href="/products?category=television"
                 className="hover:text-accent transition-colors"
               >
                 Televisions
               </Link>
-
               <Link
-                href="/products?category=audio"
+                href="/products?category=washing-machine"
                 className="hover:text-accent transition-colors"
               >
-                Home Audio
+                Washing Machines
+              </Link>
+
+              <Link
+                href="/products?category=smart-phone"
+                className="hover:text-accent transition-colors"
+              >
+                Smart Phones
+              </Link>
+              <Link
+                href="/products?category=cooler"
+                className="hover:text-accent transition-colors"
+              >
+                Coolers
+              </Link>
+
+              <Link
+                href="/products?category=soundbar"
+                className="hover:text-accent transition-colors"
+              >
+                Soundbars
               </Link>
               <Link
                 href="/products?category=refrigerator"
                 className="hover:text-accent transition-colors"
               >
                 Refrigerators
+              </Link>
+
+              <Link
+                href="/products?category=air-conditioner"
+                className="hover:text-accent col-span-2 transition-colors"
+              >
+                Air Conditioners
               </Link>
             </div>
           </div>
@@ -146,7 +126,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li>
                 <Link
-                  href="/account"
+                  href="/profile"
                   className="hover:text-accent transition-colors"
                 >
                   My Account
@@ -187,14 +167,6 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/blog"
-                  className="hover:text-accent transition-colors"
-                >
-                  Blogs
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/promise"
                   className="hover:text-accent transition-colors"
                 >
@@ -207,22 +179,6 @@ export function Footer() {
                   className="hover:text-accent transition-colors"
                 >
                   FAQ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/testimonials"
-                  className="hover:text-accent transition-colors"
-                >
-                  Testimonials
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/careers"
-                  className="hover:text-accent transition-colors"
-                >
-                  Careers
                 </Link>
               </li>
             </ul>
