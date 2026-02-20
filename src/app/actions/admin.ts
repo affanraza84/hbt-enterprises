@@ -23,23 +23,29 @@ export async function getAdminData(code: string) {
         console.log("Connecting to DB...");
         await dbConnect();
 
-        // Fetch Orders (sorted by latest)
+        // Calculate Stats efficiently via DB aggregation
+        const totalOrders = await Order.countDocuments();
+        const totalUsers = await User.countDocuments();
+        const revenueAggregation = await Order.aggregate([
+            { $match: { paymentStatus: 'paid' } },
+            { $group: { _id: null, totalRevenue: { $sum: "$amount" } } }
+        ]);
+        const totalRevenue = revenueAggregation.length > 0 ? revenueAggregation[0].totalRevenue : 0;
+
+        // Fetch recent Orders (limited to 100)
         console.log("Fetching Orders...");
-        const orders = await Order.find({}).sort({ createdAt: -1 }).lean();
+        const orders = await Order.find({}).sort({ createdAt: -1 }).limit(100).lean();
         console.log(`Fetched ${orders.length} orders`);
 
+        // Fetch recent Users (limited to 100)
         console.log("Fetching Users...");
-        const users = await User.find({}).sort({ createdAt: -1 }).lean();
+        const users = await User.find({}).sort({ createdAt: -1 }).limit(100).lean();
         console.log(`Fetched ${users.length} users`);
-
-        // Calculate Stats
-        const totalOrders = orders.length;
-        const totalUsers = users.length;
-        const totalRevenue = orders.reduce((acc, order) => acc + (order.amount || 0), 0);
 
         // Serialize data (convert _id and dates to strings)
         const serializedOrders = orders.map(order => ({
             ...order,
+            ...{ amount: order.amount || 0 }, // fallback gracefully
             _id: order._id.toString(),
             createdAt: order.createdAt?.toISOString(),
             updatedAt: order.updatedAt?.toISOString(),

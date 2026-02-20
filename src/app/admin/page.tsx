@@ -236,8 +236,21 @@ function OrdersTable({ orders }: { orders: any[] }) {
                                 <div className="text-xs">{order.customerDetails?.phone}</div>
                             </td>
                             <td className="px-6 py-4">
-                                <div className="max-w-xs truncate" title={order.items?.map((i: any) => i.name).join(', ')}>
-                                    {order.items?.length || 0} items
+                                <div className="max-w-xs space-y-1">
+                                    {order.items?.length > 0 ? (
+                                        order.items.map((item: any, index: number) => (
+                                            <div key={index} className="text-xs flex justify-between items-center border-b border-gray-100 dark:border-neutral-800/50 pb-1 last:border-0 last:pb-0">
+                                                <span className="truncate pr-2 text-gray-800 dark:text-neutral-300" title={item.name}>
+                                                    {item.quantity}x {item.name}
+                                                </span>
+                                                <span className="text-gray-500 font-medium whitespace-nowrap">
+                                                    {formatCurrency(item.price * item.quantity)}
+                                                </span>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <span className="text-gray-400 italic">No items</span>
+                                    )}
                                 </div>
                             </td>
                             <td className="px-6 py-4 font-bold text-gray-900 dark:text-white">{formatCurrency(order.amount)}</td>
