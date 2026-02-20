@@ -32,14 +32,14 @@ export async function getAdminData(code: string) {
         ]);
         const totalRevenue = revenueAggregation.length > 0 ? revenueAggregation[0].totalRevenue : 0;
 
-        // Fetch recent Orders (limited to 100)
+        // Fetch all Orders
         console.log("Fetching Orders...");
-        const orders = await Order.find({}).sort({ createdAt: -1 }).limit(100).lean();
+        const orders = await Order.find({}).sort({ createdAt: -1 }).lean();
         console.log(`Fetched ${orders.length} orders`);
 
-        // Fetch recent Users (limited to 100)
+        // Fetch all Users
         console.log("Fetching Users...");
-        const users = await User.find({}).sort({ createdAt: -1 }).limit(100).lean();
+        const users = await User.find({}).sort({ createdAt: -1 }).lean();
         console.log(`Fetched ${users.length} users`);
 
         // Serialize data (convert _id and dates to strings)
@@ -51,7 +51,10 @@ export async function getAdminData(code: string) {
             updatedAt: order.updatedAt?.toISOString(),
             // Ensure fields are present
             customerDetails: order.customerDetails || {},
-            items: order.items || [],
+            items: (order.items || []).map((item: any) => ({
+                ...item,
+                _id: item._id ? item._id.toString() : undefined
+            })),
         }));
 
         const serializedUsers = users.map(user => ({

@@ -9,6 +9,8 @@ import { Input } from '@/components/ui/Input';
 import { MapPin } from 'lucide-react';
 import { formatCurrency } from '@/lib/helpers';
 
+import { useUser } from '@clerk/nextjs';
+
 interface ProductBuyingSidebarProps {
   product: Product;
 }
@@ -16,6 +18,7 @@ interface ProductBuyingSidebarProps {
 export function ProductBuyingSidebar({ product }: ProductBuyingSidebarProps) {
   const { addToCart } = useCart();
   const router = useRouter();
+  const { isSignedIn } = useUser();
   const [pincode, setPincode] = useState("");
 
   const handleAddToCart = () => {
@@ -24,6 +27,10 @@ export function ProductBuyingSidebar({ product }: ProductBuyingSidebarProps) {
   };
 
   const handleBuyNow = () => {
+    if (!isSignedIn) {
+      addToCart(product);
+      return;
+    }
     router.push(`/checkout?product=${product.slug}`);
   };
 

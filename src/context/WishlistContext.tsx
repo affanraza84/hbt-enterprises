@@ -2,8 +2,9 @@
 
 import { createContext, useContext, useEffect, useState, ReactNode, useRef } from "react";
 import { Product } from "@/types/product";
-import toast from "react-hot-toast";
 import { useUser } from "@clerk/nextjs";
+import toast from "react-hot-toast";
+import { LoginRequiredModal } from "@/components/auth/LoginRequiredModal";
 import { ProductService } from "@/services/product.service";
 import { syncWishlistToClerk } from "@/app/actions/user.actions";
 
@@ -25,6 +26,8 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const { user, isLoaded, isSignedIn } = useUser();
   const initialSyncComplete = useRef(false);
+
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   // Load wishlist logic
   useEffect(() => {
@@ -92,8 +95,10 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
   }, [isSignedIn, isLoaded]);
 
   const addToWishlist = (product: Product) => {
-    // Optional: Force login? Or allow guest wishlist?
-    // Using guest wishlist for better UX.
+    if (!isSignedIn) {
+      setIsLoginModalOpen(true);
+      return;
+    }
     
     // Check existence BEFORE setting state to avoid side-effects in updater
     const exists = items.some((item) => item.id === product.id);
@@ -136,6 +141,11 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
       }}
     >
       {children}
+      <LoginRequiredModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+        message="Please sign in to add items to your wishlist."
+      />
     </WishlistContext.Provider>
   );
 }

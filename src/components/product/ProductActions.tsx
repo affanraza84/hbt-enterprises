@@ -7,6 +7,8 @@ import toast from "react-hot-toast";
 import { ShoppingCart, Zap } from "lucide-react";
 import { useRouter } from "next/navigation";
 
+import { useUser } from "@clerk/nextjs";
+
 interface ProductActionsProps {
   product: Product;
 }
@@ -14,13 +16,19 @@ interface ProductActionsProps {
 export function ProductActions({ product }: ProductActionsProps) {
   const { addToCart } = useCart();
   const router = useRouter();
+  const { isSignedIn } = useUser();
 
   const handleAddToCart = () => {
     addToCart(product);
-
   };
 
   const handleBuyNow = () => {
+    if (!isSignedIn) {
+      // Let CartContext spawn the LoginRequiredModal, but don't redirect
+      addToCart(product);
+      return;
+    }
+    
     addToCart(product);
     router.push("/cart");
   };

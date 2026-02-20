@@ -358,7 +358,7 @@ const MOCK_PRODUCTS: Product[] = [
 
     // --- DIA SUN WASHING MACHINES ---
     {
-        id: 'diasun-wm-90-half', name: 'Dia Sun 9.0 Kg Semi Automatic Top Load (Half Glass)', price: 10, originalPrice: 14990,
+        id: 'diasun-wm-90-half', name: 'Dia Sun 9.0 Kg Semi Automatic Top Load (Half Glass)', price: 1, originalPrice: 14990,
         slug: 'diasun-9kg-semi-automatic', category: 'Washing Machine', images: WASHING_MACHINE_IMAGES['diasun-wm-90-half'], description: 'Smart AI Clean Wash with Half Glass Lid.', stock: 50, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 25, brand: 'DIA SUN',
         keyFeatures: ['Smart AI Clean Wash', 'Half Glass Lid', '9.0 Kg Capacity'], offers: ['5 Year Warranty'], specs: { 'Capacity': '9.0 Kg', 'Type': 'Semi Automatic', 'Lid': 'Half Glass' }
     },
