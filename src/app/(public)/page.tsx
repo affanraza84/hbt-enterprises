@@ -71,14 +71,14 @@ export default async function Home() {
       <CategorySection 
         title="Refrigerators" 
         subtitle="Cooling Solutions" 
-        products={getProductsByCategory('Refrigerator')} 
+        products={getProductsByCategory('Refrigerator').slice(0, 6)} 
         viewAllLink="/products?category=refrigerator" 
       />
 
       <CategorySection 
         title="Air Conditioners" 
         subtitle="Climate Control" 
-        products={getProductsByCategory('Air Conditioner')} 
+        products={getProductsByCategory('Air Conditioner').slice(0, 6)} 
         viewAllLink="/products?category=air-conditioner" 
       />
 

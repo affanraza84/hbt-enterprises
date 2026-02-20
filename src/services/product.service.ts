@@ -539,10 +539,222 @@ const MOCK_PRODUCTS: Product[] = [
         slug: 'zebronics-9700-pro', category: 'Soundbar', images: SOUNDBAR_IMAGES['sb-6'], description: 'Dolby Atmos.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 450, brand: 'ZEBRONICS',
         keyFeatures: ['Dolby Atmos', 'Quad Drivers', 'Wall Mountable'], offers: [], specs: { 'Output': '450W', 'Bluetooth': 'v5.0' }
     },
+    {
+        id: 'sb-7', name: 'LG S95QR 9.1.5ch Soundbar with Wireless Subwoofer', price: 89990, originalPrice: 109990,
+        slug: 'lg-s95qr', category: 'Soundbar', images: SOUNDBAR_IMAGES['sb-7'], description: 'Premium IMAX Enhanced Audio.', stock: 6, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 85, brand: 'LG',
+        keyFeatures: ['810W Total Power', 'Meridian Audio', 'IMAX Enhanced'], offers: ['Bank Offer'], specs: { 'Channel': '9.1.5', 'Bluetooth': 'v5.0' }
+    },
+    {
+        id: 'sb-8', name: 'Sony HT-A7000 7.1.2ch Premium Soundbar', price: 129990, originalPrice: 149990,
+        slug: 'sony-ht-a7000', category: 'Soundbar', images: SOUNDBAR_IMAGES['sb-8'], description: 'Flagship 360 Spatial Sound.', stock: 4, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 102, brand: 'SONY',
+        keyFeatures: ['360 Spatial Sound Mapping', '8K/4K 120 Passthrough', 'Built-in Subwoofer'], offers: ['No Cost EMI'], specs: { 'Channel': '7.1.2', 'Wi-Fi': 'Yes' }
+    },
+    {
+        id: 'sb-9', name: 'boAt Aavante Bar 3150D 260W Surround Sound', price: 11999, originalPrice: 24990,
+        slug: 'boat-aavante-3150d', category: 'Soundbar', images: SOUNDBAR_IMAGES['sb-9'], description: 'Powerful theatre experience at home.', stock: 35, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 650, brand: 'BOAT',
+        keyFeatures: ['260W Output', '5.1 Channel Surround', 'Dolby Audio'], offers: [], specs: { 'Subwoofer': 'Wired', 'HDMI': 'ARC' }
+    },
+    {
+        id: 'sb-10', name: 'Samsung HW-B670/XL 5.1ch Soundbar', price: 29990, originalPrice: 39990,
+        slug: 'samsung-hw-b670', category: 'Soundbar', images: SOUNDBAR_IMAGES['sb-10'], description: 'Elevate your sound experience with 3D audio.', stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 220, brand: 'SAMSUNG',
+        keyFeatures: ['DTS Virtual:X', 'Bass Boost', 'Included Rear Speakers'], offers: ['Exchange Offer'], specs: { 'Channel': '5.1', 'Output': '600W' }
+    },
+    {
+        id: 'sb-11', name: 'JBL Bar 500 Pro Dolby Atmos', price: 44999, originalPrice: 54999,
+        slug: 'jbl-bar-500-pro', category: 'Soundbar', images: SOUNDBAR_IMAGES['sb-11'], description: 'Wireless bass enhancement.', stock: 11, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 310, brand: 'JBL',
+        keyFeatures: ['590W Total Power', 'MultiBeam technology', '10-inch subwoofer'], offers: [], specs: { 'Channel': '5.1', 'Wi-Fi': 'Yes' }
+    },
+    {
+        id: 'sb-12', name: 'Sonos Arc Premium Smart Soundbar', price: 85000, originalPrice: 95000,
+        slug: 'sonos-arc', category: 'Soundbar', images: SOUNDBAR_IMAGES['sb-12'], description: 'Brilliant sound for your TV, music, and more.', stock: 7, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 190, brand: 'SONOS',
+        keyFeatures: ['Voice Assistance Built-In', 'Trueplay Tuning', '11 High-Performance Drivers'], offers: [], specs: { 'Color': 'White/Black', 'HDMI': 'eARC' }
+    },
+    {
+        id: 'sb-13', name: 'Mivi Fort S100 100W Soundbar', price: 3499, originalPrice: 8999,
+        slug: 'mivi-fort-s100', category: 'Soundbar', images: SOUNDBAR_IMAGES['sb-13'], description: 'Budget friendly cinematic sound.', stock: 45, createdAt: new Date(), updatedAt: new Date(), rating: 4.1, reviewsCount: 950, brand: 'MIVI',
+        keyFeatures: ['100W Output', '2.2 Channel', 'In-built Subwoofer'], offers: ['Bank Offer'], specs: { 'Bluetooth': 'v5.1', 'Remote': 'Yes' }
+    },
+    {
+        id: 'sb-14', name: 'Zebronics Juke Bar 3900', price: 4299, originalPrice: 11999,
+        slug: 'zebronics-3900', category: 'Soundbar', images: SOUNDBAR_IMAGES['sb-14'], description: 'Crystal clear sound with punchy bass.', stock: 40, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 1110, brand: 'ZEBRONICS',
+        keyFeatures: ['80W Output', '5.25 inch Subwoofer', 'LED Display'], offers: [], specs: { 'Channel': '2.1', 'HDMI': 'ARC' }
+    },
+    {
+        id: 'sb-15', name: 'Blaupunkt SBW500 120W Soundbar', price: 6999, originalPrice: 14990,
+        slug: 'blaupunkt-sbw500', category: 'Soundbar', images: SOUNDBAR_IMAGES['sb-15'], description: 'German audio technology.', stock: 22, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 560, brand: 'BLAUPUNKT',
+        keyFeatures: ['120W Peak Power', 'Deep Bass', 'EQ Modes'], offers: [], specs: { 'Subwoofer': 'Wooden', 'Channel': '2.1' }
+    },
+    {
+        id: 'sb-16', name: 'Sony HT-G700 3.1ch Cinematic Soundbar', price: 39990, originalPrice: 47990,
+        slug: 'sony-ht-g700', category: 'Soundbar', images: SOUNDBAR_IMAGES['sb-16'], description: 'Upscale audio to 7.1.2ch.', stock: 14, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 295, brand: 'SONY',
+        keyFeatures: ['Vertical Surround Engine', '400W Power', 'Wireless Subwoofer'], offers: ['Exchange Offer'], specs: { 'Sound': 'Dolby Atmos', 'HDMI': 'eARC' }
+    },
 
     // --- FEATURED & OTHERS ---
 
+    // --- AIR CONDITIONERS ---
+    {
+        id: 'ac-voltas-1.5-split', name: 'Voltas 1.5 Ton 3 Star Split AC', price: 32990, originalPrice: 54990,
+        slug: 'voltas-1-5-split-ac', category: 'Air Conditioner', images: AC_IMAGES['ac-1'], description: 'High ambient cooling with adjustable modes.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 320, brand: 'VOLTAS',
+        keyFeatures: ['1.5 Ton', '3 Star', 'Anti-dust Filter'], offers: ['Bank Offer'], specs: { 'Capacity': '1.5 Ton', 'Type': 'Split' }
+    },
+    {
+        id: 'ac-lg-1.5-inverter', name: 'LG 1.5 Ton 5 Star AI Dual Inverter AC', price: 44990, originalPrice: 75990,
+        slug: 'lg-1-5-inverter-ac', category: 'Air Conditioner', images: AC_IMAGES['ac-2'], description: 'Super convertable 6-in-1 cooling.', stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 450, brand: 'LG',
+        keyFeatures: ['AI Dual Inverter', '5 Star', 'HD Filter'], offers: ['Free Installation'], specs: { 'Capacity': '1.5 Ton', 'Compressor': 'Dual Inverter' }
+    },
+    {
+        id: 'ac-samsung-1.5-windfree', name: 'Samsung 1.5 Ton 5 Star WindFree AC', price: 46990, originalPrice: 72990,
+        slug: 'samsung-1-5-windfree-ac', category: 'Air Conditioner', images: AC_IMAGES['ac-3'], description: 'Gentle cooling with WindFree technology.', stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 280, brand: 'SAMSUNG',
+        keyFeatures: ['WindFree', '5 Star', 'Digital Inverter'], offers: [], specs: { 'Capacity': '1.5 Ton', 'Cooling': 'WindFree' }
+    },
+    {
+        id: 'ac-voltas-1-ton-3', name: 'Voltas 1 Ton 3 Star Split AC', price: 28990, originalPrice: 48990,
+        slug: 'voltas-1-ton-3-split', category: 'Air Conditioner', images: AC_IMAGES['ac-4'], description: 'Energy efficient cooling for small rooms.', stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.1, reviewsCount: 115, brand: 'VOLTAS',
+        keyFeatures: ['1 Ton', '3 Star', 'Copper Condenser'], offers: [], specs: { 'Capacity': '1 Ton', 'Type': 'Split' }
+    },
+    {
+        id: 'ac-voltas-1.5-inv', name: 'Voltas 1.5 Ton 5 Star Inverter AC', price: 38990, originalPrice: 65990,
+        slug: 'voltas-1-5-inverter-5star', category: 'Air Conditioner', images: AC_IMAGES['ac-5'], description: 'Adjustable cooling with power savings.', stock: 22, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 410, brand: 'VOLTAS',
+        keyFeatures: ['1.5 Ton', '5 Star', 'Adjustable Mode'], offers: ['Bank Offer'], specs: { 'Capacity': '1.5 Ton', 'Compressor': 'Inverter' }
+    },
+    {
+        id: 'ac-voltas-2-ton-5', name: 'Voltas 2 Ton 5 Star Inverter AC', price: 49990, originalPrice: 82990,
+        slug: 'voltas-2-ton-inverter-5star', category: 'Air Conditioner', images: AC_IMAGES['ac-6'], description: 'Massive cooling power for large spaces.', stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 88, brand: 'VOLTAS',
+        keyFeatures: ['2 Ton', '5 Star', 'Turbo Cooling'], offers: [], specs: { 'Capacity': '2 Ton', 'Type': 'Split' }
+    },
+    {
+        id: 'ac-voltas-window-1.5', name: 'Voltas 1.5 Ton 3 Star Window AC', price: 27990, originalPrice: 42990,
+        slug: 'voltas-1-5-window-3star', category: 'Air Conditioner', images: AC_IMAGES['ac-7'], description: 'Compact and powerful window unit.', stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 220, brand: 'VOLTAS',
+        keyFeatures: ['1.5 Ton', 'Window', 'Turbo Mode'], offers: ['Free Installation'], specs: { 'Capacity': '1.5 Ton', 'Type': 'Window' }
+    },
+    {
+        id: 'ac-lg-1-ton-5', name: 'LG 1 Ton 5 Star AI Dual Inverter AC', price: 36990, originalPrice: 62990,
+        slug: 'lg-1-ton-5star-inverter', category: 'Air Conditioner', images: AC_IMAGES['ac-1'], description: 'Perfect cooling for personal spaces powered by AI.', stock: 14, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 305, brand: 'LG',
+        keyFeatures: ['1 Ton', '5 Star', 'AI Dual Inverter'], offers: [], specs: { 'Capacity': '1 Ton', 'Compressor': 'Dual Inverter' }
+    },
+    {
+        id: 'ac-lg-2-ton-3', name: 'LG 2 Ton 3 Star AI DUAL Inverter Split AC', price: 52990, originalPrice: 84990,
+        slug: 'lg-2-ton-3star-inverter', category: 'Air Conditioner', images: AC_IMAGES['ac-2'], description: 'Fast and quiet cooling for big rooms.', stock: 7, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 156, brand: 'LG',
+        keyFeatures: ['2 Ton', '3 Star', 'Ocean Black Protection'], offers: ['Bank Offer'], specs: { 'Capacity': '2 Ton', 'Type': 'Split' }
+    },
+    {
+        id: 'ac-lg-1.5-window', name: 'LG 1.5 Ton 5 Star Inverter Window AC', price: 32990, originalPrice: 55990,
+        slug: 'lg-1-5-window-5star', category: 'Air Conditioner', images: AC_IMAGES['ac-3'], description: 'Smart window AC with LG ThinQ.', stock: 11, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 195, brand: 'LG',
+        keyFeatures: ['1.5 Ton', 'Window', 'Inverter'], offers: [], specs: { 'Capacity': '1.5 Ton', 'Type': 'Window' }
+    },
+    {
+        id: 'ac-lg-1.5-hotcold', name: 'LG 1.5 Ton 3 Star Hot & Cold AC', price: 42990, originalPrice: 68990,
+        slug: 'lg-1-5-hot-cold-3star', category: 'Air Conditioner', images: AC_IMAGES['ac-4'], description: 'All weather comfort throughout the year.', stock: 4, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 82, brand: 'LG',
+        keyFeatures: ['Hot & Cold', '1.5 Ton', 'Dual Inverter'], offers: ['No Cost EMI'], specs: { 'Capacity': '1.5 Ton', 'Modes': 'Hot & Cold' }
+    },
+    {
+        id: 'ac-sam-1-ton-3', name: 'Samsung 1 Ton 3 Star Inverter Split AC', price: 31990, originalPrice: 50990,
+        slug: 'samsung-1-ton-3star-inv', category: 'Air Conditioner', images: AC_IMAGES['ac-5'], description: 'Energy efficient basic cooling.', stock: 26, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 215, brand: 'SAMSUNG',
+        keyFeatures: ['1 Ton', '3 Star', 'Digital Inverter'], offers: [], specs: { 'Capacity': '1 Ton', 'Type': 'Split' }
+    },
+    {
+        id: 'ac-sam-2-ton-5', name: 'Samsung 2 Ton 5 Star WindFree AC', price: 56990, originalPrice: 92990,
+        slug: 'samsung-2-ton-5star-windfree', category: 'Air Conditioner', images: AC_IMAGES['ac-6'], description: 'Maximum cooling with 23,000 microholes draft-free experience.', stock: 4, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 140, brand: 'SAMSUNG',
+        keyFeatures: ['2 Ton', 'WindFree', 'SmartThings App'], offers: ['Bank Offer'], specs: { 'Capacity': '2 Ton', 'Cooling': 'WindFree' }
+    },
+    {
+        id: 'ac-sam-1.5-convertible', name: 'Samsung 1.5 Ton 3 Star Convertible 5-in-1', price: 35990, originalPrice: 58990,
+        slug: 'samsung-1-5-convertible-3star', category: 'Air Conditioner', images: AC_IMAGES['ac-7'], description: 'Flexibility for varying cooling needs.', stock: 19, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 300, brand: 'SAMSUNG',
+        keyFeatures: ['5-in-1', '1.5 Ton', 'Anti Bacterial Filter'], offers: [], specs: { 'Capacity': '1.5 Ton', 'Modes': 'Convertible' }
+    },
+    {
+        id: 'ac-sam-1.5-smart', name: 'Samsung 1.5 Ton 5 Star Smart AC with Wi-Fi', price: 43990, originalPrice: 70990,
+        slug: 'samsung-1-5-smart-wifi-5star', category: 'Air Conditioner', images: AC_IMAGES['ac-1'], description: 'Smart AI Auto cooling with Wi-Fi connectivity.', stock: 14, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 425, brand: 'SAMSUNG',
+        keyFeatures: ['Wi-Fi enabled', 'AI Auto Cooling', '5 Star'], offers: ['Free Installation'], specs: { 'Capacity': '1.5 Ton', 'IoT': 'Yes' }
+    },
+    {
+        id: 'ac-lg-1-ton-3', name: 'LG 1 Ton 3 Star AI Dual Inverter Split AC', price: 32990, originalPrice: 53990,
+        slug: 'lg-1-ton-3star-inverter', category: 'Air Conditioner', images: AC_IMAGES['ac-2'], description: 'Fast cooling with energy efficiency.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 180, brand: 'LG',
+        keyFeatures: ['1 Ton', '3 Star', 'Dual Inverter'], offers: [], specs: { 'Capacity': '1 Ton', 'Type': 'Split' }
+    },
 
+    // --- REFRIGERATORS ---
+    {
+        id: 'ref-samsung-side-by-side', name: 'Samsung 653 L Frost Free Side-By-Side Refrigerator', price: 79990, originalPrice: 112990,
+        slug: 'samsung-side-by-side-ref', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-1'], description: 'Spacious side-by-side with digital inverter.', stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 110, brand: 'SAMSUNG',
+        keyFeatures: ['653 Liters', 'Twin Cooling Plus', 'Digital Inverter'], offers: ['Exchange Offer'], specs: { 'Capacity': '653 L', 'Type': 'Side by Side' }
+    },
+    {
+        id: 'ref-lg-double-door', name: 'LG 242 L 3 Star Frost-Free Double Door Refrigerator', price: 25990, originalPrice: 38990,
+        slug: 'lg-242l-double-door', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-2'], description: 'Smart inverter compressor for saving energy.', stock: 20, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 520, brand: 'LG',
+        keyFeatures: ['242 Liters', 'Smart Inverter', 'Multi Air Flow'], offers: [], specs: { 'Capacity': '242 L', 'Type': 'Double Door' }
+    },
+    {
+        id: 'ref-samsung-double-door', name: 'Samsung 236 L 3 Star Digital Inverter Double Door', price: 24990, originalPrice: 37990,
+        slug: 'samsung-236l-double-door', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-6'], description: 'Curd master and voltage protection.', stock: 18, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 430, brand: 'SAMSUNG',
+        keyFeatures: ['236 Liters', 'MoistFresh Zone', 'Toughened Glass'], offers: [], specs: { 'Capacity': '236 L', 'Type': 'Double Door' }
+    },
+    {
+        id: 'ref-lg-french-door', name: 'LG 594 L Frost-Free French Door Refrigerator', price: 92990, originalPrice: 145990,
+        slug: 'lg-french-door-ref', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-feat-lg'], description: 'Premium French Door design with Instaview.', stock: 3, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 85, brand: 'LG',
+        keyFeatures: ['594 Liters', 'Hygiene Fresh+', 'Instaview'], offers: ['No Cost EMI'], specs: { 'Capacity': '594 L', 'Type': 'French Door' }
+    },
+    {
+        id: 'ref-s-192l', name: 'Samsung 192 L 3 Star Direct Cool Single Door', price: 15490, originalPrice: 20990,
+        slug: 'samsung-192l-single-door', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-3'], description: 'Compact and efficient direct cool refrigerator.', stock: 35, createdAt: new Date(), updatedAt: new Date(), rating: 4.2, reviewsCount: 800, brand: 'SAMSUNG',
+        keyFeatures: ['192 Liters', 'Direct Cool', 'Base Stand Drawer'], offers: [], specs: { 'Capacity': '192 L', 'Type': 'Single Door' }
+    },
+    {
+        id: 'ref-s-215l', name: 'Samsung 215 L 4 Star Digi-Touch Single Door', price: 18990, originalPrice: 25990,
+        slug: 'samsung-215l-digi-touch', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-4'], description: 'Digi-touch cool technology with impressive space.', stock: 25, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 410, brand: 'SAMSUNG',
+        keyFeatures: ['215 Liters', 'Digi-Touch Cool', '4 Star'], offers: [], specs: { 'Capacity': '215 L', 'Type': 'Single Door' }
+    },
+    {
+        id: 'ref-s-256l', name: 'Samsung 256 L 3 Star Frost Free Double Door', price: 26990, originalPrice: 38990,
+        slug: 'samsung-256l-frost-free', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-5'], description: 'All round cooling with easy slide shelf.', stock: 15, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 380, brand: 'SAMSUNG',
+        keyFeatures: ['256 Liters', 'All Round Cooling', '3 Star'], offers: ['Bank Offer'], specs: { 'Capacity': '256 L', 'Type': 'Double Door' }
+    },
+    {
+        id: 'ref-s-324l', name: 'Samsung 324 L 3 Star Double Door', price: 34990, originalPrice: 48990,
+        slug: 'samsung-324l-double-door', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-1'], description: 'Spacious double door for regular family needs.', stock: 12, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 220, brand: 'SAMSUNG',
+        keyFeatures: ['324 Liters', 'Convertible', 'Digital Inverter'], offers: [], specs: { 'Capacity': '324 L', 'Type': 'Double Door' }
+    },
+    {
+        id: 'ref-s-385l', name: 'Samsung 385 L 2 Star Frost Free', price: 41990, originalPrice: 59990,
+        slug: 'samsung-385l-frost-free', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-2'], description: '5 in 1 convertible mode refrigerator.', stock: 8, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 160, brand: 'SAMSUNG',
+        keyFeatures: ['385 Liters', 'Twin Cooling Plus', 'Deodorizing Filter'], offers: ['Exchange Offer'], specs: { 'Capacity': '385 L', 'Type': 'Double Door' }
+    },
+    {
+        id: 'ref-lg-185l', name: 'LG 185 L 5 Star Direct-Cool Single Door', price: 17490, originalPrice: 24990,
+        slug: 'lg-185l-single-door-5star', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-3'], description: 'Maximum efficiency with 5 star rating.', stock: 30, createdAt: new Date(), updatedAt: new Date(), rating: 4.4, reviewsCount: 710, brand: 'LG',
+        keyFeatures: ['185 Liters', '5 Star', 'Toughened Glass'], offers: [], specs: { 'Capacity': '185 L', 'Type': 'Single Door' }
+    },
+    {
+        id: 'ref-lg-201l', name: 'LG 201 L 4 Star Direct-Cool Single Door', price: 19490, originalPrice: 27990,
+        slug: 'lg-201l-single-door-4star', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-4'], description: 'Fast ice making with elegant design.', stock: 22, createdAt: new Date(), updatedAt: new Date(), rating: 4.3, reviewsCount: 390, brand: 'LG',
+        keyFeatures: ['201 Liters', '4 Star', 'Moist N Fresh'], offers: [], specs: { 'Capacity': '201 L', 'Type': 'Single Door' }
+    },
+    {
+        id: 'ref-lg-260l', name: 'LG 260 L 3 Star Frost-Free Double Door', price: 27490, originalPrice: 40990,
+        slug: 'lg-260l-frost-free-3star', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-5'], description: 'Multi Air Flow with Door Cooling+', stock: 16, createdAt: new Date(), updatedAt: new Date(), rating: 4.5, reviewsCount: 460, brand: 'LG',
+        keyFeatures: ['260 Liters', 'Door Cooling+', 'Smart Diagnosis'], offers: ['Bank Offer'], specs: { 'Capacity': '260 L', 'Type': 'Double Door' }
+    },
+    {
+        id: 'ref-lg-343l', name: 'LG 343 L 3 Star Frost-Free Double Door', price: 37990, originalPrice: 53990,
+        slug: 'lg-343l-frost-free-3star', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-6'], description: 'Convertible freezer with ThinQ.', stock: 10, createdAt: new Date(), updatedAt: new Date(), rating: 4.6, reviewsCount: 215, brand: 'LG',
+        keyFeatures: ['343 Liters', 'LG ThinQ', 'Convertible'], offers: [], specs: { 'Capacity': '343 L', 'Type': 'Double Door' }
+    },
+    {
+        id: 'ref-lg-sbs-688l', name: 'LG 688 L Frost-Free Smart Inverter Side-by-Side', price: 89990, originalPrice: 139990,
+        slug: 'lg-688l-side-by-side', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-feat-lg'], description: 'Mega capacity with sophisticated design.', stock: 4, createdAt: new Date(), updatedAt: new Date(), rating: 4.8, reviewsCount: 130, brand: 'LG',
+        keyFeatures: ['688 Liters', 'Water Dispenser', 'Smart Inverter'], offers: ['No Cost EMI'], specs: { 'Capacity': '688 L', 'Type': 'Side by Side' }
+    },
+    {
+        id: 'ref-lg-471l', name: 'LG 471 L 3 Star Frost-Free Double Door', price: 54990, originalPrice: 79990,
+        slug: 'lg-471l-double-door', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-1'], description: 'Hygiene Fresh+ block bacteria and odors.', stock: 7, createdAt: new Date(), updatedAt: new Date(), rating: 4.7, reviewsCount: 155, brand: 'LG',
+        keyFeatures: ['471 Liters', 'Hygiene Fresh+', 'Linear Cooling'], offers: [], specs: { 'Capacity': '471 L', 'Type': 'Double Door' }
+    },
+    {
+        id: 'ref-s-580l', name: 'Samsung 580 L Inverter French Door Refrigerator', price: 82990, originalPrice: 115990,
+        slug: 'samsung-580l-french-door', category: 'Refrigerator', images: REFRIGERATOR_IMAGES['ref-6'], description: 'Elegant French door with convertible zones.', stock: 5, createdAt: new Date(), updatedAt: new Date(), rating: 4.9, reviewsCount: 112, brand: 'SAMSUNG',
+        keyFeatures: ['580 Liters', 'Convertible 5in1', 'Digital Inverter'], offers: ['Bank Offer'], specs: { 'Capacity': '580 L', 'Type': 'French Door' }
+    }
 ];
 
 export const ProductService = {
