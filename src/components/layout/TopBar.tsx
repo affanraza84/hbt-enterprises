@@ -13,9 +13,18 @@ export function TopBar({ className }: { className?: string }) {
     <div className={cn("hidden md:block w-full z-50 bg-neutral-light", className)}>
       <div className="bg-neutral-light text-[11px] font-medium py-1.5 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex justify-end items-center gap-6">
-           <Link href="/stores" className="flex items-center gap-1.5 text-primary hover:text-accent transition-colors">
-              <MapPin className="w-3.5 h-3.5" />
-              <span>Store Locator</span>
+           <Link 
+              href="https://maps.app.goo.gl/DPsBLSYMTmDnJKet6" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-1.5 text-primary hover:text-accent transition-colors group"
+              title="Open Google Maps"
+           >
+              <MapPin className="w-4 h-4 group-hover:animate-bounce" />
+              <span className="font-bold">Store Locator:</span>
+              <span className="text-neutral-500 group-hover:text-accent transition-colors hidden lg:inline-block max-w-[200px] xl:max-w-none truncate">
+                Rani Durgawati Chowk, Panchsheel Nagar, Nagpur
+              </span>
            </Link>
            <span className="text-primary/20">|</span>
            <Link href="/about" className="flex items-center gap-1.5 text-primary hover:text-accent transition-colors">
