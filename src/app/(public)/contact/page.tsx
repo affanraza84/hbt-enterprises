@@ -58,9 +58,9 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="font-bold text-neutral-900 dark:text-white mb-2 text-xl">Call Us</h3>
-                <a href="tel:9657866739" className="text-primary hover:text-blue-600 dark:hover:text-blue-400 font-bold text-lg transition-colors">
+                <p className="text-primary font-bold text-lg">
                   965 7866 739
-                </a>
+                </p>
                 <div className="flex items-center justify-center gap-2 mt-3 text-sm text-neutral-500">
                   <Clock className="w-4 h-4" />
                   <span>Mon-Sat, 9 AM - 6 PM</span>
