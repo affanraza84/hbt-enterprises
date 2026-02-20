@@ -50,17 +50,22 @@ export function Footer() {
 
             {/* Social Icons */}
             <div className="flex gap-4">
-              {[Facebook, Twitter, Instagram, Mail, MessageCircle].map(
-                (Icon, idx) => (
-                  <Link
-                    key={idx}
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-neutral-200 dark:bg-neutral-900 flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:bg-accent hover:text-white dark:hover:bg-accent dark:hover:text-white transition-all"
-                  >
-                    <Icon className="w-5 h-5" />
-                  </Link>
-                ),
-              )}
+              <Link
+                href="https://www.instagram.com/hbt_enterprises?igsh=cnN2anVlcnVvZnl0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-neutral-200 dark:bg-neutral-900 flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:bg-accent hover:text-white dark:hover:bg-accent dark:hover:text-white transition-all"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </Link>
+              <a
+                href="mailto:arifbadmash488@gmail.com"
+                className="w-10 h-10 rounded-full bg-neutral-200 dark:bg-neutral-900 flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:bg-accent hover:text-white dark:hover:bg-accent dark:hover:text-white transition-all"
+                aria-label="Email Us"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
