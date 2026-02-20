@@ -1,48 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
   Mail,
   Phone,
   MapPin,
-  Send,
-  User,
-  FileText,
-  MessageSquare,
   Clock,
   CheckCircle2,
-  ArrowRight,
   Zap,
   HeadphonesIcon,
   Globe,
 } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [focusedField, setFocusedField] = useState<string | null>(null);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 4000);
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
 
   return (
     <section className="min-h-screen bg-neutral-50 dark:bg-neutral-900 relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
@@ -77,205 +47,101 @@ export default function ContactPage() {
           </p>
         </header>
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
-          {/* Contact Form */}
-          <div className="lg:col-span-7">
-            <div className="relative group">
-              {/* Glow Effect */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-blue-500 to-purple-500 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition duration-1000" />
-              
-              <div className="relative bg-white dark:bg-neutral-900/90 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-neutral-200 dark:border-neutral-800/50 shadow-xl dark:shadow-none">
-                <div className="mb-10">
-                  <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-3 flex items-center gap-3">
-                    <MessageSquare className="w-8 h-8 text-primary" />
-                    Send Message
-                  </h2>
-                  <p className="text-neutral-600 dark:text-neutral-400 text-sm">
-                    Fill in your details and we'll respond within 2 hours during business hours
-                  </p>
+        {/* Contact Information Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          {/* Phone Card */}
+          <div className="group relative overflow-hidden rounded-2xl bg-white dark:bg-neutral-900/90 border border-neutral-200 dark:border-neutral-800/50 p-8 hover:border-primary/50 transition-all duration-300 shadow-sm dark:shadow-none translate-y-0 hover:-translate-y-1">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all" />
+            <div className="relative flex flex-col items-center text-center gap-5">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Phone className="w-7 h-7 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-bold text-neutral-900 dark:text-white mb-2 text-xl">Call Us</h3>
+                <a href="tel:9657866739" className="text-primary hover:text-blue-600 dark:hover:text-blue-400 font-bold text-lg transition-colors">
+                  965 7866 739
+                </a>
+                <div className="flex items-center justify-center gap-2 mt-3 text-sm text-neutral-500">
+                  <Clock className="w-4 h-4" />
+                  <span>Mon-Sat, 9 AM - 6 PM</span>
                 </div>
-
-                {submitted ? (
-                  <div className="flex flex-col items-center justify-center text-center py-24">
-                    <div className="relative mb-8">
-                      <div className="absolute inset-0 bg-green-500/20 rounded-full blur-2xl" />
-                      <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center animate-bounce">
-                        <CheckCircle2 className="w-12 h-12 text-white" />
-                      </div>
-                    </div>
-                    <h3 className="text-3xl font-bold text-neutral-900 dark:text-white mb-3">
-                      Message Delivered!
-                    </h3>
-                    <p className="text-neutral-600 dark:text-neutral-400 max-w-md text-lg">
-                      We've received your message and our team will get back to you shortly.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <Input
-                        id="name"
-                        label="Full Name"
-                        placeholder="John Doe"
-                        required
-                        icon={<User className="w-5 h-5" />}
-                        value={formData.name}
-                        onChange={handleChange}
-                      />
-
-                      <Input
-                        id="email"
-                        type="email"
-                        label="Email Address"
-                        placeholder="john@company.com"
-                        required
-                        icon={<Mail className="w-5 h-5" />}
-                        value={formData.email}
-                        onChange={handleChange}
-                      />
-                    </div>
-
-                    <Input
-                      id="subject"
-                      label="Subject"
-                      placeholder="How can we help you today?"
-                      required
-                      icon={<FileText className="w-5 h-5" />}
-                      value={formData.subject}
-                      onChange={handleChange}
-                    />
-
-                    <div className="w-full space-y-1.5">
-                      <label htmlFor="message" className="block text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider ml-1">
-                        Your Message
-                      </label>
-                      <div className="relative group">
-                        <div className="absolute left-4 top-3.5 text-neutral-400 group-focus-within:text-primary transition-colors duration-200">
-                           <MessageSquare className="w-5 h-5" />
-                        </div>
-                        <textarea
-                          id="message"
-                          rows={6}
-                          required
-                          value={formData.message}
-                          onChange={handleChange}
-                          placeholder="Tell us about your project, questions, or support needs..."
-                          className="flex w-full rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800/50 pl-11 pr-4 py-3 text-sm ring-offset-white placeholder:text-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40 focus-visible:border-primary dark:focus-visible:border-primary transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 text-neutral-900 dark:text-white resize-none"
-                        />
-                      </div>
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="group relative w-full h-14 rounded-xl bg-gradient-to-r from-primary via-blue-500 to-primary bg-size-200 bg-pos-0 hover:bg-pos-100 text-white font-bold text-lg transition-all duration-500 overflow-hidden shadow-lg shadow-primary/25 hover:shadow-primary/40"
-                    >
-                      <span className="relative z-10 flex items-center justify-center gap-3">
-                        Send Message
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                      </span>
-                    </button>
-                  </form>
-                )}
               </div>
             </div>
           </div>
 
-          {/* Sidebar */}
-          <div className="lg:col-span-5 space-y-6">
-            {/* Quick Contact Cards */}
-            <div className="grid grid-cols-1 gap-4">
-              {/* Phone Card */}
-              <div className="group relative overflow-hidden rounded-2xl bg-white dark:bg-neutral-900/90 border border-neutral-200 dark:border-neutral-800/50 p-6 hover:border-primary/50 transition-all duration-300 shadow-sm dark:shadow-none">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all" />
-                <div className="relative flex items-start gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-neutral-900 dark:text-white mb-1 text-lg">Call Us</h3>
-                    <a href="tel:+15551234567" className="text-primary hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-lg transition-colors">
-                      +1 (555) 123-4567
-                    </a>
-                    <div className="flex items-center gap-2 mt-3 text-sm text-neutral-500">
-                      <Clock className="w-4 h-4" />
-                      <span>Mon-Fri, 9 AM - 6 PM EST</span>
-                    </div>
-                  </div>
-                </div>
+          {/* Email Card */}
+          <div className="group relative overflow-hidden rounded-2xl bg-white dark:bg-neutral-900/90 border border-neutral-200 dark:border-neutral-800/50 p-8 hover:border-blue-500/50 transition-all duration-300 shadow-sm dark:shadow-none translate-y-0 hover:-translate-y-1">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl group-hover:bg-blue-500/10 transition-all" />
+            <div className="relative flex flex-col items-center text-center gap-5">
+              <div className="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Mail className="w-7 h-7 text-blue-500" />
               </div>
-
-              {/* Email Card */}
-              <div className="group relative overflow-hidden rounded-2xl bg-white dark:bg-neutral-900/90 border border-neutral-200 dark:border-neutral-800/50 p-6 hover:border-blue-500/50 transition-all duration-300 shadow-sm dark:shadow-none">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl group-hover:bg-blue-500/10 transition-all" />
-                <div className="relative flex items-start gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <Mail className="w-6 h-6 text-blue-500" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-neutral-900 dark:text-white mb-1 text-lg">Email</h3>
-                    <a href="mailto:support@hbt-enterprises.com" className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 font-semibold transition-colors break-all">
-                      support@hbt-enterprises.com
-                    </a>
-                    <p className="text-sm text-neutral-500 mt-3">
-                      Response in 24h
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Location Card */}
-              <div className="group relative overflow-hidden rounded-2xl bg-white dark:bg-neutral-900/90 border border-neutral-200 dark:border-neutral-800/50 p-6 hover:border-purple-500/50 transition-all duration-300 shadow-sm dark:shadow-none">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl group-hover:bg-purple-500/10 transition-all" />
-                <div className="relative flex items-start gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <MapPin className="w-6 h-6 text-purple-500" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-neutral-900 dark:text-white mb-1 text-lg">Visit Us</h3>
-                    <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                      123 Tech Avenue<br />
-                      Silicon Valley, CA 94025<br />
-                      United States
-                    </p>
-                  </div>
-                </div>
+              <div>
+                <h3 className="font-bold text-neutral-900 dark:text-white mb-2 text-xl">Email Us</h3>
+                <a href="mailto:arifbadmash488@gmail.com" className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 font-bold text-lg transition-colors break-all">
+                  arifbadmash488@gmail.com
+                </a>
+                <p className="text-sm text-neutral-500 mt-3">
+                  Quick response within 24h
+                </p>
               </div>
             </div>
+          </div>
 
-            {/* Why Choose Us */}
-            <div className="rounded-2xl bg-gradient-to-br from-primary/5 via-blue-500/5 to-purple-500/5 backdrop-blur-xl border border-primary/10 p-8">
-              <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-6 flex items-center gap-2">
-                <Zap className="w-6 h-6 text-primary" />
+          {/* Location Card */}
+          <div className="group relative overflow-hidden rounded-2xl bg-white dark:bg-neutral-900/90 border border-neutral-200 dark:border-neutral-800/50 p-8 hover:border-purple-500/50 transition-all duration-300 shadow-sm dark:shadow-none translate-y-0 hover:-translate-y-1">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl group-hover:bg-purple-500/10 transition-all" />
+            <div className="relative flex flex-col items-center text-center gap-5">
+              <div className="w-16 h-16 rounded-2xl bg-purple-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <MapPin className="w-7 h-7 text-purple-500" />
+              </div>
+              <div>
+                <h3 className="font-bold text-neutral-900 dark:text-white mb-2 text-xl">Visit Us</h3>
+                <a href="https://maps.app.goo.gl/DPsBLSYMTmDnJKet6" target="_blank" rel="noopener noreferrer" className="text-neutral-600 hover:text-purple-500 dark:text-neutral-400 dark:hover:text-purple-400 leading-relaxed transition-colors group-hover:font-medium inline-block">
+                  Rani Durgawati Chowk<br />
+                  Panchsheel Nagar<br />
+                  Nagpur
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Why Choose Us */}
+        <div className="mb-16">
+          <div className="rounded-3xl bg-gradient-to-br from-primary/5 via-blue-500/5 to-purple-500/5 backdrop-blur-xl border border-primary/10 p-8 md:p-12">
+            <div className="text-center mb-10">
+              <h3 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white flex items-center justify-center gap-3">
+                <Zap className="w-8 h-8 text-primary" />
                 Why Work With Us
               </h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-neutral-900 dark:text-white">Expert Support Team</p>
-                    <p className="text-sm text-neutral-600 dark:text-neutral-400">Industry-leading professionals at your service</p>
-                  </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                  <div className="w-4 h-4 rounded-full bg-primary" />
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-blue-400" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-neutral-900 dark:text-white">Rapid Response</p>
-                    <p className="text-sm text-neutral-600 dark:text-neutral-400">Average 2-hour response time</p>
-                  </div>
+                <div>
+                  <p className="font-semibold text-neutral-900 dark:text-white text-lg">Expert Support Team</p>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">Industry-leading professionals at your service</p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-purple-400" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-neutral-900 dark:text-white">Global Reach</p>
-                    <p className="text-sm text-neutral-600 dark:text-neutral-400">Supporting clients in 50+ countries</p>
-                  </div>
+              </div>
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
+                  <div className="w-4 h-4 rounded-full bg-blue-400" />
+                </div>
+                <div>
+                  <p className="font-semibold text-neutral-900 dark:text-white text-lg">Fast Response</p>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">Always ready to solve your appliance needs</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center shrink-0">
+                  <div className="w-4 h-4 rounded-full bg-purple-400" />
+                </div>
+                <div>
+                  <p className="font-semibold text-neutral-900 dark:text-white text-lg">Verified Quality</p>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">100% genuine products with full warranty</p>
                 </div>
               </div>
             </div>
