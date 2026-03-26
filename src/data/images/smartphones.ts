@@ -7,7 +7,7 @@ export const SMARTPHONE_IMAGES: Record<string, string[]> = {
     'ph-5': ['https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=800&q=80'], // Nothing -> WORKS
     'ph-5a': ['https://i.pinimg.com/1200x/54/1e/9f/541e9f79a9b05b921d80653f0c5b2be5.jpg'], // Nothing 2a -> WORKS
     'ph-6': ['https://images.unsplash.com/photo-1595941069915-4ebc5197c14a?auto=format&fit=crop&w=800&q=80'], // Xiaomi -> WORKS
-    'ph-google-pixel-8-pro': ['https://images.unsplash.com/photo-1598327105666-5b89351aff23?auto=format&fit=crop&w=800&q=80'], // Pixel 8 Pro (Generic Android High Quality)
+    'ph-google-pixel-8-pro': ['https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=800&q=80'], // Pixel 8 Pro (Using working Pixel image)
 
     // Apple
     'ph-apple-15': ['https://i.pinimg.com/736x/cb/2a/d0/cb2ad0bbc24149758f88797d22b54ab7.jpg'], // WORKS
