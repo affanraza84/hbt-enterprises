@@ -22,13 +22,21 @@ export function Footer() {
           {/* Column 1: Brand & Contact */}
           <div className="space-y-8">
             {/* Brand Logo */}
-            <Link href="/" className="inline-block group">
-              <span className="font-heading font-black text-3xl text-neutral-900 dark:text-white tracking-tight group-hover:opacity-80 transition-opacity">
-                HBT <span className="text-accent">Enterprises</span>
-              </span>
-              <span className="block text-[10px] font-bold tracking-[0.2em] text-neutral-400 uppercase mt-1">
-                Selling Joyfully
-              </span>
+            <Link href="/" className="group flex flex-col gap-2 inline-block">
+              <div className="flex items-baseline gap-1.5 leading-none">
+                <span className="font-['Orbitron'] font-black text-3xl tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 to-accent dark:from-white dark:to-accent transition-all duration-300 group-hover:to-blue-400">
+                  HBT
+                </span>
+                <span className="font-heading font-black text-2xl text-neutral-800 dark:text-neutral-200 tracking-tight transition-colors duration-300">
+                  Enterprises
+                </span>
+              </div>
+              <div className="flex items-center gap-2 opacity-80 group-hover:opacity-100 transition-opacity">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-accent to-transparent rounded-full" />
+                <span className="text-[10px] font-bold text-neutral-500 tracking-[0.35em] uppercase transition-colors">
+                  Selling Joyfully
+                </span>
+              </div>
             </Link>
 
             {/* Contact Info */}

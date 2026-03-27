@@ -22,14 +22,17 @@ export function SearchResults({ query, onClose, className, mobileLayout = false 
 
   useEffect(() => {
     const fetchResults = async () => {
-      if (!query.trim()) {
-        setResults([]);
-        return;
-      }
       setIsLoading(true);
       // Simulate delay
       await new Promise((resolve) => setTimeout(resolve, 300));
       try {
+        if (!query.trim()) {
+           const allProducts = await ProductService.getProducts();
+           // Show some default/trending products when search is empty
+           setResults(allProducts.slice(0, 6)); 
+           return;
+        }
+
         // Use the existing service logic
         const data = await ProductService.searchProducts(query);
         setResults(data);
@@ -44,7 +47,7 @@ export function SearchResults({ query, onClose, className, mobileLayout = false 
     return () => clearTimeout(timeoutId);
   }, [query]);
 
-  if (!query.trim() && results.length === 0) return null;
+
 
   return (
     <div className={cn(
@@ -150,7 +153,7 @@ export function SearchResults({ query, onClose, className, mobileLayout = false 
         </div>
       ) : (
         <div className="text-center py-8 text-neutral-500">
-          <p className="text-sm">No products found for &quot;{query}&quot;</p>
+          <p className="text-sm">No products found {query.trim() ? `for "${query}"` : ''}</p>
         </div>
       )}
     </div>

@@ -67,10 +67,11 @@ export function MobileSearchOverlay() {
         </div>
 
         {/* Results */}
-        <div className="flex-1 overflow-y-auto p-4">
-            {searchQuery && (
-                <SearchResults query={searchQuery} onClose={closeSearch} mobileLayout={true} />
+        <div className="flex-1 overflow-y-auto p-4 flex flex-col">
+            {!searchQuery && (
+                <h3 className="text-sm font-bold text-neutral-500 dark:text-neutral-400 mb-4 px-1 uppercase tracking-wider">Suggested for you</h3>
             )}
+            <SearchResults query={searchQuery} onClose={closeSearch} mobileLayout={true} />
         </div>
     </div>
   );

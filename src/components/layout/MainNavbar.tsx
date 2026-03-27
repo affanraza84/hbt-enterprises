@@ -69,28 +69,31 @@ export function MainNavbar({ className }: { className?: string }) {
           <div className="flex items-center justify-between gap-4 relative">
             {/* Logo Section */}
             <div className="flex-shrink-0 flex items-center gap-2 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 md:left-auto">
-              <Link href="/" className="group flex items-center gap-3">
-                {/* Logo Icon */}
-                <div className="w-10 h-10 rounded-xl bg-[#0A2540] dark:bg-white flex items-center justify-center relative overflow-hidden shadow-md group-hover:shadow-[0_0_15px_rgba(0,198,255,0.4)] transition-all duration-300 border border-white/10 dark:border-neutral-200">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#00C6FF]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <span className="text-white dark:text-[#0A2540] font-['Orbitron'] font-black text-xs tracking-widest relative z-10">
+              <Link href="/" className="group flex items-center gap-3.5">
+                {/* Stunning Logo Icon */}
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0A2540] to-[#1a365d] dark:from-white dark:to-neutral-100 flex items-center justify-center relative overflow-hidden shadow-lg group-hover:shadow-[0_8px_25px_-5px_rgba(0,198,255,0.4)] transition-all duration-500 border border-white/20 dark:border-neutral-200 scale-100 group-hover:scale-105">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#00C6FF]/40 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-blue-50 dark:from-[#0A2540] dark:to-blue-900 font-['Orbitron'] font-black text-sm tracking-widest relative z-10 transition-transform duration-500 group-hover:scale-110">
                     HBT
                   </span>
                 </div>
                 
-                {/* Logo Text */}
+                {/* Beautiful Logo Text */}
                 <div className="flex flex-col justify-center">
-                  <div className="flex items-baseline gap-1 leading-none">
-                    <span className="font-['Orbitron'] font-black text-xl text-[#0A2540] dark:text-white tracking-wide group-hover:text-[#00C6FF] transition-colors duration-300">
+                  <div className="flex items-baseline gap-1.5 leading-none">
+                    <span className="font-['Orbitron'] font-black text-2xl tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-[#0A2540] to-[#00C6FF] dark:from-white dark:to-[#00C6FF] transition-all duration-300">
                       HBT
                     </span>
-                    <span className="font-heading font-medium text-lg text-[#0A2540] dark:text-white tracking-tight group-hover:text-[#00C6FF] transition-colors duration-300">
+                    <span className="font-heading font-black text-xl text-neutral-800 dark:text-neutral-200 tracking-tight group-hover:text-[#0A2540] dark:group-hover:text-white transition-colors duration-300">
                       Enterprises
                     </span>
                   </div>
-                  <span className="text-[9px] font-bold text-neutral-500 tracking-[0.3em] uppercase mt-0.5 group-hover:text-[#0A2540] dark:group-hover:text-neutral-300 transition-colors">
-                    Premium Tech Gear
-                  </span>
+                  <div className="flex items-center gap-2 mt-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                    <span className="h-[2px] w-5 bg-gradient-to-r from-[#00C6FF] to-transparent rounded-full" />
+                    <span className="text-[9px] font-bold text-neutral-500 tracking-[0.35em] uppercase transition-colors">
+                      Selling Joyfully
+                    </span>
+                  </div>
                 </div>
               </Link>
             </div>
@@ -174,21 +177,6 @@ export function MainNavbar({ className }: { className?: string }) {
             {/* Left: Mega Menu */}
             <div className="relative z-50">
               <CategoryMegaMenu />
-            </div>
-
-            <div className="flex items-center gap-6">
-              <Link
-                href="/hot-deals"
-                className="text-sm font-medium text-neutral-700 dark:text-neutral-200 hover:text-accent transition-colors flex items-center gap-2"
-              >
-                Hot Deals
-              </Link>
-              <Link
-                href="/stores"
-                className="text-sm font-medium text-neutral-700 dark:text-neutral-200 hover:text-accent transition-colors"
-              >
-                Brand Stores
-              </Link>
             </div>
           </div>
         </div>

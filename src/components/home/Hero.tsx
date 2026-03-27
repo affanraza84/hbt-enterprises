@@ -2,8 +2,7 @@
 
 import { ProductService } from "@/services/product.service";
 import { Product } from "@/types/product";
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, ShoppingBag, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -48,7 +47,7 @@ export function Hero() {
                 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight"
             >
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 via-neutral-700 to-neutral-900 dark:from-white dark:via-neutral-300 dark:to-white">
-                    Curated for Your Lifestyle
+                    Everything You Need for Your Home
                 </span>
             </motion.h2>
             <motion.p
@@ -57,7 +56,7 @@ export function Hero() {
                 transition={{ delay: 0.2, duration: 0.5 }}
                 className="text-lg text-neutral-500 dark:text-neutral-400 max-w-2xl mx-auto"
             >
-                Discover the latest in premium tech, tailored just for you.
+                Shop top-quality home appliances and electronics with ease.
             </motion.p>
           </div>
 
