@@ -18,9 +18,9 @@ export function Footer() {
     <footer className="bg-neutral-100 dark:bg-neutral-950 text-neutral-600 dark:text-neutral-400 border-t border-neutral-200 dark:border-neutral-800 transition-colors duration-300">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8">
           {/* Column 1: Brand & Contact */}
-          <div className="space-y-8">
+          <div className="space-y-8 lg:col-span-2">
             {/* Brand Logo */}
             <Link href="/" className="group flex flex-col gap-2 inline-block">
               <div className="flex items-baseline gap-1.5 leading-none">
