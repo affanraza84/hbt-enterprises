@@ -3,12 +3,15 @@
 import { useState, useEffect } from "react";
 import { verifyAdmin, getAdminData } from "../actions/admin";
 import { formatCurrency } from "@/lib/helpers";
-import { Loader2, Lock, LayoutDashboard, ShoppingBag, Users as UsersIcon, LogOut, CheckCircle, XCircle, Eye, EyeOff } from "lucide-react";
+import { Loader2, Lock, LayoutDashboard, ShoppingBag, Users as UsersIcon, LogOut, CheckCircle, XCircle, Eye, EyeOff, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import toast from "react-hot-toast";
+import { useAuth } from "@clerk/nextjs";
+import Link from "next/link";
 
 export default function AdminPage() {
+    const { isLoaded, isSignedIn } = useAuth();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [accessCode, setAccessCode] = useState("");
@@ -61,10 +64,48 @@ export default function AdminPage() {
         toast.success("Logged out");
     };
 
+    if (!isLoaded) {
+        return (
+            <div className="min-h-screen bg-gray-50 dark:bg-neutral-950 flex items-center justify-center text-gray-900 dark:text-white transition-colors duration-300">
+                <Loader2 className="animate-spin w-8 h-8 text-blue-600" />
+            </div>
+        );
+    }
+
     if (!isAuthenticated) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-neutral-950 flex items-center justify-center p-4 transition-colors duration-300">
-                <div className="w-full max-w-md bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-2xl p-8 shadow-xl dark:shadow-2xl">
+            <div className="min-h-screen bg-gray-50 dark:bg-neutral-950 flex items-center justify-center p-4 transition-colors duration-300 relative">
+                
+                {/* Clerk Not-Signed-In Pop-up Overlay */}
+                {!isSignedIn && (
+                    <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+                        <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl max-w-md w-full p-8 border border-red-100 dark:border-red-900/30 text-center relative overflow-hidden">
+                            <div className="absolute top-0 left-0 w-full h-1.5 bg-red-500"></div>
+                            <div className="w-16 h-16 bg-red-50 dark:bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <AlertCircle className="w-8 h-8 text-red-500" />
+                            </div>
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Authentication Required</h2>
+                            <p className="text-gray-500 dark:text-neutral-400 mb-8 leading-relaxed">
+                                You must be signed in to access the administrative dashboard.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-3">
+                                <Link href="/" className="flex-1">
+                                    <Button variant="outline" className="w-full text-gray-700 bg-white border-gray-200 hover:bg-gray-50 dark:bg-neutral-800 dark:text-gray-300 dark:border-neutral-700 dark:hover:bg-neutral-700">
+                                        Back Home
+                                    </Button>
+                                </Link>
+                                <Link href="/sign-in?redirect_url=/admin" className="flex-1">
+                                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-sm border border-transparent">
+                                        Sign In
+                                    </Button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                )}
+                
+                {/* The main login form should be slightly dimmed or non-interactive if modal is active */}
+                <div className={`w-full max-w-md bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-2xl p-8 shadow-xl dark:shadow-2xl ${!isSignedIn ? 'opacity-50 pointer-events-none filter blur-[2px]' : ''}`}>
                     <div className="flex flex-col items-center mb-8">
                         <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mb-4 text-blue-600 dark:text-blue-500">
                             <Lock size={32} />
