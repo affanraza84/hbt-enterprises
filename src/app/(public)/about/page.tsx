@@ -80,10 +80,10 @@ export default function AboutPage() {
               HBT Enterprises was founded with a singular vision: to bridge the gap between people and the powerful technologies that make daily life easier, richer, and simply more enjoyable.
             </p>
             <p>
-              What started as a small, passionate initiative has grown into a comprehensive platform offering thousands of electronics ranging from the latest high-fidelity soundbars to industrial-grade air conditioners. We do the heavy lifting of curating only the best brands so you don't have to.
+              What started as a small, passionate initiative has grown into a comprehensive platform offering thousands of electronics ranging from the latest high-fidelity soundbars to industrial-grade air conditioners. We do the heavy lifting of curating only the best brands so you don&apos;t have to.
             </p>
             <p>
-              We firmly believe that shopping for appliances shouldn't be stressful. That's why we adopted our motto, "Selling Joyfully". When you shop with HBT, you're not just buying a product; you're joining a family that values your trust above all else.
+              We firmly believe that shopping for appliances shouldn&apos;t be stressful. That&apos;s why we adopted our motto, &quot;Selling Joyfully&quot;. When you shop with HBT, you&apos;re not just buying a product; you&apos;re joining a family that values your trust above all else.
             </p>
           </div>
         </div>

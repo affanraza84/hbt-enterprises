@@ -91,7 +91,7 @@ export function ProductBuyingSidebar({ product }: ProductBuyingSidebarProps) {
         <div className="grid grid-cols-2 gap-3 mb-3">
             <button 
                 onClick={handleAddToCart}
-                className="col-span-1 h-12 rounded border border-neutral-800 text-neutral-900 font-bold text-sm hover:bg-neutral-50 transition-colors uppercase"
+                className="col-span-1 h-12 rounded border border-neutral-800 dark:border-neutral-700 text-neutral-900 dark:text-white font-bold text-sm hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors uppercase"
             >
                 Add to Cart
             </button>
