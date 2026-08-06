@@ -27,7 +27,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 const orbitron = Orbitron({
   subsets: ['latin'],
   variable: '--font-orbitron',
-  display: '
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
