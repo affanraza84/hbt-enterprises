@@ -1,12 +1,40 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-export default clerkMiddleware();
+const MAINTENANCE_PATH = "/maintenance";
+
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // Allow static assets, Next.js internals, and the maintenance page itself
+  if (
+    pathname === MAINTENANCE_PATH ||
+    pathname.startsWith("/_next") ||
+    pathname.match(/\.(png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|otf|css|js|map)$/)
+  ) {
+    // Forward pathname as header so root layout can detect the maintenance route
+    const response = NextResponse.next({
+      request: {
+        headers: new Headers({
+          ...Object.fromEntries(request.headers.entries()),
+          "x-pathname": pathname,
+        }),
+      },
+    });
+    return response;
+  }
+
+  // Redirect ALL other traffic to the maintenance page
+  const url = request.nextUrl.clone();
+  url.pathname = MAINTENANCE_PATH;
+  return NextResponse.redirect(url);
+}
 
 export const config = {
-    matcher: [
-        // Skip Next.js internals and all static files, unless found in search params
-        '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-        // Always run for API routes
-        '/(api|trpc)(.*)',
-    ],
+  matcher: [
+    /*
+     * Match all paths EXCEPT Next.js static/image internals and favicon.
+     */
+    "/((?!_next/static|_next/image|favicon.ico).*)",
+  ],
 };

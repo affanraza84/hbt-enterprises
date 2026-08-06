@@ -10,7 +10,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import { Toaster } from "react-hot-toast";
 import { CartProvider } from '@/context/CartContext';
 import { WishlistProvider } from '@/context/WishlistContext';
-
+import { headers } from 'next/headers';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -38,11 +38,23 @@ export const metadata: Metadata = {
 import { BottomNav } from '@/components/layout/BottomNav';
 import { MobileSearchOverlay } from '@/components/search/MobileSearchOverlay';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') || headersList.get('x-invoke-path') || '';
+  const isMaintenance = pathname === '/maintenance' || pathname.startsWith('/maintenance');
+
+  if (isMaintenance) {
+    return (
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    );
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${plusJakarta.variable} ${orbitron.variable} antialiased bg-neutral-light text-primary font-sans transition-colors duration-300`}>
